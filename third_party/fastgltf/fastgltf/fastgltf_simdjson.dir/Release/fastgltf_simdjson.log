@@ -1,0 +1,4 @@
+﻿  Building Custom Rule D:/WorkSpace/cpp/vulkan-guide/third_party/fastgltf/CMakeLists.txt
+cl : 命令行  warning D9025: 正在重写“/Ob2”(用“/Ob3”)
+  simdjson.cpp
+  fastgltf_simdjson.vcxproj -> D:\WorkSpace\cpp\vulkan-guide\third_party\fastgltf\fastgltf\Release\fastgltf_simdjson.lib

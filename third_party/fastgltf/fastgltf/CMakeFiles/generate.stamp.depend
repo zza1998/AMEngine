@@ -1,0 +1,4 @@
+# CMake generation dependency list for this directory.
+D:/WorkSpace/cpp/vulkan-guide/third_party/fastgltf/CMakeLists.txt
+D:/WorkSpace/cpp/vulkan-guide/third_party/fastgltf/cmake/add_source_directory.cmake
+D:/WorkSpace/cpp/vulkan-guide/third_party/fastgltf/cmake/compiler_flags.cmake
