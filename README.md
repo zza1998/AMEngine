@@ -4,9 +4,13 @@
 ## how to use ?
 
 install vulkan & cmake
+
 git clone current project
+
 mkdir build
+
 cd build
+
 cmake ..
 
 or open /bin/Debug/vulkan__gui.exe
