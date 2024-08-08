@@ -127,7 +127,7 @@ public:
 	VkExtent2D _windowExtent{ 1700 , 900 };
 
 	struct SDL_Window* _window{ nullptr };
-	Camera mainCamera;
+	std::shared_ptr<Camera> mainCamera = std::make_shared<Camera>();
 
 	VkInstance _instance;
 	VkDebugUtilsMessengerEXT _debug_messenger;
@@ -233,6 +233,7 @@ public:
 	AllocatedImage create_image(VkExtent3D size, VkFormat format, VkImageUsageFlags usage, bool mipmapped = false);
 	AllocatedImage create_image(void* data, VkExtent3D size, VkFormat format, VkImageUsageFlags usage, bool mipmapped = false);
 	void destroy_image(const AllocatedImage& img);
+	void on_ui_update();
 private:
 	void rebuild_swapchain();
 

@@ -8,21 +8,40 @@
 #include <imgui.h>
 #include <imgui_impl_vulkan.h>
 #include <vk_initializers.h>
+#include "camera.h"
 namespace AM {
 
 	
 	class UIOverlay {
 
-		
+	
+	private:
+		bool stop_rendering = false;
+		std::function<void()> updateCallback;
+		std::function<void()> beforeRender;
 	public:
 
 		UIOverlay();
 		virtual ~UIOverlay();
 		VkExtent2D _swapchainExtent{ 0,0 };
-
-
-		bool update();
+		std::shared_ptr<Camera> mainCameraPtr = nullptr;
+		void init_window(SDL_Window* &_window, const VkExtent2D & _windowExtent);
+		bool update(bool &bQuit);
 		void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
+		void setUpdateCallBack(std::function<void()> callback);
+		void setBeforeRenderCallBack(std::function<void()> callback);
+
+		bool header(const char* caption);
+		bool checkBox(const char* caption, bool* value);
+		bool checkBox(const char* caption, int32_t* value);
+		bool radioButton(const char* caption, bool value);
+		bool inputFloat(const char* caption, float* value, float step, uint32_t precision);
+		bool sliderFloat(const char* caption, float* value, float min, float max);
+		bool sliderInt(const char* caption, int32_t* value, int32_t min, int32_t max);
+		bool comboBox(const char* caption, int32_t* itemindex, std::vector<std::string> items);
+		bool button(const char* caption);
+		bool colorPicker(const char* caption, float* color);
+		void text(const char* formatstr, ...);
 
 		// unused 
 

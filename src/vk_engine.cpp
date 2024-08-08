@@ -5,10 +5,9 @@
 #include "vk_loader.h"
 #include "vk_descriptors.h"
 
-#include <SDL.h>
+
+
 #include <SDL_vulkan.h>
-
-
 #include <vk_initializers.h>
 #include <vk_types.h>
 
@@ -115,7 +114,37 @@ void VulkanEngine::draw_background(VkCommandBuffer cmd)
 	//< draw_multi
 }
 
+void VulkanEngine::on_ui_update() {
 
+		ImGui::Begin("Stats");
+		ImGui::Text("fps %f f/s", stats.frametime);
+		ImGui::Text("drawtime %f ms", stats.mesh_draw_time);
+		ImGui::Text("triangles %i", stats.triangle_count);
+		ImGui::Text("draws %i", stats.drawcall_count);
+		ImGui::End();
+
+		ImGui::Begin("background");
+		ComputeEffect& selected = backgroundEffects[currentBackgroundEffect];
+
+		ImGui::Text("Selected effect: ", selected.name);
+
+		ImGui::SliderInt("Effect Index", &currentBackgroundEffect, 0, backgroundEffects.size() - 1);
+
+		ImGui::InputFloat4("color", (float*)&selected.data.data1);
+
+		static bool check = true;
+		ImGui::Checkbox("checkbox", &check);
+		{
+			// Using the _simplified_ one-liner Combo() api here
+			// See "Combo" section for examples of how to use the more complete BeginCombo()/EndCombo() api.
+			const char* items[] = { "deferred pipeline", "forward pipeline" };
+			ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
+			ImGui::SameLine();
+		}
+		 
+		ImGui::End();
+
+}
 void VulkanEngine::draw()
 {
 	//wait until the gpu has finished rendering the last frame. Timeout of 1 second
@@ -165,7 +194,7 @@ void VulkanEngine::draw()
 	vkutil::transition_image(cmd, _swapchainImages[swapchainImageIndex], VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
 	//< draw_first
 	//> imgui_draw
-		// execute a copy from the draw image into the swapchain
+	// execute a copy from the draw image into the swapchain
 	vkutil::copy_image_to_image(cmd, _drawImage.image, _swapchainImages[swapchainImageIndex], _drawExtent, _swapchainExtent);
 
 	// set swapchain image layout to Attachment Optimal so we can draw it
@@ -181,9 +210,9 @@ void VulkanEngine::draw()
 	VK_CHECK(vkEndCommandBuffer(cmd));
 	//< imgui_draw
 
-		//prepare the submission to the queue. 
-		//we want to wait on the _presentSemaphore, as that semaphore is signaled when the swapchain is ready
-		//we will signal the _renderSemaphore, to signal that rendering has finished
+	//prepare the submission to the queue. 
+	//we want to wait on the _presentSemaphore, as that semaphore is signaled when the swapchain is ready
+	//we will signal the _renderSemaphore, to signal that rendering has finished
 	VkCommandBufferSubmitInfo cmdinfo = vkinit::command_buffer_submit_info(cmd);
 
 	VkSemaphoreSubmitInfo waitInfo = vkinit::semaphore_submit_info(VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT_KHR, get_current_frame()._swapchainSemaphore);
@@ -221,109 +250,15 @@ void VulkanEngine::draw()
 
 void VulkanEngine::run()
 {
-	SDL_Event e;
+	
 	bool bQuit = false;
 	//main loop
 	while (!bQuit)
 	{
-		//Handle events on queue
-		while (SDL_PollEvent(&e) != 0) {
-			//close the window when user alt-f4s or clicks the X button			
-			if (e.type == SDL_QUIT) bQuit = true;
-			
-			if (e.type == SDL_WINDOWEVENT) {
-
-				if (e.window.event == SDL_WINDOWEVENT_MINIMIZED) {
-					stop_rendering = true;
-				}
-				if (e.window.event == SDL_WINDOWEVENT_RESTORED) {
-					stop_rendering = false;
-				}
-				/*if (e.window.event == SDL_WINDOWEVENT_RESTORED) {
-					stop_rendering = false;
-				}*/
-			}
-
-			if (e.type == SDL_KEYDOWN) {
-				printf("%d\n", e.key.keysym.scancode);
-			}
-			mainCamera.processSDLEvent(e);
-			//事件传入imgui
-			ImGui_ImplSDL2_ProcessEvent(&e);
-		}
-
-		//do not draw if we are minimized
-		if (stop_rendering) {
-			//throttle the speed to avoid the endless spinning
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		if (ui.update(bQuit)) {
 			continue;
 		}
-		//< imgui_bk
-		if (resize_requested) {
-			rebuild_swapchain();
-		}
-		// imgui new frame
-		ImGui_ImplVulkan_NewFrame();
-		ImGui_ImplSDL2_NewFrame();
-
-
-		//> imgui_bk
-		ImGui::NewFrame();
-
-		ImGui::Begin("Stats");
-
-		ImGui::Text("fps %f f/s", stats.frametime);
-		ImGui::Text("drawtime %f ms", stats.mesh_draw_time);
-		ImGui::Text("triangles %i", stats.triangle_count);
-		ImGui::Text("draws %i", stats.drawcall_count);
-		ImGui::End();
-
-		ImGui::Begin("background");
-		ComputeEffect& selected = backgroundEffects[currentBackgroundEffect];
-
-		ImGui::Text("Selected effect: ", selected.name);
-
-		ImGui::SliderInt("Effect Index", &currentBackgroundEffect, 0, backgroundEffects.size() - 1);
-
-		ImGui::InputFloat4("color", (float*)&selected.data.data1);
-
-		static bool check = true;
-		ImGui::Checkbox("checkbox", &check);
-		{
-			// Using the _simplified_ one-liner Combo() api here
-			// See "Combo" section for examples of how to use the more complete BeginCombo()/EndCombo() api.
-			const char* items[] = { "deferred pipeline", "forward pipeline" };
-			ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
-			ImGui::SameLine();
-		}
-		ImGui::End();
 		
-		
-		if (ImGui::BeginMainMenuBar()) {
-			if (ImGui::BeginMenu("File"))
-			{
-				if (ImGui::MenuItem("Save", "Ctrl+S")) {
-					printf("Save");
-				}
-				if (ImGui::MenuItem("Save As..")) {
-					printf("Save  As");
-				}
-				ImGui::EndMenu();
-			}
-			if (ImGui::BeginMenu("Edit"))
-			{
-				if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
-				if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
-				ImGui::Separator();
-				if (ImGui::MenuItem("Cut", "CTRL+X")) {}
-				if (ImGui::MenuItem("Copy", "CTRL+C")) {}
-				if (ImGui::MenuItem("Paste", "CTRL+V")) {}
-				ImGui::EndMenu();
-			}
-			ImGui::EndMainMenuBar();
-		}
-
-		ImGui::Render();
 		//begin clock
 		auto start = std::chrono::system_clock::now();
 		// update data like ui animation or physics
@@ -339,75 +274,6 @@ void VulkanEngine::run()
 
 void VulkanEngine::rebuild_swapchain()
 {
-	//vkQueueWaitIdle(_graphicsQueue);
-
-	//vkb::SwapchainBuilder swapchainBuilder{ _chosenGPU,_device,_surface };
-
-	//SDL_GetWindowSizeInPixels(_window, (int*)&_windowExtent.width, (int*)&_windowExtent.height);
-
-	//vkDestroySwapchainKHR(_device, _swapchain, nullptr);
-	//vkDestroyImageView(_device, _drawImage.imageView, nullptr);
-	//vmaDestroyImage(_allocator, _drawImage.image, _drawImage.allocation);
-
-	//vkb::Swapchain vkbSwapchain = swapchainBuilder
-	//	.use_default_format_selection()
-	//	//use vsync present mode
-	//	.set_desired_present_mode(VK_PRESENT_MODE_FIFO_KHR)
-	//	.set_desired_extent(_windowExtent.width, _windowExtent.height)
-	//	.add_image_usage_flags(VK_IMAGE_USAGE_TRANSFER_DST_BIT)
-	//	.build()
-	//	.value();
-
-	////store swapchain and its related images
-	//_swapchain = vkbSwapchain.swapchain;
-	//_swapchainImages = vkbSwapchain.get_images().value();
-	//_swapchainImageViews = vkbSwapchain.get_image_views().value();
-
-	//_swapchainImageFormat = vkbSwapchain.image_format;
-
-	////depth image size will match the window
-	//VkExtent3D drawImageExtent = {
-	//	_windowExtent.width,
-	//	_windowExtent.height,
-	//	1
-	//};
-
-	////hardcoding the depth format to 32 bit float
-	//_drawImage.imageFormat = VK_FORMAT_R16G16B16A16_SFLOAT;
-
-	//VkImageUsageFlags drawImageUsages{};
-	//drawImageUsages |= VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
-	//drawImageUsages |= VK_IMAGE_USAGE_TRANSFER_DST_BIT;
-	//drawImageUsages |= VK_IMAGE_USAGE_STORAGE_BIT;
-
-	//VkImageCreateInfo rimg_info = vkinit::image_create_info(_drawImage.imageFormat, drawImageUsages, drawImageExtent);
-
-	////for the draw image, we want to allocate it from gpu local memory
-	//VmaAllocationCreateInfo rimg_allocinfo = {};
-	//rimg_allocinfo.usage = VMA_MEMORY_USAGE_GPU_ONLY;
-	//rimg_allocinfo.requiredFlags = VkMemoryPropertyFlags(VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
-
-	////allocate and create the image
-	//vmaCreateImage(_allocator, &rimg_info, &rimg_allocinfo, &_drawImage.image, &_drawImage.allocation, nullptr);
-
-	////build a image-view for the draw image to use for rendering
-	//VkImageViewCreateInfo rview_info = vkinit::imageview_create_info(_drawImage.imageFormat, _drawImage.image, VK_IMAGE_ASPECT_COLOR_BIT);
-
-	//VK_CHECK(vkCreateImageView(_device, &rview_info, nullptr, &_drawImage.imageView));
-
-	//VkDescriptorImageInfo imgInfo{};
-	//imgInfo.imageLayout = VK_IMAGE_LAYOUT_GENERAL;
-	//imgInfo.imageView = _drawImage.imageView;
-
-	//VkWriteDescriptorSet cameraWrite = vkinit::write_descriptor_image(VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, _drawImageDescriptors, &imgInfo, 0);
-
-	//vkUpdateDescriptorSets(_device, 1, &cameraWrite, 0, nullptr);
-
-	////add to deletion queues
-	//_mainDeletionQueue.push_function([=]() {
-	//	vkDestroyImageView(_device, _drawImage.imageView, nullptr);
-	//	vmaDestroyImage(_allocator, _drawImage.image, _drawImage.allocation);
-	//});
 
 	vkDeviceWaitIdle(_device);
 
@@ -484,23 +350,16 @@ void VulkanEngine::init_vulkan()
 }
 
 void VulkanEngine::init_window() {
-	SDL_Init(SDL_INIT_VIDEO);
 
-	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+	ui.init_window(_window, _windowExtent);
 
-	_window = SDL_CreateWindow(
-		"Vulkan Engine",
-		SDL_WINDOWPOS_CENTERED,
-		SDL_WINDOWPOS_CENTERED,
-		_windowExtent.width,
-		_windowExtent.height,
-		window_flags
-	);
 	resize_requested = false;
-	mainCamera.velocity = glm::vec3(0.f);
-	mainCamera.position = glm::vec3(30.f, -00.f, -085.f);
-	mainCamera.pitch = 0;
-	mainCamera.yaw = 0;
+	Camera* cm = mainCamera.get();
+	cm->velocity = glm::vec3(0.f);
+	cm->position = glm::vec3(30.f, -00.f, -085.f);
+	cm->pitch = 0;
+	cm->yaw = 0;
+	ui.mainCameraPtr = mainCamera;
 }
 
 void VulkanEngine::destroy_swapchain()
@@ -748,7 +607,10 @@ void VulkanEngine::init_imgui()
 	ImGui_ImplVulkan_Init(&init_info);
 	ImGui_ImplVulkan_CreateFontsTexture();
 	ui._swapchainExtent = _swapchainExtent;
-	
+	ui.setUpdateCallBack([this]() {on_ui_update();});
+	ui.setBeforeRenderCallBack([this]() {if (resize_requested) {
+		rebuild_swapchain();
+	}});
 	// add the destroy the imgui created structures
 	_mainDeletionQueue.push_function([=]() {
 		vkDestroyDescriptorPool(_device, imguiPool, nullptr);
@@ -1527,11 +1389,11 @@ void MeshNode::Draw(const glm::mat4& topMatrix, DrawContext& ctx) {
 }
 void VulkanEngine::update_scene()
 {
-	mainCamera.update();
+	mainCamera->update();
 	
 	mainDrawContext.OpaqueSurfaces.clear();
 
-	sceneData.view = mainCamera.getViewMatrix();
+	sceneData.view = mainCamera->getViewMatrix();
 	// camera projection
 	sceneData.proj = glm::perspective(glm::radians(70.f), (float)_drawExtent.width / (float)_drawExtent.height, 10000.0f, 0.1f);
 

@@ -1,6 +1,6 @@
 
 # Add source to this project's executable.
-add_executable(vulkan_guide
+add_executable(amengine_editor 
     main.cpp
     vk_engine.cpp
     vk_engine.h
@@ -22,11 +22,14 @@ add_executable(vulkan_guide
 )
 
 
-set_property(TARGET vulkan_guide PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:vulkan_guide>")
+set_property(TARGET amengine_editor  PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:amengine_editor>")
 
-target_include_directories(vulkan_guide PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
-target_link_libraries(vulkan_guide vkbootstrap vma glm tinyobjloader imgui stb_image fastgltf)
+# 配置活动项目
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT amengine_editor)
 
-target_link_libraries(vulkan_guide Vulkan::Vulkan sdl2)
+target_include_directories(amengine_editor PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_link_libraries(amengine_editor  vkbootstrap vma glm tinyobjloader imgui stb_image fastgltf)
 
-add_dependencies(vulkan_guide Shaders)
+target_link_libraries(amengine_editor  Vulkan::Vulkan sdl2)
+
+add_dependencies(amengine_editor  Shaders)

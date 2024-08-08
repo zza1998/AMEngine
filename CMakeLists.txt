@@ -16,6 +16,11 @@ set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
 
 add_subdirectory(src)
 
+add_definitions(-DVK_ASSETS_DIR=\"${RESOURCE_INSTALL_DIR}/assets/\")
+add_definitions(-DVK_SHADERS_DIR=\"${RESOURCE_INSTALL_DIR}/shaders/\")
+install(DIRECTORY assets/ DESTINATION ${RESOURCE_INSTALL_DIR}/)
+install(DIRECTORY shaders/ DESTINATION ${RESOURCE_INSTALL_DIR}/shaders/)
+
 
 find_program(GLSL_VALIDATOR glslangValidator HINTS /usr/bin /usr/local/bin $ENV{VULKAN_SDK}/Bin/ $ENV{VULKAN_SDK}/Bin32/)
 
@@ -39,6 +44,8 @@ foreach(GLSL ${GLSL_SOURCE_FILES})
     DEPENDS ${GLSL})
   list(APPEND SPIRV_BINARY_FILES ${SPIRV})
 endforeach(GLSL)
+
+
 
 add_custom_target(
     Shaders 
