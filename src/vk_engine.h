@@ -6,6 +6,7 @@
 #include <vk_types.h>
 #include <vector>
 #include "vk_mem_alloc.h"
+#include "am_ui.h"
 #include <deque>
 #include <functional>
 
@@ -119,6 +120,7 @@ struct MeshNode :public Node {
 class VulkanEngine {
 public:
 
+	
 	bool _isInitialized{ false };
 	int _frameNumber{ 0 };
 	bool stop_rendering{ false };
@@ -136,7 +138,7 @@ public:
 
 	FrameData& get_current_frame() { return _frames[_frameNumber % FRAME_OVERLAP]; };
 
-
+	AM::UIOverlay ui;
 	VkQueue _graphicsQueue;
 	uint32_t _graphicsQueueFamily;
 
@@ -146,6 +148,7 @@ public:
 	VkExtent2D _swapchainExtent;
 	VkExtent2D _drawExtent;
 	float renderScale = 1.f;
+	int item_current = 0;
 
 	DescriptorAllocatorGrowable globalDescriptorAllocator;
 
@@ -234,7 +237,7 @@ private:
 	void rebuild_swapchain();
 
 	void init_vulkan();
-
+	void init_window();
 	void init_swapchain();
 	void create_swapchain(uint32_t width, uint32_t height);
 	

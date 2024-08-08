@@ -37,27 +37,13 @@ constexpr bool bUseValidationLayers = true;
 //we want to immediately abort when there is an error. In normal engines this would give an error message to the user, or perform a dump of state.
 using namespace std;
 
+
 void VulkanEngine::init()
 {
 	// We initialize SDL and create a window with it. 
-	SDL_Init(SDL_INIT_VIDEO);
 
-	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE);
+	init_window();
 
-	_window = SDL_CreateWindow(
-		"Vulkan Engine",
-		SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED,
-		_windowExtent.width,
-		_windowExtent.height,
-		window_flags
-	);
-	resize_requested = false;
-	mainCamera.velocity = glm::vec3(0.f);
-	mainCamera.position = glm::vec3(30.f, -00.f, -085.f);
-
-	mainCamera.pitch = 0;
-	mainCamera.yaw = 0;
 	init_vulkan();
 
 	init_swapchain();
@@ -113,47 +99,6 @@ void VulkanEngine::cleanup()
 }
 void VulkanEngine::draw_background(VkCommandBuffer cmd)
 {
-#if CHAPTER_STAGE == 0
-	//> draw_clear
-		//make a clear-color from frame number. This will flash with a 120 frame period.
-	VkClearColorValue clearValue;
-	float flash = abs(sin(_frameNumber / 120.f));
-	clearValue = { { 0.0f, 0.0f, flash, 1.0f } };
-
-	VkImageSubresourceRange clearRange = vkinit::image_subresource_range(VK_IMAGE_ASPECT_COLOR_BIT);
-
-	//clear image
-	vkCmdClearColorImage(cmd, _drawImage.image, VK_IMAGE_LAYOUT_GENERAL, &clearValue, 1, &clearRange);
-	//< draw_clear
-#elif CHAPTER_STAGE == 1
-	//> draw_comp
-		// bind the gradient drawing compute pipeline
-	vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _gradientPipeline);
-
-	// bind the descriptor set containing the draw image for the compute pipeline
-	vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _gradientPipelineLayout, 0, 1, &_drawImageDescriptors, 0, nullptr);
-
-	// execute the compute pipeline dispatch. We are using 16x16 workgroup size so we need to divide by it
-	vkCmdDispatch(cmd, std::ceil(_drawExtent.width / 16.0), std::ceil(_drawExtent.height / 16.0), 1);
-	//< draw_comp
-#elif CHAPTER_STAGE == 2
-
-	//> draw_pc
-		// bind the gradient drawing compute pipeline
-	vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _gradientPipeline);
-
-	// bind the descriptor set containing the draw image for the compute pipeline
-	vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _gradientPipelineLayout, 0, 1, &_drawImageDescriptors, 0, nullptr);
-
-	ComputePushConstants pc;
-	pc.data1 = glm::vec4(1, 0, 0, 1);
-	pc.data2 = glm::vec4(0, 0, 1, 1);
-
-	vkCmdPushConstants(cmd, _gradientPipelineLayout, VK_SHADER_STAGE_COMPUTE_BIT, 0, sizeof(ComputePushConstants), &pc);
-	// execute the compute pipeline dispatch. We are using 16x16 workgroup size so we need to divide by it
-	vkCmdDispatch(cmd, std::ceil(_drawExtent.width / 16.0), std::ceil(_drawExtent.height / 16.0), 1);
-	//< draw_pc
-#else
 
 	//> draw_multi
 	ComputeEffect& effect = backgroundEffects[currentBackgroundEffect];
@@ -168,22 +113,8 @@ void VulkanEngine::draw_background(VkCommandBuffer cmd)
 	// execute the compute pipeline dispatch. We are using 16x16 workgroup size so we need to divide by it
 	vkCmdDispatch(cmd, std::ceil(_drawExtent.width / 16.0), std::ceil(_drawExtent.height / 16.0), 1);
 	//< draw_multi
-#endif
 }
 
-//> imgui_draw_fn
-void VulkanEngine::draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView)
-{
-	VkRenderingAttachmentInfo colorAttachment = vkinit::attachment_info(targetImageView, nullptr, VK_IMAGE_LAYOUT_GENERAL);
-	VkRenderingInfo renderInfo = vkinit::rendering_info(_swapchainExtent, &colorAttachment, nullptr);
-
-	vkCmdBeginRendering(cmd, &renderInfo);
-
-	ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), cmd);
-
-	vkCmdEndRendering(cmd);
-}
-//< imgui_draw_fn
 
 void VulkanEngine::draw()
 {
@@ -225,7 +156,7 @@ void VulkanEngine::draw()
 
 	// 转换成颜色attachment_optimal再进行图形管线 深度图也转换下
 	vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
-	vkutil::transition_image(cmd, _depthImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL);
+	//vkutil::transition_image(cmd, _depthImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL);
 	//draw_background(cmd);
 	draw_main(cmd);
 
@@ -241,7 +172,7 @@ void VulkanEngine::draw()
 	vkutil::transition_image(cmd, _swapchainImages[swapchainImageIndex], VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
 
 	//draw imgui into the swapchain image
-	draw_imgui(cmd, _swapchainImageViews[swapchainImageIndex]);
+	ui.draw_imgui(cmd, _swapchainImageViews[swapchainImageIndex]);
 
 	// set swapchain image layout to Present so we can draw it
 	vkutil::transition_image(cmd, _swapchainImages[swapchainImageIndex], VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, VK_IMAGE_LAYOUT_PRESENT_SRC_KHR);
@@ -333,7 +264,8 @@ void VulkanEngine::run()
 		}
 		// imgui new frame
 		ImGui_ImplVulkan_NewFrame();
-		ImGui_ImplSDL2_NewFrame(_window);
+		ImGui_ImplSDL2_NewFrame();
+
 
 		//> imgui_bk
 		ImGui::NewFrame();
@@ -345,25 +277,57 @@ void VulkanEngine::run()
 		ImGui::Text("triangles %i", stats.triangle_count);
 		ImGui::Text("draws %i", stats.drawcall_count);
 		ImGui::End();
-		if (ImGui::Begin("background")) {
 
-			ComputeEffect& selected = backgroundEffects[currentBackgroundEffect];
+		ImGui::Begin("background");
+		ComputeEffect& selected = backgroundEffects[currentBackgroundEffect];
 
-			ImGui::Text("Selected effect: ", selected.name);
+		ImGui::Text("Selected effect: ", selected.name);
 
-			ImGui::SliderInt("Effect Index", &currentBackgroundEffect, 0, backgroundEffects.size() - 1);
+		ImGui::SliderInt("Effect Index", &currentBackgroundEffect, 0, backgroundEffects.size() - 1);
 
-			ImGui::InputFloat4("data1", (float*)&selected.data.data1);
-			ImGui::InputFloat4("data2", (float*)&selected.data.data2);
-			ImGui::InputFloat4("data3", (float*)&selected.data.data3);
-			ImGui::InputFloat4("data4", (float*)&selected.data.data4);
+		ImGui::InputFloat4("color", (float*)&selected.data.data1);
 
-			ImGui::End();
+		static bool check = true;
+		ImGui::Checkbox("checkbox", &check);
+		{
+			// Using the _simplified_ one-liner Combo() api here
+			// See "Combo" section for examples of how to use the more complete BeginCombo()/EndCombo() api.
+			const char* items[] = { "deferred pipeline", "forward pipeline" };
+			ImGui::Combo("combo", &item_current, items, IM_ARRAYSIZE(items));
+			ImGui::SameLine();
 		}
+		ImGui::End();
+		
+		
+		if (ImGui::BeginMainMenuBar()) {
+			if (ImGui::BeginMenu("File"))
+			{
+				if (ImGui::MenuItem("Save", "Ctrl+S")) {
+					printf("Save");
+				}
+				if (ImGui::MenuItem("Save As..")) {
+					printf("Save  As");
+				}
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("Edit"))
+			{
+				if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
+				if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
+				ImGui::Separator();
+				if (ImGui::MenuItem("Cut", "CTRL+X")) {}
+				if (ImGui::MenuItem("Copy", "CTRL+C")) {}
+				if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+				ImGui::EndMenu();
+			}
+			ImGui::EndMainMenuBar();
+		}
+
 		ImGui::Render();
 		//begin clock
 		auto start = std::chrono::system_clock::now();
-		update_scene();
+		// update data like ui animation or physics
+		update_scene(); 
 		draw();
 		//get clock again, compare with start clock
 		auto end = std::chrono::system_clock::now();
@@ -464,7 +428,7 @@ void VulkanEngine::init_vulkan()
 	vkb::InstanceBuilder builder;
 
 	// make the vulkan instance, with basic debug features
-	auto inst_ret = builder.set_app_name("My Vulkan Engine")
+	auto inst_ret = builder.set_app_name("AMEngine-Editor")
 		.request_validation_layers(bUseValidationLayers)
 		.use_default_debug_messenger()
 		.require_api_version(1, 3, 0)
@@ -517,6 +481,26 @@ void VulkanEngine::init_vulkan()
 	allocatorInfo.instance = _instance;
 	allocatorInfo.flags = VMA_ALLOCATOR_CREATE_BUFFER_DEVICE_ADDRESS_BIT;
 	vmaCreateAllocator(&allocatorInfo, &_allocator);
+}
+
+void VulkanEngine::init_window() {
+	SDL_Init(SDL_INIT_VIDEO);
+
+	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+
+	_window = SDL_CreateWindow(
+		"Vulkan Engine",
+		SDL_WINDOWPOS_CENTERED,
+		SDL_WINDOWPOS_CENTERED,
+		_windowExtent.width,
+		_windowExtent.height,
+		window_flags
+	);
+	resize_requested = false;
+	mainCamera.velocity = glm::vec3(0.f);
+	mainCamera.position = glm::vec3(30.f, -00.f, -085.f);
+	mainCamera.pitch = 0;
+	mainCamera.yaw = 0;
 }
 
 void VulkanEngine::destroy_swapchain()
@@ -724,17 +708,28 @@ void VulkanEngine::init_imgui()
 	pool_info.poolSizeCount = (uint32_t)std::size(pool_sizes);
 	pool_info.pPoolSizes = pool_sizes;
 
+	
 	VkDescriptorPool imguiPool;
 	VK_CHECK(vkCreateDescriptorPool(_device, &pool_info, nullptr, &imguiPool));
 
 	// 2: initialize imgui library
-
 	// this initializes the core structures of imgui
 	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
+	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
+	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
+	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
+	io.Fonts->AddFontDefault();
+
+	// Setup Dear ImGui style
+	ImGui::StyleColorsClassic();
 
 	// this initializes imgui for SDL
 	ImGui_ImplSDL2_InitForVulkan(_window);
-
+	
 	// this initializes imgui for Vulkan
 	ImGui_ImplVulkan_InitInfo init_info = {};
 	init_info.Instance = _instance;
@@ -745,18 +740,15 @@ void VulkanEngine::init_imgui()
 	init_info.MinImageCount = 3;
 	init_info.ImageCount = 3;
 	init_info.UseDynamicRendering = true;
-	init_info.ColorAttachmentFormat = _swapchainImageFormat;
-
 	init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
+	init_info.PipelineRenderingCreateInfo = { .sType = VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO };
+	init_info.PipelineRenderingCreateInfo.colorAttachmentCount = 1;
+	init_info.PipelineRenderingCreateInfo.pColorAttachmentFormats = &_swapchainImageFormat;
 
-	ImGui_ImplVulkan_Init(&init_info, VK_NULL_HANDLE);
-
-	// execute a gpu command to upload imgui font textures
-	immediate_submit([&](VkCommandBuffer cmd) { ImGui_ImplVulkan_CreateFontsTexture(cmd); });
-
-	// clear font textures from cpu data
-	ImGui_ImplVulkan_DestroyFontUploadObjects();
-
+	ImGui_ImplVulkan_Init(&init_info);
+	ImGui_ImplVulkan_CreateFontsTexture();
+	ui._swapchainExtent = _swapchainExtent;
+	
 	// add the destroy the imgui created structures
 	_mainDeletionQueue.push_function([=]() {
 		vkDestroyDescriptorPool(_device, imguiPool, nullptr);
@@ -767,8 +759,6 @@ void VulkanEngine::init_imgui()
 
 void VulkanEngine::init_default_data() {
 
-
-	
 
 	uint32_t white = 0xFFFFFFFF;
 	_whiteImage = create_image((void*)&white, VkExtent3D{ 1,1,1 }, VK_FORMAT_R8G8B8A8_UNORM, 
@@ -850,7 +840,7 @@ void VulkanEngine::init_default_data() {
 
 void VulkanEngine::init_renderables()
 {
-	std::string structurePath = { "..\\..\\assets\\stylized_rock.glb" };
+	std::string structurePath = { "..\\..\\assets\\structure.glb" };
 	auto structureFile = loadGltf(this, structurePath);
 
 	assert(structureFile.has_value());
@@ -861,7 +851,6 @@ void VulkanEngine::init_pipelines(){
 
 	init_back_pipeline();
 	metalRoughMaterial.build_pipelines(this);
-	
 	init_mesh_pipeline();
 	
 }
@@ -1129,7 +1118,6 @@ void VulkanEngine::draw_main(VkCommandBuffer cmd)
 	VkRenderingAttachmentInfo depthAttachment = vkinit::depth_attachment_info(_depthImage.imageView, VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL);
 
 	VkRenderingInfo renderInfo = vkinit::rendering_info(_windowExtent, &colorAttachment, &depthAttachment);
-
 	vkCmdBeginRendering(cmd, &renderInfo);
 	auto start = std::chrono::system_clock::now();
 	draw_geometry(cmd);

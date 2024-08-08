@@ -10,6 +10,8 @@ public:
     // horizontal rotation
     float yaw { 0.f };
 
+    bool viewChangeEnable = false;
+
     glm::mat4 getViewMatrix() const;
     glm::mat4 getRotationMatrix() const;
 

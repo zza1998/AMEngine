@@ -25,11 +25,25 @@ glm::mat4 Camera::getRotationMatrix() const
 
 void Camera::processSDLEvent(SDL_Event& e)
 {
+    
+    if (e.type == SDL_MOUSEBUTTONDOWN) {
+        if (e.button.button == SDL_BUTTON_RIGHT) {
+            viewChangeEnable = true;
+        }
+    }
+    if (e.type == SDL_MOUSEBUTTONUP) {
+        if (e.button.button == SDL_BUTTON_RIGHT) {
+            viewChangeEnable = false;
+        }
+    }
     if (e.type == SDL_KEYDOWN) {
+        
         if (e.key.keysym.scancode == SDL_SCANCODE_W) { velocity.z = -1; }
         if (e.key.keysym.scancode == SDL_SCANCODE_S) { velocity.z = 1; }
         if (e.key.keysym.scancode == SDL_SCANCODE_A) { velocity.x = -1; }
         if (e.key.keysym.scancode == SDL_SCANCODE_D) { velocity.x = 1; }
+        if (e.key.keysym.scancode == SDL_SCANCODE_Q) { velocity.y = -1; }
+        if (e.key.keysym.scancode == SDL_SCANCODE_E) { velocity.y = 1; }
     }
 
     if (e.type == SDL_KEYUP) {
@@ -37,9 +51,10 @@ void Camera::processSDLEvent(SDL_Event& e)
         if (e.key.keysym.scancode == SDL_SCANCODE_S) { velocity.z = 0; }
         if (e.key.keysym.scancode == SDL_SCANCODE_A) { velocity.x = 0; }
         if (e.key.keysym.scancode == SDL_SCANCODE_D) { velocity.x = 0; }
+        if (e.key.keysym.scancode == SDL_SCANCODE_Q) { velocity.y = 0; }
+        if (e.key.keysym.scancode == SDL_SCANCODE_E) { velocity.y = 0; }
     }
-
-    if (e.type == SDL_MOUSEMOTION) {
+    if (e.type == SDL_MOUSEMOTION &&  viewChangeEnable) {
         yaw += (float)e.motion.xrel / 200.f;
         pitch -= (float)e.motion.yrel / 200.f;
     }
@@ -47,6 +62,9 @@ void Camera::processSDLEvent(SDL_Event& e)
 
 void Camera::update()
 {
-    glm::mat4 cameraRotation = getRotationMatrix();
-    position += glm::vec3(cameraRotation*glm::vec4(velocity * 0.5f, 0.f));
+    if (viewChangeEnable) {
+        glm::mat4 cameraRotation = getRotationMatrix();
+        position += glm::vec3(cameraRotation * glm::vec4(velocity * 0.5f, 0.f));
+    }
+    
 }
