@@ -1,0 +1,3 @@
+﻿  Building Custom Rule E:/WorkSpace/AMEngine/third_party/fastgltf/CMakeLists.txt
+  simdjson.cpp
+  fastgltf_simdjson.vcxproj -> E:\WorkSpace\AMEngine\build\third_party\fastgltf\Debug\fastgltf_simdjson.lib

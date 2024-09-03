@@ -1,0 +1,30 @@
+﻿  Building Custom Rule E:/WorkSpace/AMEngine/src/CMakeLists.txt
+  main.cpp
+  vk_engine.cpp
+E:\WorkSpace\AMEngine\third_party\vkbootstrap\VkBootstrap.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\WorkSpace\AMEngine\third_party\vkbootstrap\VkBootstrapDispatch.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(114,67): warning C4244: “参数”: 从“double”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(114,30): warning C4244: “参数”: 从“double”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(148,88): warning C4244: “=”: 从“float”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(149,85): warning C4244: “=”: 从“float”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(286,90): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(1113,69): warning C4244: “参数”: 从“double”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_engine.cpp(1113,30): warning C4244: “参数”: 从“double”转换到“uint32_t”，可能丢失数据
+  vk_pipelines.cpp
+  camera.cpp
+  vk_descriptors.cpp
+E:\WorkSpace\AMEngine\src\vk_descriptors.cpp(90,35): warning C4244: “=”: 从“double”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_descriptors.cpp(129,27): warning C4244: “=”: 从“double”转换到“uint32_t”，可能丢失数据
+  vk_images.cpp
+  vk_loader.cpp
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(176,66): warning C4267: “参数”: 从“size_t”转换到“uint32_t”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(301,47): warning C4267: “参数”: 从“size_t”转换到“_Ty”，可能丢失数据
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(301,47): warning C4267:         with
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(301,47): warning C4267:         [
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(301,47): warning C4267:             _Ty=uint32_t
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(301,47): warning C4267:         ]
+E:\WorkSpace\AMEngine\src\vk_loader.cpp(362,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  vk_initializers.cpp
+  am_ui.cpp
+  正在生成代码...
+  vulkan_guide.vcxproj -> E:\WorkSpace\AMEngine\bin\Debug\vulkan_guide.exe

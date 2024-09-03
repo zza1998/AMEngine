@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\AdApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdRenderContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdRenderTarget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdSampler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\Render\AdMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\AdUUID.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\AdNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\AdScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\AdEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\Component\AdLookAtCameraComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\System\AdMaterialSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\System\AdBaseMaterialSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Core\Private\ECS\System\AdUnlitMaterialSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\Core\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{752F27EC-FDCC-3189-B3F0-34618BE45FEE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

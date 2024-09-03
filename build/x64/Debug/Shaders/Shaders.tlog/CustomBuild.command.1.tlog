@@ -1,0 +1,118 @@
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\COLORED_TRIANGLE.FRAG.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/colored_triangle.frag -o E:/WorkSpace/AMEngine/shaders/colored_triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\COLORED_TRIANGLE.VERT.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/colored_triangle.vert -o E:/WorkSpace/AMEngine/shaders/colored_triangle.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\COLORED_TRIANGLE_MESH.VERT.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/colored_triangle_mesh.vert -o E:/WorkSpace/AMEngine/shaders/colored_triangle_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\GRADIENT.COMP.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/gradient.comp -o E:/WorkSpace/AMEngine/shaders/gradient.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\GRADIENT_COLOR.COMP.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/gradient_color.comp -o E:/WorkSpace/AMEngine/shaders/gradient_color.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\MESH.FRAG.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/mesh.frag -o E:/WorkSpace/AMEngine/shaders/mesh.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\MESH.VERT.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/mesh.vert -o E:/WorkSpace/AMEngine/shaders/mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\MESH_PBR.FRAG.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/mesh_pbr.frag -o E:/WorkSpace/AMEngine/shaders/mesh_pbr.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\SKY.COMP.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/sky.comp -o E:/WorkSpace/AMEngine/shaders/sky.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\0DB29B06FE4DD225C9D7C4755A8820AF\TEX_IMAGE.FRAG.SPV.RULE
+setlocal
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V E:/WorkSpace/AMEngine/shaders/tex_image.frag -o E:/WorkSpace/AMEngine/shaders/tex_image.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\BUILD\CMAKEFILES\AB33137E99D0FB4F91C00E1CF5D1D881\SHADERS.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\WORKSPACE\AMENGINE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Sample\SandBox\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\WorkSpace\adiosy_engine\Sample\SandBox\AdEventTesting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\00_hello_triangle.vert.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\00_hello_triangle.frag.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\01_hello_buffer.vert.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\01_hello_buffer.frag.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\02_descriptor_set.frag.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\02_descriptor_set.vert.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\03_unlit_material.frag.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\03_unlit_material.vert.spv.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\WorkSpace\adiosy_engine\Sample\SandBox\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag.spv" />
+    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert.spv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1DE99431-0D29-34D7-B17C-C3ABBFACCD8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{752F27EC-FDCC-3189-B3F0-34618BE45FEE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

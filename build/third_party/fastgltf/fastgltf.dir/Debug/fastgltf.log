@@ -1,0 +1,6 @@
+﻿  Building Custom Rule E:/WorkSpace/AMEngine/third_party/fastgltf/CMakeLists.txt
+  fastgltf.cpp
+E:\WorkSpace\AMEngine\third_party\fastgltf\src\fastgltf.cpp(630,33): warning C4996: 'std::filesystem::u8path': warning STL4021: The std::filesystem::u8path() overloads are deprecated in C++20. The constructors of std::filesystem::path provide equivalent functionality via construction from u8string, u8string_view, or iterators with value_type char8_t. You can define _SILENCE_CXX20_U8PATH_DEPRECATION_WARNING or _SILENCE_ALL_CXX20_DEPRECATION_WARNINGS to suppress this warning.
+  base64.cpp
+  正在生成代码...
+  fastgltf.vcxproj -> E:\WorkSpace\AMEngine\build\third_party\fastgltf\Debug\fastgltf.lib

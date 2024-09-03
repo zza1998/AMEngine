@@ -1,0 +1,4 @@
+# CMake generation dependency list for this directory.
+E:/WorkSpace/AMEngine/third_party/fastgltf/CMakeLists.txt
+E:/WorkSpace/AMEngine/third_party/fastgltf/cmake/add_source_directory.cmake
+E:/WorkSpace/AMEngine/third_party/fastgltf/cmake/compiler_flags.cmake

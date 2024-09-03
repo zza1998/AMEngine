@@ -1,0 +1,292 @@
+﻿  AdEventTesting.cpp
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996: 'stdext::checked_array_iterator<T *>::iterator_category': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996: 'stdext::checked_array_iterator<T *>::value_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996: 'stdext::checked_array_iterator<T *>::reference': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996: 'stdext::checked_array_iterator<T *>::_Verify_offset': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996: 'stdext::checked_array_iterator<T *>::_Unwrapped': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996: 'stdext::checked_array_iterator<T *>::iterator_category': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996: 'stdext::checked_array_iterator<T *>::value_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996: 'stdext::checked_array_iterator<T *>::reference': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996: 'stdext::checked_array_iterator<T *>::_Verify_offset': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996: 'stdext::checked_array_iterator<T *>::_Unwrapped': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996: 'stdext::checked_array_iterator<T *>::iterator_category': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996: 'stdext::checked_array_iterator<T *>::value_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996: 'stdext::checked_array_iterator<T *>::reference': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996: 'stdext::checked_array_iterator<T *>::_Verify_offset': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996: 'stdext::checked_array_iterator<T *>::_Unwrapped': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:             T=wchar_t
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1141,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996: 'stdext::checked_array_iterator<T *>::iterator_category': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(184,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996: 'stdext::checked_array_iterator<T *>::value_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(185,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(186,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(173,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,40): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996: 'stdext::checked_array_iterator<T *>::reference': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(188,31): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996: 'stdext::checked_array_iterator<T *>': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,38): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996: 'stdext::checked_array_iterator<T *>::difference_type': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\__msvc_iter_core.hpp(93,29): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996: 'stdext::checked_array_iterator<T *>::_Verify_offset': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1255,12): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996: 'stdext::checked_array_iterator<T *>::_Unwrapped': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:             T=int
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1256,41): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996: 'stdext::checked_array_iterator<T *>::_Seek_to': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:             T=fmt::v9::detail::bigint::bigit
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:         ]
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996: 'stdext::checked_array_iterator<T *>::_Seek_to': warning STL4043: stdext::checked_array_iterator, stdext::unchecked_array_iterator, and related factory functions are non-Standard extensions and will be removed in the future. std::span (since C++20) and gsl::span can be used instead. You can define _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING or _SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS to suppress this warning.
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:         with
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:         [
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:             T=char
+D:\visualstuido2022\content\VC\Tools\MSVC\14.38.33130\include\xutility(1277,12): warning C4996:         ]
+  SandBox.vcxproj -> E:\WorkSpace\adiosy_engine\build\bin\Debug\SandBox.exe
