@@ -17,6 +17,7 @@ namespace ade{
 
     class AdTexture{
     public:
+        // creat texture from pure color or file img
         AdTexture(const std::string &filePath);
         AdTexture(uint32_t width, uint32_t height, RGBAColor *pixels);
         ~AdTexture();

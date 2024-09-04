@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D4BDD58B-4F70-37CF-96F5-DF9366D101B7}</ProjectGuid>
+    <ProjectGuid>{5115C720-EE73-3E61-89B5-34EECC7A3E4B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\build\bin\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SandBox.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SandBox</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\build\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SandBox.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SandBox</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\build\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SandBox.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SandBox</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\build\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SandBox.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SandBox</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -97,16 +97,16 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -119,8 +119,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/Debug/SandBox.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/Debug/SandBox.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/Debug/SandBox.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/Debug/SandBox.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
@@ -140,18 +140,18 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>EnableAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -164,8 +164,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/Release/SandBox.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/Release/SandBox.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/Release/SandBox.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/Release/SandBox.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -174,7 +174,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -183,18 +183,18 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -207,8 +207,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/MinSizeRel/SandBox.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/MinSizeRel/SandBox.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/MinSizeRel/SandBox.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/MinSizeRel/SandBox.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -217,7 +217,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -227,16 +227,16 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -249,8 +249,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/RelWithDebInfo/SandBox.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/RelWithDebInfo/SandBox.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/RelWithDebInfo/SandBox.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/RelWithDebInfo/SandBox.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -258,10 +258,10 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\00_hello_triangle.vert.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\00_hello_triangle.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -269,12 +269,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -282,12 +282,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -295,12 +295,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -308,16 +308,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\00_hello_triangle.frag.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\00_hello_triangle.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -325,12 +325,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -338,12 +338,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -351,12 +351,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/00_hello_triangle.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag -o E:/WorkSpace/AMEngine/Resource/Shader/00_hello_triangle.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -364,16 +364,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\01_hello_buffer.vert.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\01_hello_buffer.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -381,12 +381,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -394,12 +394,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -407,12 +407,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -420,16 +420,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\01_hello_buffer.frag.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\01_hello_buffer.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -437,12 +437,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -450,12 +450,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -463,12 +463,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/01_hello_buffer.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag -o E:/WorkSpace/AMEngine/Resource/Shader/01_hello_buffer.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -476,16 +476,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\02_descriptor_set.frag.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\02_descriptor_set.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -493,12 +493,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -506,12 +506,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -519,12 +519,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -532,16 +532,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\02_descriptor_set.vert.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\02_descriptor_set.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -549,12 +549,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -562,12 +562,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -575,12 +575,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/02_descriptor_set.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert -o E:/WorkSpace/AMEngine/Resource/Shader/02_descriptor_set.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -588,16 +588,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\03_unlit_material.frag.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\03_unlit_material.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -605,12 +605,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,12 +618,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -631,12 +631,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.frag.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.frag.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -644,16 +644,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\3ea87d11cfcb5d95e3ee8e5ce43edc38\03_unlit_material.vert.spv.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv</Message>
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\e1c5e256c29a8b7efc48f8b8eb343aec\03_unlit_material.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -661,12 +661,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -674,12 +674,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -687,12 +687,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/adiosy_engine/Resource/Shader/03_unlit_material.vert.spv
+C:\VulkanSDK\1.3.290.0\Bin\glslangValidator.exe -V --target-env spirv1.0 E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert -o E:/WorkSpace/AMEngine/Resource/Shader/03_unlit_material.vert.spv
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -700,17 +700,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert.spv</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\Sample\SandBox\CMakeLists.txt">
+    <CustomBuild Include="E:\WorkSpace\AMEngine\Sample\SandBox\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/SandBox/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/SandBox/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/SandBox/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -719,11 +719,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/SandBox/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/SandBox/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/SandBox/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -732,11 +732,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/SandBox/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/SandBox/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/SandBox/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -745,11 +745,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/SandBox/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/SandBox/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/SandBox/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -758,47 +758,47 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\build\Sample\SandBox\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.vert.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.vert.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\00_hello_triangle.frag.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\00_hello_triangle.frag.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.vert.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.vert.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\01_hello_buffer.frag.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\01_hello_buffer.frag.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.frag.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.frag.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\02_descriptor_set.vert.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\02_descriptor_set.vert.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.frag.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.frag.spv">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Resource\Shader\03_unlit_material.vert.spv">
+    <None Include="E:\WorkSpace\AMEngine\Resource\Shader\03_unlit_material.vert.spv">
     </None>
-    <ClCompile Include="E:\WorkSpace\adiosy_engine\Sample\SandBox\Main.cpp" />
-    <ClCompile Include="E:\WorkSpace\adiosy_engine\Sample\SandBox\AdEventTesting.cpp" />
+    <ClCompile Include="E:\WorkSpace\AMEngine\Sample\SandBox\Main.cpp" />
+    <ClCompile Include="E:\WorkSpace\AMEngine\Sample\SandBox\AdEventTesting.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\ZERO_CHECK.vcxproj">
-      <Project>{C45F5C17-6E9C-3024-AA2B-A98142F90D0A}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\ZERO_CHECK.vcxproj">
+      <Project>{1A0351B9-1E04-3D3E-ABC6-F590E66EDEB7}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\Core\adiosy_core.vcxproj">
-      <Project>{F611B86F-E1B5-3C1F-AE41-9A56F9E20D74}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\Core\adiosy_core.vcxproj">
+      <Project>{A876B06B-6CCA-3CC5-8ED1-E859D96B1F13}</Project>
       <Name>adiosy_core</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\Platform\adiosy_platform.vcxproj">
-      <Project>{8A7040B7-51EB-3D7D-AB48-9F1E06A2BC39}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\Platform\adiosy_platform.vcxproj">
+      <Project>{395CDCE2-5FE0-326D-BDF7-FC9A7814B660}</Project>
       <Name>adiosy_platform</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\glfw.vcxproj">
-      <Project>{EB8C4984-F187-3FAE-A8CB-38BF68398442}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\glfw.vcxproj">
+      <Project>{D2170EB0-715E-3B6D-9484-99D40796EEA7}</Project>
       <Name>glfw</Name>
     </ProjectReference>
   </ItemGroup>

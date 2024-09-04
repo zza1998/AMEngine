@@ -98,9 +98,9 @@ C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC-CXX.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/Windows.cmake
 C:/Program Files/CMake/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake
-E:/WorkSpace/adiosy_engine/CMakeLists.txt
-E:/WorkSpace/adiosy_engine/build/CMakeFiles/3.29.6/CMakeCCompiler.cmake
-E:/WorkSpace/adiosy_engine/build/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake
-E:/WorkSpace/adiosy_engine/build/CMakeFiles/3.29.6/CMakeRCCompiler.cmake
-E:/WorkSpace/adiosy_engine/build/CMakeFiles/3.29.6/CMakeSystem.cmake
-E:/WorkSpace/adiosy_engine/cmake/SPIR-V.cmake
+E:/WorkSpace/AMEngine/CMakeLists.txt
+E:/WorkSpace/AMEngine/build/CMakeFiles/3.29.6/CMakeCCompiler.cmake
+E:/WorkSpace/AMEngine/build/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake
+E:/WorkSpace/AMEngine/build/CMakeFiles/3.29.6/CMakeRCCompiler.cmake
+E:/WorkSpace/AMEngine/build/CMakeFiles/3.29.6/CMakeSystem.cmake
+E:/WorkSpace/AMEngine/cmake/SPIR-V.cmake

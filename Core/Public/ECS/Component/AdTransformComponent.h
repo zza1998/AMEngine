@@ -19,6 +19,12 @@ namespace ade{
             glm::mat4 scaleMat = glm::scale(glm::mat4(1.f), scale);
             return transMat * rotationMat * scaleMat;
         }
+
+        glm::vec3 GetNormal() const {
+
+            //glm::inverseTranspose(uniformData.view * uniformData.model)
+            return rotation;
+        }
     };
 }
 

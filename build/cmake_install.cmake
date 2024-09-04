@@ -1,8 +1,8 @@
-# Install script for directory: E:/WorkSpace/adiosy_engine
+# Install script for directory: E:/WorkSpace/AMEngine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AdiosyEngine")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AMEngine")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,22 +34,22 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Platform/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Platform/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Core/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Core/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Editor/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Editor/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/WorkSpace/adiosy_engine/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/WorkSpace/AMEngine/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

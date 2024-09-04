@@ -1,8 +1,8 @@
-# Install script for directory: E:/WorkSpace/adiosy_engine/Sample
+# Install script for directory: E:/WorkSpace/AMEngine/Sample
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AdiosyEngine")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AMEngine")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,31 +34,31 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/SandBox/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/SandBox/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/00_FirstTriangle/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/00_FirstTriangle/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/01_FirstCube/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/01_FirstCube/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/02_RenderTarget/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/02_RenderTarget/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/03_Texture/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/03_Texture/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/WorkSpace/adiosy_engine/build/Sample/04_ECS_Entity/cmake_install.cmake")
+  include("E:/WorkSpace/AMEngine/build/Sample/04_ECS_Entity/cmake_install.cmake")
 endif()
 

@@ -84,8 +84,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/AdLog.cpp.obj: CXX_COMPILE
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/AdGeometryUtil.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/AdGeometryUtil.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -94,8 +92,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/AdGeometryUtil.cpp.obj: CX
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/AdWindow.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/AdWindow.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -104,8 +100,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/AdWindow.cpp.obj: CXX_COMP
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Window/AdGLFWwindow.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Window/AdGLFWwindow.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -114,8 +108,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Window/AdGLFWwindow.cpp.ob
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Window
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/AdGraphicContext.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/AdGraphicContext.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -124,8 +116,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/AdGraphicContext.cpp.obj: 
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKGraphicContext.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKGraphicContext.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -134,8 +124,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKGraphicContext
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKDevice.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKDevice.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -144,8 +132,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKDevice.cpp.obj
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKQueue.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKQueue.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -154,8 +140,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKQueue.cpp.obj:
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVkSwapchain.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVkSwapchain.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -164,8 +148,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVkSwapchain.cpp.
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKRenderPass.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKRenderPass.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -174,8 +156,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKRenderPass.cpp
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKFrameBuffer.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKFrameBuffer.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -184,8 +164,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKFrameBuffer.cp
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKImage.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKImage.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -194,8 +172,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKImage.cpp.obj:
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKImageView.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKImageView.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -204,8 +180,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKImageView.cpp.
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKPipeline.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKPipeline.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -214,8 +188,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKPipeline.cpp.o
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKCommandBuffer.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKCommandBuffer.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -224,8 +196,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKCommandBuffer.
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKBuffer.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKBuffer.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -234,8 +204,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKBuffer.cpp.obj
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKDescriptorSet.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Graphic/AdVKDescriptorSet.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -244,8 +212,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Graphic/AdVKDescriptorSet.
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Graphic
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 build Platform/CMakeFiles/adiosy_platform.dir/Private/Event/AdEventDispatcher.cpp.obj: CXX_COMPILER__adiosy_platform_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/Private/Event/AdEventDispatcher.cpp || cmake_object_order_depends_target_adiosy_platform
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -254,8 +220,6 @@ build Platform/CMakeFiles/adiosy_platform.dir/Private/Event/AdEventDispatcher.cp
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glm/..
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   OBJECT_FILE_DIR = Platform\CMakeFiles\adiosy_platform.dir\Private\Event
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
-  TARGET_PDB = lib\libadiosy_platform.pdb
 
 
 # =============================================================================
@@ -270,9 +234,8 @@ build lib/libadiosy_platform.a: CXX_STATIC_LIBRARY_LINKER__adiosy_platform_Debug
   OBJECT_DIR = Platform\CMakeFiles\adiosy_platform.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Platform\CMakeFiles\adiosy_platform.dir\adiosy_platform.pdb
   TARGET_FILE = lib\libadiosy_platform.a
-  TARGET_PDB = lib\libadiosy_platform.pdb
+  TARGET_PDB = adiosy_platform.a.dbg
 
 
 #############################################
@@ -352,8 +315,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/init.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -362,8 +323,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glf
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/input.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -372,8 +331,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__gl
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -382,8 +339,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -392,8 +347,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__g
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/window.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -402,8 +355,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__g
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/win32_init.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -412,8 +363,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILE
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/win32_joystick.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -422,8 +371,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COM
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/win32_monitor.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -432,8 +379,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMP
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/win32_time.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -442,8 +387,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILE
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/win32_thread.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -452,8 +395,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPI
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/win32_window.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -462,8 +403,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPI
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/wgl_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -472,8 +411,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPIL
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -482,8 +419,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPIL
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 build Platform/External/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_unscanned_Debug E$:/WorkSpace/AMEngine/Platform/External/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32 -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE
@@ -492,8 +427,6 @@ build Platform/External/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COM
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External/glfw/include -IE:/WorkSpace/AMEngine/Platform/External/glfw/src -IE:/WorkSpace/AMEngine/cmake-build-debug/Platform/External/glfw/src
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = lib\libglfw3.pdb
 
 
 # =============================================================================
@@ -508,9 +441,8 @@ build lib/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug Platform/External/glfw
   OBJECT_DIR = Platform\External\glfw\src\CMakeFiles\glfw.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Platform\External\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_FILE = lib\libglfw3.a
-  TARGET_PDB = lib\libglfw3.pdb
+  TARGET_PDB = glfw3.a.dbg
 
 
 #############################################
@@ -592,8 +524,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/AdApplication.cpp.obj: CXX_COMPILE
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderContext.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdRenderContext.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -602,8 +532,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderContext.cpp.obj: CX
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderTarget.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdRenderTarget.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -612,8 +540,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderTarget.cpp.obj: CXX
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderer.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdRenderer.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -622,8 +548,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderer.cpp.obj: CXX_COM
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMesh.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdMesh.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -632,8 +556,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMesh.cpp.obj: CXX_COMPILE
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdTexture.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdTexture.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -642,8 +564,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdTexture.cpp.obj: CXX_COMP
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdSampler.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdSampler.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -652,8 +572,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdSampler.cpp.obj: CXX_COMP
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMaterial.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/Render/AdMaterial.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -662,8 +580,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMaterial.cpp.obj: CXX_COM
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\Render
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdUUID.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/AdUUID.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -672,8 +588,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdUUID.cpp.obj: CXX_COMPILER__
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdNode.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/AdNode.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -682,8 +596,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdNode.cpp.obj: CXX_COMPILER__
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdScene.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/AdScene.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -692,8 +604,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdScene.cpp.obj: CXX_COMPILER_
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdEntity.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/AdEntity.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -702,8 +612,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdEntity.cpp.obj: CXX_COMPILER
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/Component/AdLookAtCameraComponent.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/Component/AdLookAtCameraComponent.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -712,8 +620,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/Component/AdLookAtCameraCompon
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS\Component
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdMaterialSystem.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/System/AdMaterialSystem.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -722,8 +628,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdMaterialSystem.cpp.ob
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS\System
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdBaseMaterialSystem.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/System/AdBaseMaterialSystem.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -732,8 +636,6 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdBaseMaterialSystem.cp
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS\System
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
 
 build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdUnlitMaterialSystem.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/System/AdUnlitMaterialSystem.cpp || cmake_object_order_depends_target_adiosy_core
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -742,8 +644,14 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdUnlitMaterialSystem.c
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS\System
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
-  TARGET_PDB = lib\libadiosy_core.pdb
+
+build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdPhongMaterialSystem.cpp.obj: CXX_COMPILER__adiosy_core_unscanned_Debug E$:/WorkSpace/AMEngine/Core/Private/ECS/System/AdPhongMaterialSystem.cpp || cmake_object_order_depends_target_adiosy_core
+  DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
+  DEP_FILE = Core\CMakeFiles\adiosy_core.dir\Private\ECS\System\AdPhongMaterialSystem.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
+  OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
+  OBJECT_FILE_DIR = Core\CMakeFiles\adiosy_core.dir\Private\ECS\System
 
 
 # =============================================================================
@@ -753,14 +661,13 @@ build Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdUnlitMaterialSystem.c
 #############################################
 # Link the static library lib\libadiosy_core.a
 
-build lib/libadiosy_core.a: CXX_STATIC_LIBRARY_LINKER__adiosy_core_Debug Core/CMakeFiles/adiosy_core.dir/Private/AdApplication.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderContext.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderTarget.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderer.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMesh.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdTexture.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdSampler.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMaterial.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdUUID.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdNode.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdScene.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdEntity.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/Component/AdLookAtCameraComponent.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdMaterialSystem.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdBaseMaterialSystem.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdUnlitMaterialSystem.cpp.obj || lib/libadiosy_platform.a lib/libglfw3.a
+build lib/libadiosy_core.a: CXX_STATIC_LIBRARY_LINKER__adiosy_core_Debug Core/CMakeFiles/adiosy_core.dir/Private/AdApplication.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderContext.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderTarget.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdRenderer.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMesh.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdTexture.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdSampler.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/Render/AdMaterial.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdUUID.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdNode.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdScene.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/AdEntity.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/Component/AdLookAtCameraComponent.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdMaterialSystem.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdBaseMaterialSystem.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdUnlitMaterialSystem.cpp.obj Core/CMakeFiles/adiosy_core.dir/Private/ECS/System/AdPhongMaterialSystem.cpp.obj || lib/libadiosy_platform.a lib/libglfw3.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Core\CMakeFiles\adiosy_core.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Core\CMakeFiles\adiosy_core.dir\adiosy_core.pdb
   TARGET_FILE = lib\libadiosy_core.a
-  TARGET_PDB = lib\libadiosy_core.pdb
+  TARGET_PDB = adiosy_core.a.dbg
 
 
 #############################################
@@ -862,8 +769,6 @@ build Sample/SandBox/CMakeFiles/SandBox.dir/Main.cpp.obj: CXX_COMPILER__SandBox_
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\SandBox\CMakeFiles\SandBox.dir
   OBJECT_FILE_DIR = Sample\SandBox\CMakeFiles\SandBox.dir
-  TARGET_COMPILE_PDB = Sample\SandBox\CMakeFiles\SandBox.dir\
-  TARGET_PDB = bin\SandBox.pdb
 
 build Sample/SandBox/CMakeFiles/SandBox.dir/AdEventTesting.cpp.obj: CXX_COMPILER__SandBox_unscanned_Debug E$:/WorkSpace/AMEngine/Sample/SandBox/AdEventTesting.cpp || cmake_object_order_depends_target_SandBox
   DEFINES = -DAD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\" -DAD_ENGINE_PLATFORM_WIN32
@@ -872,8 +777,6 @@ build Sample/SandBox/CMakeFiles/SandBox.dir/AdEventTesting.cpp.obj: CXX_COMPILER
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\SandBox\CMakeFiles\SandBox.dir
   OBJECT_FILE_DIR = Sample\SandBox\CMakeFiles\SandBox.dir
-  TARGET_COMPILE_PDB = Sample\SandBox\CMakeFiles\SandBox.dir\
-  TARGET_PDB = bin\SandBox.pdb
 
 
 # =============================================================================
@@ -889,10 +792,9 @@ build bin/SandBox.exe: CXX_EXECUTABLE_LINKER__SandBox_Debug Sample/SandBox/CMake
   OBJECT_DIR = Sample\SandBox\CMakeFiles\SandBox.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Sample\SandBox\CMakeFiles\SandBox.dir\
   TARGET_FILE = bin\SandBox.exe
   TARGET_IMPLIB = lib\libSandBox.dll.a
-  TARGET_PDB = bin\SandBox.pdb
+  TARGET_PDB = SandBox.exe.dbg
 
 
 #############################################
@@ -1010,8 +912,6 @@ build Sample/00_FirstTriangle/CMakeFiles/00_FirstTriangle.dir/Main.cpp.obj: CXX_
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\00_FirstTriangle\CMakeFiles\00_FirstTriangle.dir
   OBJECT_FILE_DIR = Sample\00_FirstTriangle\CMakeFiles\00_FirstTriangle.dir
-  TARGET_COMPILE_PDB = Sample\00_FirstTriangle\CMakeFiles\00_FirstTriangle.dir\
-  TARGET_PDB = bin\00_FirstTriangle.pdb
 
 
 # =============================================================================
@@ -1027,10 +927,9 @@ build bin/00_FirstTriangle.exe: CXX_EXECUTABLE_LINKER__00_FirstTriangle_Debug Sa
   OBJECT_DIR = Sample\00_FirstTriangle\CMakeFiles\00_FirstTriangle.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Sample\00_FirstTriangle\CMakeFiles\00_FirstTriangle.dir\
   TARGET_FILE = bin\00_FirstTriangle.exe
   TARGET_IMPLIB = lib\lib00_FirstTriangle.dll.a
-  TARGET_PDB = bin\00_FirstTriangle.pdb
+  TARGET_PDB = 00_FirstTriangle.exe.dbg
 
 
 #############################################
@@ -1076,8 +975,6 @@ build Sample/01_FirstCube/CMakeFiles/01_FirstCube.dir/Main.cpp.obj: CXX_COMPILER
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\01_FirstCube\CMakeFiles\01_FirstCube.dir
   OBJECT_FILE_DIR = Sample\01_FirstCube\CMakeFiles\01_FirstCube.dir
-  TARGET_COMPILE_PDB = Sample\01_FirstCube\CMakeFiles\01_FirstCube.dir\
-  TARGET_PDB = bin\01_FirstCube.pdb
 
 
 # =============================================================================
@@ -1093,10 +990,9 @@ build bin/01_FirstCube.exe: CXX_EXECUTABLE_LINKER__01_FirstCube_Debug Sample/01_
   OBJECT_DIR = Sample\01_FirstCube\CMakeFiles\01_FirstCube.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Sample\01_FirstCube\CMakeFiles\01_FirstCube.dir\
   TARGET_FILE = bin\01_FirstCube.exe
   TARGET_IMPLIB = lib\lib01_FirstCube.dll.a
-  TARGET_PDB = bin\01_FirstCube.pdb
+  TARGET_PDB = 01_FirstCube.exe.dbg
 
 
 #############################################
@@ -1142,8 +1038,6 @@ build Sample/02_RenderTarget/CMakeFiles/02_RenderTarget.dir/Main.cpp.obj: CXX_CO
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\02_RenderTarget\CMakeFiles\02_RenderTarget.dir
   OBJECT_FILE_DIR = Sample\02_RenderTarget\CMakeFiles\02_RenderTarget.dir
-  TARGET_COMPILE_PDB = Sample\02_RenderTarget\CMakeFiles\02_RenderTarget.dir\
-  TARGET_PDB = bin\02_RenderTarget.pdb
 
 
 # =============================================================================
@@ -1159,10 +1053,9 @@ build bin/02_RenderTarget.exe: CXX_EXECUTABLE_LINKER__02_RenderTarget_Debug Samp
   OBJECT_DIR = Sample\02_RenderTarget\CMakeFiles\02_RenderTarget.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Sample\02_RenderTarget\CMakeFiles\02_RenderTarget.dir\
   TARGET_FILE = bin\02_RenderTarget.exe
   TARGET_IMPLIB = lib\lib02_RenderTarget.dll.a
-  TARGET_PDB = bin\02_RenderTarget.pdb
+  TARGET_PDB = 02_RenderTarget.exe.dbg
 
 
 #############################################
@@ -1208,8 +1101,6 @@ build Sample/03_Texture/CMakeFiles/03_Texture.dir/Main.cpp.obj: CXX_COMPILER__03
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\03_Texture\CMakeFiles\03_Texture.dir
   OBJECT_FILE_DIR = Sample\03_Texture\CMakeFiles\03_Texture.dir
-  TARGET_COMPILE_PDB = Sample\03_Texture\CMakeFiles\03_Texture.dir\
-  TARGET_PDB = bin\03_Texture.pdb
 
 
 # =============================================================================
@@ -1225,10 +1116,9 @@ build bin/03_Texture.exe: CXX_EXECUTABLE_LINKER__03_Texture_Debug Sample/03_Text
   OBJECT_DIR = Sample\03_Texture\CMakeFiles\03_Texture.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Sample\03_Texture\CMakeFiles\03_Texture.dir\
   TARGET_FILE = bin\03_Texture.exe
   TARGET_IMPLIB = lib\lib03_Texture.dll.a
-  TARGET_PDB = bin\03_Texture.pdb
+  TARGET_PDB = 03_Texture.exe.dbg
 
 
 #############################################
@@ -1274,8 +1164,6 @@ build Sample/04_ECS_Entity/CMakeFiles/04_ECS_Entity.dir/Main.cpp.obj: CXX_COMPIL
   INCLUDES = -IE:/WorkSpace/AMEngine/Platform/Public -IE:/WorkSpace/AMEngine/Core/Public -IE:/WorkSpace/AMEngine/Platform/External -IC:/VulkanSDK/1.3.290.0/Include
   OBJECT_DIR = Sample\04_ECS_Entity\CMakeFiles\04_ECS_Entity.dir
   OBJECT_FILE_DIR = Sample\04_ECS_Entity\CMakeFiles\04_ECS_Entity.dir
-  TARGET_COMPILE_PDB = Sample\04_ECS_Entity\CMakeFiles\04_ECS_Entity.dir\
-  TARGET_PDB = bin\04_ECS_Entity.pdb
 
 
 # =============================================================================
@@ -1291,10 +1179,9 @@ build bin/04_ECS_Entity.exe: CXX_EXECUTABLE_LINKER__04_ECS_Entity_Debug Sample/0
   OBJECT_DIR = Sample\04_ECS_Entity\CMakeFiles\04_ECS_Entity.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = Sample\04_ECS_Entity\CMakeFiles\04_ECS_Entity.dir\
   TARGET_FILE = bin\04_ECS_Entity.exe
   TARGET_IMPLIB = lib\lib04_ECS_Entity.dll.a
-  TARGET_PDB = bin\04_ECS_Entity.pdb
+  TARGET_PDB = 04_ECS_Entity.exe.dbg
 
 
 #############################################
@@ -1468,14 +1355,14 @@ build Sample/SandBox/all: phony bin/SandBox.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/BasicConfigVersion-SameMajorVersion.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompilerABI.c D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDependentOption.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakePackageConfigHelpers.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystem.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckLibraryExists.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Bruce-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SDCC-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageMessage.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindVulkan.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/GNUInstallDirs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckFlagCommonConfig.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Determine-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/WriteBasicConfigVersionFile.cmake E$:/WorkSpace/AMEngine/CMakeLists.txt E$:/WorkSpace/AMEngine/Core/CMakeLists.txt E$:/WorkSpace/AMEngine/Editor/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3.pc.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3Config.cmake.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw_config.h.in E$:/WorkSpace/AMEngine/Platform/External/glm/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/00_FirstTriangle/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/02_RenderTarget/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/03_Texture/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/04_ECS_Entity/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt E$:/WorkSpace/AMEngine/cmake/SPIR-V.cmake
+build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/BasicConfigVersion-SameMajorVersion.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDependentOption.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakePackageConfigHelpers.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckLibraryExists.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageMessage.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindVulkan.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/GNUInstallDirs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckFlagCommonConfig.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/WriteBasicConfigVersionFile.cmake E$:/WorkSpace/AMEngine/CMakeLists.txt E$:/WorkSpace/AMEngine/Core/CMakeLists.txt E$:/WorkSpace/AMEngine/Editor/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3.pc.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3Config.cmake.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw_config.h.in E$:/WorkSpace/AMEngine/Platform/External/glm/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/00_FirstTriangle/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/02_RenderTarget/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/03_Texture/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/04_ECS_Entity/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt E$:/WorkSpace/AMEngine/cmake/SPIR-V.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/BasicConfigVersion-SameMajorVersion.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompilerABI.c D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompiler.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDependentOption.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakePackageConfigHelpers.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystem.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckLibraryExists.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Bruce-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SDCC-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageMessage.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindVulkan.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/GNUInstallDirs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckFlagCommonConfig.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Determine-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/WriteBasicConfigVersionFile.cmake E$:/WorkSpace/AMEngine/CMakeLists.txt E$:/WorkSpace/AMEngine/Core/CMakeLists.txt E$:/WorkSpace/AMEngine/Editor/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3.pc.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3Config.cmake.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw_config.h.in E$:/WorkSpace/AMEngine/Platform/External/glm/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/00_FirstTriangle/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/02_RenderTarget/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/03_Texture/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/04_ECS_Entity/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt E$:/WorkSpace/AMEngine/cmake/SPIR-V.cmake: phony
+build CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeCXXCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/BasicConfigVersion-SameMajorVersion.cmake.in D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDependentOption.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakePackageConfigHelpers.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckCSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckIncludeFile.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CheckLibraryExists.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindPackageMessage.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindThreads.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/FindVulkan.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/GNUInstallDirs.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckCompilerFlag.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckFlagCommonConfig.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-CXX.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake D$:/CLion$ 2024.2.0.1/bin/cmake/win/x64/share/cmake-3.29/Modules/WriteBasicConfigVersionFile.cmake E$:/WorkSpace/AMEngine/CMakeLists.txt E$:/WorkSpace/AMEngine/Core/CMakeLists.txt E$:/WorkSpace/AMEngine/Editor/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3.pc.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw3Config.cmake.in E$:/WorkSpace/AMEngine/Platform/External/glfw/src/glfw_config.h.in E$:/WorkSpace/AMEngine/Platform/External/glm/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/00_FirstTriangle/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/02_RenderTarget/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/03_Texture/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/04_ECS_Entity/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/CMakeLists.txt E$:/WorkSpace/AMEngine/Sample/SandBox/CMakeLists.txt E$:/WorkSpace/AMEngine/cmake/SPIR-V.cmake: phony
 
 
 #############################################

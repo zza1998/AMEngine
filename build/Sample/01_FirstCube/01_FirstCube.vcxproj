@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1DB6375D-1842-3F64-84BD-DB7F36C9E3BE}</ProjectGuid>
+    <ProjectGuid>{AEC82914-CE79-35B5-B48C-050103EC392E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\build\bin\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">01_FirstCube.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">01_FirstCube</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\build\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">01_FirstCube.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">01_FirstCube</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\build\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">01_FirstCube.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">01_FirstCube</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\build\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">01_FirstCube.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">01_FirstCube</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -97,16 +97,16 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -119,8 +119,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/Debug/01_FirstCube.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/Debug/01_FirstCube.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/Debug/01_FirstCube.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/Debug/01_FirstCube.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
@@ -140,18 +140,18 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>EnableAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -164,8 +164,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/Release/01_FirstCube.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/Release/01_FirstCube.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/Release/01_FirstCube.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/Release/01_FirstCube.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -174,7 +174,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -183,18 +183,18 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -207,8 +207,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/MinSizeRel/01_FirstCube.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/MinSizeRel/01_FirstCube.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/MinSizeRel/01_FirstCube.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/MinSizeRel/01_FirstCube.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -217,7 +217,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -227,16 +227,16 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/adiosy_engine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR="E:/WorkSpace/AMEngine/Resource/";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/adiosy_engine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AD_DEFINE_RES_ROOT_DIR=\"E:/WorkSpace/AMEngine/Resource/\";AD_ENGINE_PLATFORM_WIN32;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;E:\WorkSpace\adiosy_engine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;E:\WorkSpace\AMEngine\Platform\External;C:\VulkanSDK\1.3.290.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -249,8 +249,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WorkSpace/adiosy_engine/build/lib/RelWithDebInfo/01_FirstCube.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WorkSpace/adiosy_engine/build/bin/RelWithDebInfo/01_FirstCube.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WorkSpace/AMEngine/build/lib/RelWithDebInfo/01_FirstCube.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WorkSpace/AMEngine/build/bin/RelWithDebInfo/01_FirstCube.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -258,11 +258,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\Sample\01_FirstCube\CMakeLists.txt">
+    <CustomBuild Include="E:\WorkSpace\AMEngine\Sample\01_FirstCube\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/01_FirstCube/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -271,11 +271,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/01_FirstCube/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -284,11 +284,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/01_FirstCube/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -297,11 +297,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Sample/01_FirstCube/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Sample/01_FirstCube/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Sample/01_FirstCube/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -310,30 +310,30 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\build\Sample\01_FirstCube\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\WorkSpace\adiosy_engine\Sample\01_FirstCube\Main.cpp" />
+    <ClCompile Include="E:\WorkSpace\AMEngine\Sample\01_FirstCube\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\ZERO_CHECK.vcxproj">
-      <Project>{C45F5C17-6E9C-3024-AA2B-A98142F90D0A}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\ZERO_CHECK.vcxproj">
+      <Project>{1A0351B9-1E04-3D3E-ABC6-F590E66EDEB7}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\Core\adiosy_core.vcxproj">
-      <Project>{F611B86F-E1B5-3C1F-AE41-9A56F9E20D74}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\Core\adiosy_core.vcxproj">
+      <Project>{A876B06B-6CCA-3CC5-8ED1-E859D96B1F13}</Project>
       <Name>adiosy_core</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\Platform\adiosy_platform.vcxproj">
-      <Project>{8A7040B7-51EB-3D7D-AB48-9F1E06A2BC39}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\Platform\adiosy_platform.vcxproj">
+      <Project>{395CDCE2-5FE0-326D-BDF7-FC9A7814B660}</Project>
       <Name>adiosy_platform</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\glfw.vcxproj">
-      <Project>{EB8C4984-F187-3FAE-A8CB-38BF68398442}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\glfw.vcxproj">
+      <Project>{D2170EB0-715E-3B6D-9484-99D40796EEA7}</Project>
       <Name>glfw</Name>
     </ProjectReference>
   </ItemGroup>

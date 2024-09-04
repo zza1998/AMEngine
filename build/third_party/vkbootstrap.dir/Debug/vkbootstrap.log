@@ -1,6 +1,0 @@
-﻿  Building Custom Rule E:/WorkSpace/AMEngine/third_party/CMakeLists.txt
-  VkBootstrap.cpp
-E:\WorkSpace\AMEngine\third_party\vkbootstrap\VkBootstrap.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\WorkSpace\AMEngine\third_party\vkbootstrap\VkBootstrap.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-E:\WorkSpace\AMEngine\third_party\vkbootstrap\VkBootstrapDispatch.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  vkbootstrap.vcxproj -> E:\WorkSpace\AMEngine\build\third_party\Debug\vkbootstrap.lib

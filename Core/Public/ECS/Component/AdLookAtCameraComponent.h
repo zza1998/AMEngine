@@ -10,6 +10,7 @@ namespace ade{
         const glm::mat4 &GetProjMat();
         const glm::mat4 &GetViewMat();
 
+        void UpdateCamera();
         void SetViewMat(const glm::mat4 &viewMat);
 
         float GetFov() const { return mFov; }

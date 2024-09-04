@@ -1,8 +1,8 @@
-# Install script for directory: E:/WorkSpace/adiosy_engine/Sample/00_FirstTriangle
+# Install script for directory: E:/WorkSpace/AMEngine/Sample/00_FirstTriangle
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AdiosyEngine")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AMEngine")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

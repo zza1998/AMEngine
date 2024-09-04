@@ -1,9 +1,0 @@
-E:\WorkSpace\AMEngine\src\main.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\main.obj
-E:\WorkSpace\AMEngine\src\vk_engine.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\vk_engine.obj
-E:\WorkSpace\AMEngine\src\vk_pipelines.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\vk_pipelines.obj
-E:\WorkSpace\AMEngine\src\camera.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\camera.obj
-E:\WorkSpace\AMEngine\src\vk_descriptors.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\vk_descriptors.obj
-E:\WorkSpace\AMEngine\src\vk_images.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\vk_images.obj
-E:\WorkSpace\AMEngine\src\vk_loader.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\vk_loader.obj
-E:\WorkSpace\AMEngine\src\vk_initializers.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\vk_initializers.obj
-E:\WorkSpace\AMEngine\src\am_ui.cpp;E:\WorkSpace\AMEngine\build\src\vulkan_guide.dir\Debug\am_ui.obj

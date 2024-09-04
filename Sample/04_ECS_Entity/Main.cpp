@@ -1,3 +1,6 @@
+#include <ECS/Component/Material/AdPhongMaterialComponent.h>
+#include <ECS/System/AdPhongMaterialSystem.h>
+
 #include "AdEntryPoint.h"
 #include "AdFileUtil.h"
 #include "Render/AdRenderTarget.h"
@@ -57,7 +60,9 @@ protected:
         mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
         mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
         mRenderTarget->SetDepthStencilClearValue({ 1, 0 });
+        // äÖÈ¾¶àÉÙ²ÄÖÊ
         mRenderTarget->AddMaterialSystem<ade::AdBaseMaterialSystem>();
+        mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
 
         mRenderer = std::make_shared<ade::AdRenderer>();
 
@@ -67,6 +72,15 @@ protected:
         std::vector<uint32_t> indices;
         ade::AdGeometryUtil::CreateCube(-0.3f, 0.3f, -0.3f, 0.3f, -0.3f, 0.3f, vertices, indices);
         mCubeMesh = std::make_shared<ade::AdMesh>(vertices, indices);
+        mDefaultSampler = std::make_shared<ade::AdSampler>(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_REPEAT);
+        ade::RGBAColor multiColors[4] = {
+            255, 255, 255, 255,
+            192, 192, 192, 255,
+            192, 192, 192, 255,
+            255, 255, 255, 255
+        };
+        mMultiPixelTexture = std::make_shared<ade::AdTexture>(2, 2, multiColors);
+
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
@@ -79,11 +93,14 @@ protected:
         baseMat0->colorType = ade::COLOR_TYPE_NORMAL;
         auto baseMat1 = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdBaseMaterial>();
         baseMat1->colorType = ade::COLOR_TYPE_TEXCOORD;
+        auto phong = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPhongMaterial>();
+        phong->SetBaseColor0(glm::linearRand(glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f)));
+        phong->SetTextureView(0, mMultiPixelTexture.get(), mDefaultSampler.get());
         // 1 shader, 2 component, 3 system
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 0");
-            auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), baseMat1);
+            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), phong);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
             transComp.scale = { 1.f, 1.f, 1.f };
             transComp.position = { 0.f, 0.f, 0.0f };
@@ -91,8 +108,8 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 1");
-            auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), baseMat0);
+            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), phong);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
             transComp.scale = { 0.5f, 0.5f, 0.5f };
             transComp.position = { -1.f, 0.f, 0.0f };
@@ -100,6 +117,24 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 2");
+            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), phong);
+            auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
+            transComp.scale = { 0.5f, 0.5f, 0.5f };
+            transComp.position = { -0.5f, -1.f, 0.0f };
+            transComp.rotation = { 17.f, 30.f, 0.f };
+        }
+        {
+            ade::AdEntity *cube = scene->CreateEntity("Cube 3");
+            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), phong);
+            auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
+            transComp.scale = { 0.5f, 0.5f, 0.5f };
+            transComp.position = { 0.5f, -1.f, 0.0f };
+            transComp.rotation = { 17.f, 30.f, 0.f };
+        }
+        {
+            ade::AdEntity *cube = scene->CreateEntity("Cube 4");
             auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), baseMat1);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
@@ -135,8 +170,46 @@ protected:
         if(mRenderer->End(imageIndex, { cmdBuffer })){
             mRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
         }
+        CameraChange();
     }
 
+    void CameraChange() {
+        ade::AdEntity *camera = mRenderTarget->GetCamera();
+        if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)){
+            if(!mWindow->IsMouseDown()){
+                bFirstMouseDrag = true;
+                return;
+            }
+
+            glm::vec2 mousePos;
+            mWindow->GetMousePos(mousePos);
+            glm::vec2 mousePosDelta = { mLastMousePos.x - mousePos.x, mousePos.y - mLastMousePos.y };
+            mLastMousePos = mousePos;
+
+            if(abs(mousePosDelta.x) > 0.1f || abs(mousePosDelta.y) > 0.1f){
+                if(bFirstMouseDrag){
+                    bFirstMouseDrag = false;
+                } else {
+                    auto &transComp = camera->GetComponent<ade::AdTransformComponent>();
+                    float yaw = transComp.rotation.x;
+                    float pitch = transComp.rotation.y;
+
+                    yaw += mousePosDelta.x * mMouseSensitivity;
+                    pitch += mousePosDelta.y * mMouseSensitivity;
+
+                    if(pitch > 89.f){
+                        pitch = 89.f;
+                    }
+                    if(pitch < -89.f){
+                        pitch = -89.f;
+                    }
+                    transComp.rotation.x = yaw;
+                    transComp.rotation.y = pitch;
+                }
+            }
+        }
+
+    }
     void OnDestroy() override {
         ade::AdRenderContext *renderCxt = ade::AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
@@ -146,14 +219,20 @@ protected:
         mRenderTarget.reset();
         mRenderPass.reset();
         mRenderer.reset();
+        mMultiPixelTexture.reset();
+        mDefaultSampler.reset();
     }
 private:
     std::shared_ptr<ade::AdVKRenderPass> mRenderPass;
     std::shared_ptr<ade::AdRenderTarget> mRenderTarget;
     std::shared_ptr<ade::AdRenderer> mRenderer;
-
+    std::shared_ptr<ade::AdTexture> mMultiPixelTexture;
     std::vector<VkCommandBuffer> mCmdBuffers;
     std::shared_ptr<ade::AdMesh> mCubeMesh;
+    std::shared_ptr<ade::AdSampler> mDefaultSampler;
+    bool bFirstMouseDrag = true;
+    glm::vec2 mLastMousePos;
+    float mMouseSensitivity = 0.25f;
 };
 
 ade::AdApplication *CreateApplicationEntryPoint(){

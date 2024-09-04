@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D3428AF0-1B2D-3CFF-A657-EC12AA6C00FB}</ProjectGuid>
+    <ProjectGuid>{18C62A79-0302-391B-A6FC-8A4BAD7B4674}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -66,7 +66,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -76,7 +76,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -86,7 +86,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -96,7 +96,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>E:\WorkSpace\adiosy_engine\Platform\Public;E:\WorkSpace\adiosy_engine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WorkSpace\AMEngine\Platform\Public;E:\WorkSpace\AMEngine\Core\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -105,14 +105,14 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\build\CMakeFiles\48ce2b5ffe8c3e3770a05e2bb4274a15\update_mappings.rule">
+    <CustomBuild Include="E:\WorkSpace\AMEngine\build\CMakeFiles\acee717c470d7c6be458d72fa4367854\update_mappings.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating gamepad mappings from upstream repository</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\WorkSpace\adiosy_engine\Platform\External\glfw\src
+cd E:\WorkSpace\AMEngine\Platform\External\glfw\src
 if %errorlevel% neq 0 goto :cmEnd
 E:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/adiosy_engine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/AMEngine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -121,16 +121,16 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating gamepad mappings from upstream repository</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\WorkSpace\adiosy_engine\Platform\External\glfw\src
+cd E:\WorkSpace\AMEngine\Platform\External\glfw\src
 if %errorlevel% neq 0 goto :cmEnd
 E:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/adiosy_engine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/AMEngine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -139,16 +139,16 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating gamepad mappings from upstream repository</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\WorkSpace\adiosy_engine\Platform\External\glfw\src
+cd E:\WorkSpace\AMEngine\Platform\External\glfw\src
 if %errorlevel% neq 0 goto :cmEnd
 E:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/adiosy_engine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/AMEngine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -157,16 +157,16 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating gamepad mappings from upstream repository</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\WorkSpace\adiosy_engine\Platform\External\glfw\src
+cd E:\WorkSpace\AMEngine\Platform\External\glfw\src
 if %errorlevel% neq 0 goto :cmEnd
 E:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/adiosy_engine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+"C:\Program Files\CMake\bin\cmake.exe" -P E:/WorkSpace/AMEngine/Platform/External/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -175,17 +175,17 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\update_mappings</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WorkSpace\adiosy_engine\Platform\External\glfw\src\CMakeLists.txt">
+    <CustomBuild Include="E:\WorkSpace\AMEngine\Platform\External\glfw\src\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Platform/External/glfw/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -194,11 +194,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Platform/External/glfw/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -207,11 +207,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Platform/External/glfw/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -220,11 +220,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WorkSpace/adiosy_engine/Platform/External/glfw/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WorkSpace/AMEngine/Platform/External/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/adiosy_engine -BE:/WorkSpace/adiosy_engine/build --check-stamp-file E:/WorkSpace/adiosy_engine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/WorkSpace/AMEngine -BE:/WorkSpace/AMEngine/build --check-stamp-file E:/WorkSpace/AMEngine/build/Platform/External/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -233,21 +233,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\WorkSpace\adiosy_engine\Platform\External\glfw\src\mappings.h.in">
+    <None Include="E:\WorkSpace\AMEngine\Platform\External\glfw\src\mappings.h.in">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\Platform\External\glfw\CMake\GenerateMappings.cmake">
+    <None Include="E:\WorkSpace\AMEngine\Platform\External\glfw\CMake\GenerateMappings.cmake">
     </None>
-    <None Include="E:\WorkSpace\adiosy_engine\build\Platform\External\glfw\src\CMakeFiles\update_mappings">
+    <None Include="E:\WorkSpace\AMEngine\build\Platform\External\glfw\src\CMakeFiles\update_mappings">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\WorkSpace\adiosy_engine\build\ZERO_CHECK.vcxproj">
-      <Project>{C45F5C17-6E9C-3024-AA2B-A98142F90D0A}</Project>
+    <ProjectReference Include="E:\WorkSpace\AMEngine\build\ZERO_CHECK.vcxproj">
+      <Project>{1A0351B9-1E04-3D3E-ABC6-F590E66EDEB7}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
