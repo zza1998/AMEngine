@@ -36,3 +36,4 @@
 build
 /cmake-build-debug/
 /build/
+/cmake-build-release-visual-studio
