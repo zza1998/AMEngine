@@ -30,7 +30,7 @@ namespace ade{
             return;
         }
         std::vector<float> graphicQueuePriorities(graphicQueueCount, 0.f);
-        std::vector<float> presentQueuePriorities(graphicQueueCount, 1.f);
+        std::vector<float> presentQueuePriorities(presentQueueCount, 1.f);
 
         bool bSameQueueFamilyIndex = context->IsSameGraphicPresentQueueFamily();
         uint32_t sameQueueCount = graphicQueueCount;

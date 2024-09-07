@@ -58,7 +58,8 @@ namespace ade{
                 .queueFamilyIndexCount = queueFamilyIndexCount,
                 .pQueueFamilyIndices = pQueueFamilyIndices,
                 .preTransform = VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR,
-                .compositeAlpha = VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR,
+                //.compositeAlpha = VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR,
+                .compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR,
                 .presentMode = mSurfaceInfo.presentMode,
                 .clipped = VK_FALSE,
                 .oldSwapchain = oldSwapchain
@@ -140,6 +141,9 @@ namespace ade{
         if(ret == VK_SUCCESS || ret == VK_SUBOPTIMAL_KHR){
             *outImageIndex = imageIndex;
             mCurrentImageIndex = imageIndex;
+        }
+        else {
+            LOG_E("{0} : arquireImage fail result : {1}", __FUNCTION__, ret);
         }
         return ret;
     }

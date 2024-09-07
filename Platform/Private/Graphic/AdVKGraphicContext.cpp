@@ -182,7 +182,9 @@ namespace ade{
             if(score < maxScore){
                 continue;
             }
-
+            // 重新选择
+            mGraphicQueueFamily.queueFamilyIndex = -1;
+            mPresentQueueFamily.queueFamilyIndex = -1;
             for(int j = 0; j < queueFamilyCount; j++){
                 if(queueFamilys[j].queueCount == 0){
                     continue;
