@@ -14,4 +14,4 @@ make -j3
 update assimp importer
 support multi texture model
 
-[model](Resource/Image/model.png)
+![model](Resource/Image/model.png)
