@@ -22,12 +22,25 @@ namespace ade{
         alignas(16) TextureParam textureParam0;
     };
 
+    struct PhongLightMaterialParams{
+        alignas(16) glm::vec3 ambient{ 0.2f, 0.2f, 0.2f };
+        alignas(16) glm::vec3 diffuse{ 0.8f, 0.8f, 0.8f };
+        alignas(16) glm::vec3 specular{ 1.f, 1.f, 1.f };
+        alignas(4) float shininess{ 32.f };
+        glm::mat4 diffuseTextureUvTransform{ 1.f };
+        glm::mat4 specularTextureUvTransform{ 1.f };
+        alignas(16) glm::ivec3 textureSelect{ 0, 0, 0 };  // x->ambient, y->diffuse, z->specular
+    };
+
     class AdPhongMaterial : public AdMaterial{
     public:
         const PhongMaterialUbo &GetParams() const { return mParams; }
         void SetBaseColor0(const glm::vec3 &color) {
             mParams.baseColor0 = color;
             bShouldFlushParams = true;
+        }
+        void SetTextureParam0(const TextureParam &param) {
+            mParams.textureParam0 = param;
         }
     private:
         PhongMaterialUbo mParams{};

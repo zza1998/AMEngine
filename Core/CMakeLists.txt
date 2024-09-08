@@ -19,5 +19,7 @@ add_library(adiosy_core
         Private/ECS/System/AdBaseMaterialSystem.cpp
         Private/ECS/System/AdUnlitMaterialSystem.cpp
         Private/ECS/System/AdPhongMaterialSystem.cpp
+
+        Private/Loader/ModelLoader.cpp
 )
 target_link_libraries(adiosy_core PUBLIC adiosy_platform)

@@ -1,5 +1,6 @@
 #include <ECS/Component/Material/AdPhongMaterialComponent.h>
-#include <ECS/System/AdPhongMaterialSystem.h>
+
+#include <Loader/ModelLoader.h>
 
 #include "AdEntryPoint.h"
 #include "AdFileUtil.h"
@@ -12,7 +13,7 @@
 #include "ECS/AdEntity.h"
 #include "ECS/System/AdBaseMaterialSystem.h"
 #include "ECS/Component/AdLookAtCameraComponent.h"
-
+#include "ECS/System/AdPhongMaterialSystem.h"
 class SandBoxApp : public ade::AdApplication{
 protected:
     void OnConfiguration(ade::AppSettings *appSettings) override {
@@ -89,6 +90,8 @@ protected:
         cameraComp.SetRadius(2.f);
         mRenderTarget->SetCamera(camera);
 
+        mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lumin/Lumine.obj");
+        mTexture0 = std::make_shared<ade::AdTexture>(AD_RES_TEXTURE_DIR"R-C.jpeg");
         auto baseMat0 = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdBaseMaterial>();
         baseMat0->colorType = ade::COLOR_TYPE_NORMAL;
         auto baseMat1 = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdBaseMaterial>();
@@ -98,13 +101,20 @@ protected:
         phong->SetTextureView(0, mMultiPixelTexture.get(), mDefaultSampler.get());
         // 1 shader, 2 component, 3 system
         {
-            ade::AdEntity *cube = scene->CreateEntity("Cube 0");
-            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), phong);
-            auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.scale = { 1.f, 1.f, 1.f };
-            transComp.position = { 0.f, 0.f, 0.0f };
-            transComp.rotation = { 17.f, 30.f, 0.f };
+            ade::AdEntity *lisa = scene->CreateEntity("Lisa");
+            // ??????
+            auto pairs = mTestModel->mMeshTextureMap;
+            auto &materialComp = lisa->AddComponent<ade::AdPhongMaterialComponent>();
+            for (auto meshTexture : pairs) {
+                auto phongLisa = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPhongMaterial>();
+                phongLisa->SetBaseColor0(glm::linearRand(glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f)));
+                phongLisa->SetTextureView(0,mTestModel->mMaterials[meshTexture.second].get(),mDefaultSampler.get());
+                materialComp.AddMesh(meshTexture.first.get(), phongLisa);
+            }
+            auto &transComp = lisa->GetComponent<ade::AdTransformComponent>();
+            transComp.scale = { 0.1f, 0.1f, 0.1f };
+            transComp.position = { 0.f, -0.8f, 0.0f };
+            transComp.rotation = { 0.f, 0.f, 0.f };
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 1");
@@ -113,25 +123,26 @@ protected:
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
             transComp.scale = { 0.5f, 0.5f, 0.5f };
             transComp.position = { -1.f, 0.f, 0.0f };
-            transComp.rotation = { 17.f, 30.f, 0.f };
+            transComp.rotation = { 0.f, 0.f, 0.f };
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 2");
             auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), phong);
+            phong->SetTextureView(0, mTexture0.get(), mDefaultSampler.get());
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
             transComp.scale = { 0.5f, 0.5f, 0.5f };
             transComp.position = { -0.5f, -1.f, 0.0f };
-            transComp.rotation = { 17.f, 30.f, 0.f };
+            transComp.rotation = { 0.f, 0.f, 0.f };
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 3");
-            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), phong);
+            auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), baseMat1);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
             transComp.scale = { 0.5f, 0.5f, 0.5f };
             transComp.position = { 0.5f, -1.f, 0.0f };
-            transComp.rotation = { 17.f, 30.f, 0.f };
+            transComp.rotation = { 0.f, 0.f, 0.f };
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 4");
@@ -148,6 +159,10 @@ protected:
 
     }
 
+    void OnUpdate(float deltaTime) override {
+
+
+    }
     void OnRender() override {
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
@@ -164,7 +179,6 @@ protected:
         mRenderTarget->RenderMaterialSystems(cmdBuffer);
         mRenderTarget->End(cmdBuffer);
 
-        mRenderTarget->GetCamera();
         ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
         // 确保swapchain 变化后处理
         if(mRenderer->End(imageIndex, { cmdBuffer })){
@@ -221,15 +235,20 @@ protected:
         mRenderer.reset();
         mMultiPixelTexture.reset();
         mDefaultSampler.reset();
+        mTestModel.reset();
+        mTexture0.reset();
     }
 private:
     std::shared_ptr<ade::AdVKRenderPass> mRenderPass;
     std::shared_ptr<ade::AdRenderTarget> mRenderTarget;
     std::shared_ptr<ade::AdRenderer> mRenderer;
-    std::shared_ptr<ade::AdTexture> mMultiPixelTexture;
     std::vector<VkCommandBuffer> mCmdBuffers;
     std::shared_ptr<ade::AdMesh> mCubeMesh;
     std::shared_ptr<ade::AdSampler> mDefaultSampler;
+    std::shared_ptr<ade::AdModel> mTestModel;
+
+    std::shared_ptr<ade::AdTexture> mMultiPixelTexture;
+    std::shared_ptr<ade::AdTexture> mTexture0;
     bool bFirstMouseDrag = true;
     glm::vec2 mLastMousePos;
     float mMouseSensitivity = 0.25f;

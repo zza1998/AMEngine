@@ -46,10 +46,10 @@ namespace ade{
         };
 
         if(bUseTextcoords){
-            vertices[0].texcoord0 = glm::vec2(0.0f, 0.0f);
-            vertices[1].texcoord0 = glm::vec2(1.0f, 0.0f);
-            vertices[2].texcoord0 = glm::vec2(1.0f, 1.0f);
-            vertices[3].texcoord0 = glm::vec2(0.0f, 1.0f);
+            vertices[1].texcoord0 = glm::vec2(0.0f, 0.0f);
+            vertices[0].texcoord0 = glm::vec2(1.0f, 0.0f);
+            vertices[3].texcoord0 = glm::vec2(1.0f, 1.0f);
+            vertices[2].texcoord0 = glm::vec2(0.0f, 1.0f);
 
             vertices[4].texcoord0 = glm::vec2(1.0f, 0.0f);
             vertices[5].texcoord0 = glm::vec2(1.0f, 1.0f);

@@ -90,7 +90,7 @@ namespace ade{
             }
         }
         else if (ret != VK_SUCCESS) {
-            LOG_E("{0} present error :{1} ,check queue info pls", __FUNCDNAME__, ret);
+            LOG_E("{0} present error :{1} ,check queue info pls", __FILENAME__, ret);
         }
         // if we do not add vkDeviceWaitIdle, we will get a vulkan error:
         // Cannot call vkUpdateDescriptorSets() to perform write update on VkDescriptorSet xxx allocated with VkDescriptorSetLayout xxx that is in use by a command buffer.

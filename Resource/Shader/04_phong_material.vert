@@ -41,6 +41,6 @@ void main()
     outColor = inColor;
     gl_Position = frameUbo.projMat * pos;
     outEyePos = vec3(modelView * pos);
-    vec4 lightPos = vec4(0.0, 0.0, 0.0, 1.0) * modelView;
+    vec4 lightPos = vec4(0.0, -5.0, -5.0, 1.0) * modelView;
     outLightVec = normalize(lightPos.xyz - outEyePos);
 }

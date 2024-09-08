@@ -10,6 +10,8 @@ set(SHADERS
         02_descriptor_set.vert
         03_unlit_material.frag
         03_unlit_material.vert
+        04_phong_material.frag
+        04_phong_material.vert
 )
 spirv_shaders(
         SHADER_HEADERS

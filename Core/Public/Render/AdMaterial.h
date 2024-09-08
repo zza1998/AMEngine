@@ -10,7 +10,7 @@ namespace ade{
 // -------------------------------------------------------------------------------------------------
     // Shader Params
     struct TextureParam{
-        bool enable;
+        bool enable {true};
         alignas(4) float uvRotation{ 0.0f };
         alignas(16) glm::vec4 uvTransform { 1.0f, 1.0f, 0.0f, 0.0f };   // x,y --> scale, z,w --> translation
     };
