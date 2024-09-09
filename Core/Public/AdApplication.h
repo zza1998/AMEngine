@@ -28,6 +28,7 @@ namespace ade{
     protected:
         virtual void OnConfiguration(AppSettings *appSettings){}
         virtual void OnInit(){}
+        virtual void OnRenderGui(float deltaTime){}
         virtual void OnUpdate(float deltaTime){}
         virtual void OnRender(){}
         virtual void OnDestroy(){}
