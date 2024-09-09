@@ -90,7 +90,7 @@ protected:
         cameraComp.SetRadius(2.f);
         mRenderTarget->SetCamera(camera);
 
-        mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lumin/Lumine.obj");
+        mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lisa/Lisa.obj");
         mTexture0 = std::make_shared<ade::AdTexture>(AD_RES_TEXTURE_DIR"R-C.jpeg");
         auto baseMat0 = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdBaseMaterial>();
         baseMat0->colorType = ade::COLOR_TYPE_NORMAL;
