@@ -11,7 +11,7 @@ namespace ade{
         AdEditorViewportWindow(AdRenderTarget *renderTarget, const std::string &name = "");
         ~AdEditorViewportWindow();
 
-        void Draw(bool *pOpen, ImGuiID dockId, float deltaTime);
+        void Draw(bool *pOpen, ImGuiID dockId);
     private:
         void RecreateRenderTarget(VkExtent2D newExtent);
         void ProcessInput(float deltaTime);
@@ -19,9 +19,7 @@ namespace ade{
 
         std::string mName;
         AdRenderTarget *mRenderTarget;
-        VkSampler mSampler = VK_NULL_HANDLE;
         std::vector<VkDescriptorSet> mDescriptorSets;
-        AdTransformWidget mTransformWidget;
 
         struct{
             bool bTransformWidgetIsUsing = false;

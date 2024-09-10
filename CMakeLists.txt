@@ -33,6 +33,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(SPIR-V)
 
 include_directories(Platform/Public)
+include_directories(Editor/Public)
 include_directories(Core/Public)
 
 add_subdirectory(Platform)

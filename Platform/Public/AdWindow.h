@@ -17,7 +17,6 @@ namespace ade{
         virtual bool ShouldClose() = 0;
         virtual void PollEvents() = 0;
         virtual void SwapBuffer() = 0;
-
         virtual void* GetImplWindowPointer() const = 0;
 
         virtual void GetMousePos(glm::vec2 &mousePos) const = 0;

@@ -5,7 +5,6 @@
 #include "AdEditorContentWindow.h"
 #include "AdEditorLayerWindow.h"
 #include "AdEditorPropertyWindow.h"
-#include "Gui/Widget/AdApplicationWidget.h"
 
 #include "imgui/imgui.h"
 #include "imgui/implot.h"
@@ -28,14 +27,13 @@ namespace ade{
 
         void AddViewportWindow(AdRenderTarget *renderTarget);
         void RemoveViewportWindow(AdRenderTarget *renderTarget);
-        void DrawViewportWindow(AdRenderTarget *renderTarget, float deltaTime);
+        void DrawViewportWindow(AdRenderTarget *renderTarget, float deltaTime = 0.0f);
     private:
         void ShowAppMainMenuBar();
         void ShowExampleMenuFile();
         bool BeginToolBars(const char* name, ImGuiDir dir);
         void EndToolBars(ImGuiDir dir);
 
-        AdApplicationWidget mApplicationWidget;
         AdEditorContentWindow mEditorContentWindow;
         AdEditorLayerWindow mEditorLayerWindow;
         AdEditorPropertyWindow mEditorPropertyWindow;

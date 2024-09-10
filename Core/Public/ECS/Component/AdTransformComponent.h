@@ -3,29 +3,40 @@
 
 #include "ECS/AdComponent.h"
 #include "AdGraphicContext.h"
+#include "glm/gtx/matrix_decompose.hpp"
 
 namespace ade{
     class AdTransformComponent : public AdComponent {
     public:
-        glm::vec3 position{ 0.f, 0.f, 0.f };
-        glm::vec3 rotation{ 0.f, 0.f, 0.f };  // degree
-        glm::vec3 scale{ 1.f, 1.f, 1.f };
 
-        glm::mat4 GetTransform() const{
-            glm::mat4 transMat = glm::translate(glm::mat4(1.f), position);
-            glm::mat4 rotationMat = glm::rotate(glm::mat4(1.f), glm::radians(rotation.x), glm::vec3{ 1, 0, 0 });
-            rotationMat = glm::rotate(rotationMat, glm::radians(rotation.y), glm::vec3{ 0, 1, 0 });
-            rotationMat = glm::rotate(rotationMat, glm::radians(rotation.z), glm::vec3{ 0, 0, 1 });
-            glm::mat4 scaleMat = glm::scale(glm::mat4(1.f), scale);
-            return transMat * rotationMat * scaleMat;
+        void UpdateTransform();
+        glm::mat4 GetTransform ();
+        void SetPosition(glm::vec3 position);
+        void SetRotation(glm::vec3 rotation);
+        void SetScale(glm::vec3 scale);
+        void SetTransform(const glm::mat4 &matrix);
+
+        [[nodiscard]] glm::vec3 GetPosition() const {
+            return mPosition;
         }
 
-        glm::vec3 GetNormal() const {
-
-            //glm::inverseTranspose(uniformData.view * uniformData.model)
-            return rotation;
+        [[nodiscard]] glm::vec3 GetRotation() const {
+            return mRotationEuler;
         }
+
+        [[nodiscard]] glm::vec3 GetScale() const {
+            return mScale;
+        }
+
+    private:
+        glm::vec3 mPosition{ 0.f, 0.f, 0.f };
+        glm::qua<float> mRotationQua{ 0.f, 0.f, 0.f ,0.f};  // degree
+        glm::vec3 mRotationEuler{ 0.f, 0.f, 0.f};  // degree
+        glm::vec3 mScale{ 1.f, 1.f, 1.f };
+        glm::mat4 mTransform = glm::mat4{1.0f};
+        bool updated = false;
     };
+
 }
 
 #endif

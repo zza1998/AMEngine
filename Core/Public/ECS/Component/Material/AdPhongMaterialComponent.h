@@ -19,7 +19,17 @@ namespace ade{
 
     struct PhongMaterialUbo{
         alignas(16) glm::vec3 baseColor0;
+        alignas(16) glm::vec3 specular{ 0.5f, 0.5f, 0.5f };
         alignas(16) TextureParam textureParam0;
+        alignas(4) float shininess{ 2.f };
+    };
+
+    struct LightUbo{
+        alignas(16) glm::vec3 light{ 0, -5, -5 };
+        /*alignas(16) glm::ivec3 lightCount{ 0, 0, 0 };
+        DirectLight directLight;
+        PointLight pointLights[LIGHT_MAX_COUNT];
+        Spotlight spotlights[LIGHT_MAX_COUNT];*/
     };
 
     struct PhongLightMaterialParams{
@@ -35,15 +45,21 @@ namespace ade{
     class AdPhongMaterial : public AdMaterial{
     public:
         const PhongMaterialUbo &GetParams() const { return mParams; }
+        const LightUbo &GetLight() const { return mLight; }
         void SetBaseColor0(const glm::vec3 &color) {
             mParams.baseColor0 = color;
             bShouldFlushParams = true;
         }
         void SetTextureParam0(const TextureParam &param) {
             mParams.textureParam0 = param;
+            bShouldFlushParams = true;
+        }
+        void SetLightParam0(const glm::vec3 &light) {
+            mLight.light = light;
         }
     private:
         PhongMaterialUbo mParams{};
+        LightUbo mLight{};
     };
 
     class AdPhongMaterialComponent : public AdMaterialComponent<AdPhongMaterial>{

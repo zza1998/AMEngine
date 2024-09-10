@@ -20,6 +20,11 @@ layout(set=0, binding=0, std140) uniform FrameUbo{
     float time;
 } frameUbo;
 
+
+layout(set=3,binding =0, std140) uniform LightUbo{
+    vec3 light;
+}LightUbo;
+
 layout(push_constant) uniform PushConstants{
     mat4 modelMat;
     mat3 normalMat; //unused
@@ -41,6 +46,6 @@ void main()
     outColor = inColor;
     gl_Position = frameUbo.projMat * pos;
     outEyePos = vec3(modelView * pos);
-    vec4 lightPos = vec4(0.0, -5.0, -5.0, 1.0) * modelView;
+    vec4 lightPos = vec4(LightUbo.light, 1.0) * modelView;
     outLightVec = normalize(lightPos.xyz - outEyePos);
 }

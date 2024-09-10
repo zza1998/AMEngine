@@ -1,4 +1,4 @@
-#include "Window/AdEditorPropertyWindow.h"
+/*#include "Window/AdEditorPropertyWindow.h"
 #include "AdApplication.h"
 #include "ECS/AdNode.h"
 #include "ECS/Component/AdNodeStatusComponent.h"
@@ -140,4 +140,4 @@ namespace ade{
         }
         ImGui::End();
     }
-}
+}*/

@@ -3,15 +3,14 @@
 #include "AdFileUtil.h"
 #include "Gui/AdFontAwesomeIcons.h"
 
+#include "Render/AdRenderContext.h"
 #include "Render/AdRenderTarget.h"
+#include "Render/AdRenderer.h"
 #include "Graphic/AdVKGraphicContext.h"
-#include "Graphic/AdVKDevice.h"
 #include "Graphic/AdVKQueue.h"
-#include "Graphic/AdVKSwapchain.h"
 #include "Graphic/AdVKRenderPass.h"
-#include "Graphic/AdVKFrameBuffer.h"
 #include "Graphic/AdVKCommandBuffer.h"
-#include "Graphic/AdVKDescriptor.h"
+#include "Graphic/AdVKDescriptorSet.h"
 
 #include "ECS/AdScene.h"
 
@@ -26,18 +25,17 @@ namespace ade{
         }
     }
 
-    AdEditorApp::AdEditorApp() {
-        bDirectRender = false;
-    }
-
     void AdEditorApp::OnInit() {
-        mGuiRenderPass = std::make_shared<AdRenderPass>(true);
-        mGuiRenderTarget = std::make_shared<AdRenderTarget>(mRenderContext.get(), mGuiRenderPass.get());
-        mSceneCmdBuffers = mRenderContext->GetDefaultCommandPool()->AllocateCmdBuffer(5);
+        mGuiRenderPass = std::make_shared<AdVKRenderPass>(mRenderContext->GetDevice(),std::vector<Attachment>(),std::vector<RenderSubPass>(),false);
+        mGuiRenderTarget = std::make_shared<AdRenderTarget>(mGuiRenderPass.get());
+        mRenderer = std::make_shared<AdRenderer>();
+        mSceneCmdBuffers = mRenderContext->GetDevice()->GetDefaultCmdPool()->AllocateCommandBuffer(5);
         InitImGui();
     }
 
-    void AdEditorApp::OnRenderGui(float deltaTime) {
+    void AdEditorApp::OnRender() {
+        AdVKSwapchain *swapchain = mRenderContext->GetSwapchain();
+
         ImGuiIO &io = ImGui::GetIO();
         ImGui_ImplVulkan_NewFrame();
         ImGui_ImplGlfw_NewFrame();
@@ -45,8 +43,20 @@ namespace ade{
 
         mMainWindow.Draw(&bOpenMainWindow);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-        for (const auto &item: mSceneRenderTargets){
-            mMainWindow.DrawViewportWindow(item.get(), deltaTime);
+        for(int i = 0; i < mSceneRenderTargets.size(); i++){
+            VkCommandBuffer cmdBuffer = mSceneCmdBuffers[i];
+            ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
+
+            mSceneRenderTargets[i]->Begin(cmdBuffer);
+            mSceneRenderTargets[i]->RenderMaterialSystems(cmdBuffer);
+            mSceneRenderTargets[i]->End(cmdBuffer);
+            ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
+            ade::AdVKDevice *device = mRenderContext->GetDevice();
+            ade::AdVKQueue *graphicQueue = device->GetFirstGraphicQueue();
+            graphicQueue->Submit({ cmdBuffer });
+            graphicQueue->WaitIdle();
+
+            mMainWindow.DrawViewportWindow(mSceneRenderTargets[i].get());
         }
         ImGui::PopStyleVar();
 
@@ -55,20 +65,21 @@ namespace ade{
         ImDrawData* main_draw_data = ImGui::GetDrawData();
         const bool main_is_minimized = (main_draw_data->DisplaySize.x <= 0.0f || main_draw_data->DisplaySize.y <= 0.0f);
         if (!main_is_minimized) {
-            int32_t bufIndex = mGuiRenderTarget->Begin(mFrameIndex);
-            if(bufIndex >= 0){
-                std::shared_ptr<ade::AdVKCommandBuffer> cmdBuffer = mGuiCmdBuffers[bufIndex];
-                cmdBuffer->Begin();
-                mGuiRenderTarget->GetRenderPass()->Begin(cmdBuffer->GetCmdBuffer(), mGuiRenderTarget.get());
-                ImGui_ImplVulkan_RenderDrawData(main_draw_data, cmdBuffer->GetCmdBuffer());
-                mGuiRenderTarget->GetRenderPass()->End(cmdBuffer->GetCmdBuffer());
-                cmdBuffer->End();
-
-                AdVKQueue *graphicQueue = mRenderContext->GetDevice()->GetFirstGraphicQueue();
-                graphicQueue->Submit({cmdBuffer->GetCmdBuffer()});
-                graphicQueue->WaitIdle();
+            int32_t imageIndex;
+            if(mRenderer->Begin(&imageIndex)){
+                mGuiRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
             }
-            mGuiRenderTarget->End();
+            VkCommandBuffer cmdBuffer = mGuiCmdBuffers[imageIndex];
+            ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
+            mGuiRenderTarget->ClearColorClearValue();
+            mGuiRenderTarget->Begin(cmdBuffer);
+            ImGui_ImplVulkan_RenderDrawData(main_draw_data, cmdBuffer);
+            mGuiRenderTarget->End(cmdBuffer);
+
+            ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
+            if(mRenderer->End(imageIndex, { cmdBuffer })){
+                mGuiRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
+            }
         }
 
         // Update and Render additional Platform Windows
@@ -82,6 +93,15 @@ namespace ade{
         ImGui_ImplVulkan_Shutdown();
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
+
+        mGuiCmdBuffers.clear();
+        mSceneCmdBuffers.clear();
+        mGuiCmdPool.reset();
+        mRenderer.reset();
+        mGuiRenderTarget.reset();
+        mGuiRenderPass.reset();
+        mSceneRenderTargets.clear();
+        mGuiDescriptorPool.reset();
         AdApplication::OnDestroy();
     }
 
@@ -109,27 +129,29 @@ namespace ade{
         io.Fonts->AddFontFromFileTTF(AD_RES_FONT_DIR"opensans/OpenSans-Regular.ttf", 15.0f, nullptr);
         MergeIconFonts();
 
-        auto *glfWwindow = static_cast<GLFWwindow *>(mWindow->GetHandle());
+        AdWindow *window = GetWindow();
+        GLFWwindow *glfWwindow = static_cast<GLFWwindow *>(window->GetImplWindowPointer());
         if(!glfWwindow){
             LOG_E("this window is not a glfw window.");
             return;
         }
 
-        AdVKGraphicContext *context = mRenderContext->GetGraphicContext();
+        AdGraphicContext *context = mRenderContext->GetGraphicContext();
+        AdVKGraphicContext *vkContext = dynamic_cast<AdVKGraphicContext *>(context);
         AdVKDevice *device = mRenderContext->GetDevice();
         uint32_t imageCount = mRenderContext->GetSwapchain()->GetImages().size();
         std::vector<VkDescriptorPoolSize> poolSizes = {
                 { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 10 },
         };
-        mGuiDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 10, poolSizes);
+        mGuiDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 10, poolSizes, VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT);
 
         ImGui_ImplGlfw_InitForVulkan(glfWwindow, true);
         ImGui_ImplVulkan_InitInfo init_info{};
-        init_info.Instance = context->GetInstance();
-        init_info.PhysicalDevice = context->GetPhyDevice();
+        init_info.Instance = vkContext->GetInstance();
+        init_info.PhysicalDevice = vkContext->GetPhyDevice();
         init_info.Device = device->GetHandle();
-        init_info.QueueFamily = context->GetGraphicQueueFamilyInfo().queueFamilyIndex;
-        init_info.Queue = device->GetFirstGraphicQueue()->GetQueue();
+        init_info.QueueFamily = vkContext->GetGraphicQueueFamilyInfo().queueFamilyIndex;
+        init_info.Queue = device->GetFirstGraphicQueue()->GetHandle();
         init_info.PipelineCache = device->GetPipelineCache();
         init_info.DescriptorPool = mGuiDescriptorPool->GetHandle();
         init_info.Subpass = 0;
@@ -138,11 +160,11 @@ namespace ade{
         init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
         init_info.Allocator = nullptr;
         init_info.CheckVkResultFn = CheckGuiVKResult;
-        init_info.RenderPass = mGuiRenderTarget->GetRenderPass()->GetHandle()->GetRenderPass();
+        init_info.RenderPass = mGuiRenderPass->GetHandle();
         ImGui_ImplVulkan_Init(&init_info);
 
-        mGuiCmdPool = std::make_shared<ade::AdVKCommandPool>(device, (uint32_t)context->GetGraphicQueueFamilyInfo().queueFamilyIndex);
-        mGuiCmdBuffers = mGuiCmdPool->AllocateCmdBuffer(imageCount);
+        mGuiCmdPool = std::make_shared<ade::AdVKCommandPool>(device, (uint32_t)vkContext->GetGraphicQueueFamilyInfo().queueFamilyIndex);
+        mGuiCmdBuffers = mGuiCmdPool->AllocateCommandBuffer(imageCount);
     }
 
     void AdEditorApp::MergeIconFonts() {
@@ -154,8 +176,8 @@ namespace ade{
         io.Fonts->AddFontFromFileTTF(AD_RES_FONT_DIR"fa-solid-900.ttf", 13.f, &config, iconsRanges);
     }
 
-    AdRenderTarget* AdEditorApp::AddViewportWindow(AdRenderPass *renderPass, AdNode *defaultCamera, uint32_t *outIndex) {
-        std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(mRenderContext.get(), renderPass, VkExtent2D{ 100, 100 }, 1);
+    AdRenderTarget* AdEditorApp::AddViewportWindow(AdVKRenderPass *renderPass, AdEntity *defaultCamera, uint32_t *outIndex) {
+        std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(renderPass, 1, VkExtent2D{ 100, 100 });
         newRenderTarget->SetCamera(defaultCamera);
         mSceneRenderTargets.push_back(newRenderTarget);
         mMainWindow.AddViewportWindow(newRenderTarget.get());
@@ -169,27 +191,6 @@ namespace ade{
         if(index <= mSceneRenderTargets.size() - 1){
             mMainWindow.RemoveViewportWindow(mSceneRenderTargets[index].get());
             mSceneRenderTargets.erase(mSceneRenderTargets.begin() + index);
-        }
-    }
-
-    void AdEditorApp::OnRender() {
-        if(mSceneRenderTargets.empty()){
-            return;
-        }
-        for(int i = 0; i < mSceneRenderTargets.size(); i++){
-            std::shared_ptr<ade::AdVKCommandBuffer> cmdBuffer = mSceneCmdBuffers[i];
-            cmdBuffer->Begin();
-            AdRenderTarget *sceneRenderTarget = mSceneRenderTargets[i].get();
-            sceneRenderTarget->Begin(mFrameIndex);
-            sceneRenderTarget->GetRenderPass()->Begin(cmdBuffer->GetCmdBuffer(), sceneRenderTarget);
-            sceneRenderTarget->GetRenderPass()->OnRenderSystems(cmdBuffer.get(), sceneRenderTarget);
-            sceneRenderTarget->GetRenderPass()->End(cmdBuffer->GetCmdBuffer());
-            sceneRenderTarget->End();
-            cmdBuffer->End();
-            ade::AdVKDevice *device = mRenderContext->GetDevice();
-            ade::AdVKQueue *graphicQueue = device->GetFirstGraphicQueue();
-            graphicQueue->Submit({ cmdBuffer->GetCmdBuffer() });
-            graphicQueue->WaitIdle();
         }
     }
 }

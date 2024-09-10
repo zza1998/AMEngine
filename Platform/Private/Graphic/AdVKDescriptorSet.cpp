@@ -17,11 +17,11 @@ namespace ade{
         VK_D(DescriptorSetLayout, mDevice->GetHandle(), mHandle);
     }
 
-    AdVKDescriptorPool::AdVKDescriptorPool(AdVKDevice *device, uint32_t maxSets, const std::vector<VkDescriptorPoolSize> &poolSizes) : mDevice(device) {
+    AdVKDescriptorPool::AdVKDescriptorPool(AdVKDevice *device, uint32_t maxSets, const std::vector<VkDescriptorPoolSize> &poolSizes,const VkDescriptorPoolCreateFlags flags) : mDevice(device) {
         VkDescriptorPoolCreateInfo descriptorPoolInfo = {
                 .sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO,
                 .pNext = nullptr,
-                .flags = 0,
+                .flags = flags,
                 .maxSets = maxSets,
                 .poolSizeCount = static_cast<uint32_t>(poolSizes.size()),
                 .pPoolSizes = poolSizes.data()

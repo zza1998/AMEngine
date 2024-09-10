@@ -3,16 +3,22 @@
 #include "Graphic/AdVKFrameBuffer.h"
 
 namespace ade{
-    AdVKRenderPass::AdVKRenderPass(AdVKDevice *device, const std::vector<Attachment> &attachments, const std::vector<RenderSubPass> &subPasses)
+    /*AdVKRenderPass::AdVKRenderPass(AdVKDevice *device, const std::vector<Attachment> &attachments,
+        const std::vector<RenderSubPass> &subPasses): mDevice(device), mAttachments(attachments), mSubPasses(subPasses) {
+        AdVKRenderPass(device,true,attachments,subPasses);
+    }*/
+
+    AdVKRenderPass::AdVKRenderPass(AdVKDevice *device,const std::vector<Attachment> &attachments, const std::vector<RenderSubPass> &subPasses, bool clearColor )
                                         : mDevice(device), mAttachments(attachments), mSubPasses(subPasses) {
         //1. default subpass and attachment
         if(mSubPasses.empty()){
             mAttachments = {{
                 .format = device->GetSettings().surfaceFormat,
-                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
+                .loadOp = clearColor ? VK_ATTACHMENT_LOAD_OP_CLEAR : VK_ATTACHMENT_LOAD_OP_LOAD,
                 .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
                 .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
                 .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                .initialLayout = clearColor? VK_IMAGE_LAYOUT_UNDEFINED:VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
                 .finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
                 .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT
             }};
@@ -83,6 +89,17 @@ namespace ade{
                 dependencies[i].dstAccessMask   = VK_ACCESS_INPUT_ATTACHMENT_READ_BIT;
                 dependencies[i].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
             }
+            if(!clearColor) {
+                for(int i = 0; i < dependencies.size(); i++){
+                    dependencies[i].srcSubpass      = VK_SUBPASS_EXTERNAL;
+                    dependencies[i].dstSubpass      = 0;
+                    dependencies[i].srcStageMask    = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+                    dependencies[i].dstStageMask    = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+                    dependencies[i].srcAccessMask   = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+                    dependencies[i].dstAccessMask   = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+                    dependencies[i].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
+                }
+            }
         }
 
         //3. createinfo
@@ -112,9 +129,10 @@ namespace ade{
                 .dependencyCount = static_cast<uint32_t>(dependencies.size()),
                 .pDependencies = dependencies.data()
         };
-        CALL_VK(vkCreateRenderPass(mDevice->GetHandle(), &renderPassInfo, nullptr, &mHandle));
+        VkResult rt = vkCreateRenderPass(mDevice->GetHandle(), &renderPassInfo, nullptr, &mHandle);
         LOG_T("RenderPass {0} : {1}, attachment count: {2}, subpass count: {3}", __FUNCTION__, (void*)mHandle, mAttachments.size(), mSubPasses.size());
     }
+
 
     AdVKRenderPass::~AdVKRenderPass() {
         VK_D(RenderPass, mDevice->GetHandle(), mHandle);
@@ -132,7 +150,7 @@ namespace ade{
                 .framebuffer = frameBuffer->GetHandle(),
                 .renderArea = renderArea,
                 .clearValueCount = static_cast<uint32_t>(clearValues.size()),
-                .pClearValues = clearValues.data()
+                .pClearValues = clearValues.size() == 0 ? nullptr : clearValues.data()
         };
         vkCmdBeginRenderPass(cmdBuffer, &beginInfo, VK_SUBPASS_CONTENTS_INLINE);
     }

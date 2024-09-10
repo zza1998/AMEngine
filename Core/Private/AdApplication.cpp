@@ -20,7 +20,6 @@ namespace ade{
 
         OnInit();
         LoadScene();
-
         mStartTimePoint = std::chrono::steady_clock::now();
     }
 

@@ -25,12 +25,14 @@ namespace ade{
     private:
         void ReCreateMaterialDescPool(uint32_t materialCount);
         void UpdateFrameUboDescSet(AdRenderTarget *renderTarget);
+        void UpdateLightUboDescSet(AdPhongMaterial *material);
         void UpdateMaterialParamsDescSet(VkDescriptorSet descSet, AdPhongMaterial *material);
         void UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdPhongMaterial *material);
 
         std::shared_ptr<AdVKDescriptorSetLayout> mFrameUboDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialParamDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialResourceDescSetLayout;
+        std::shared_ptr<AdVKDescriptorSetLayout> mLightDescSetLayout;
 
         std::shared_ptr<AdVKPipelineLayout> mPipelineLayout;
         std::shared_ptr<AdVKPipeline> mPipeline;
@@ -39,7 +41,9 @@ namespace ade{
         std::shared_ptr<AdVKDescriptorPool> mMaterialDescriptorPool;
 
         VkDescriptorSet mFrameUboDescSet;
+        VkDescriptorSet mLightUboDescSet;
         std::shared_ptr<AdVKBuffer> mFrameUboBuffer;
+        std::shared_ptr<AdVKBuffer> mLightUboBuffer;
 
         uint32_t mLastDescriptorSetCount = 0;
         std::vector<VkDescriptorSet> mMaterialDescSets;

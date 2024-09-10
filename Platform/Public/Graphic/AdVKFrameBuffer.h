@@ -15,6 +15,7 @@ namespace ade{
         ~AdVKFrameBuffer();
 
         bool ReCreate(const std::vector<std::shared_ptr<AdVKImage>> &images, uint32_t width, uint32_t height);
+        VkImageView GetFinalColorAttachment() const { return mAttachments[mFinalColorAttachmentIdx]; }
 
         VkFramebuffer GetHandle() const { return mHandle; }
         uint32_t GetWidth() const { return mWidth; }
@@ -27,6 +28,9 @@ namespace ade{
         uint32_t mHeight;
         std::vector<std::shared_ptr<AdVKImage>> mImages;
         std::vector<std::shared_ptr<AdVKImageView>> mImageViews;
+
+        uint32_t mFinalColorAttachmentIdx;
+        std::vector<VkImageView> mAttachments;
     };
 }
 

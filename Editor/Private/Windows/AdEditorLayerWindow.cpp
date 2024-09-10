@@ -1,4 +1,4 @@
-#include "Window/AdEditorLayerWindow.h"
+/*#include "Window/AdEditorLayerWindow.h"
 #include "AdApplication.h"
 #include "ECS/AdNode.h"
 #include "ECS/Component/AdNodeStatusComponent.h"
@@ -128,4 +128,4 @@ namespace ade{
         }
         ImGui::EndGroup();
     }
-}
+}*/

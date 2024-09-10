@@ -20,9 +20,11 @@ namespace ade{
 
     class AdVKDescriptorPool{
     public:
-        AdVKDescriptorPool(AdVKDevice *device, uint32_t maxSets, const std::vector<VkDescriptorPoolSize> &poolSizes);
+        AdVKDescriptorPool(AdVKDevice *device, uint32_t maxSets, const std::vector<VkDescriptorPoolSize> &poolSizes, const VkDescriptorPoolCreateFlags flags = 0);
         ~AdVKDescriptorPool();
 
+
+        VkDescriptorPool GetHandle() const { return mHandle; }
         std::vector<VkDescriptorSet> AllocateDescriptorSet(AdVKDescriptorSetLayout *setLayout, uint32_t count);
     private:
         VkDescriptorPool mHandle = VK_NULL_HANDLE;

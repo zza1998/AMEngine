@@ -21,13 +21,17 @@ namespace ade{
         entt::registry &GetEcsRegistry() { return mEcsRegistry; }
         AdNode *GetRootNode() const { return mRootNode.get(); }
         AdEntity *GetEntity(entt::entity enttEntity);
+
+        AdNode *GetPickedNode() const { return mPickedNode; }
+
+        void SetPickedNode(AdNode *node) { mPickedNode = node; }
     private:
         std::string mName;
         entt::registry mEcsRegistry;
 
         std::unordered_map<entt::entity, std::shared_ptr<AdEntity>> mEntities;
         std::shared_ptr<AdNode> mRootNode;
-
+        AdNode *mPickedNode = nullptr;
         friend class AdEntity;
     };
 }

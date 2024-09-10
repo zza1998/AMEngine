@@ -19,6 +19,9 @@ namespace ade{
         void Stop();
         void MainLoop();
 
+
+        AdWindow *GetWindow() const { return mWindow.get(); }
+        AdScene *GetScene() const { return mScene.get(); }
         bool IsPause() const { return bPause; }
         void Pause() { bPause = true; }
         void Resume() { if(bPause) bPause = false; }
@@ -28,7 +31,7 @@ namespace ade{
     protected:
         virtual void OnConfiguration(AppSettings *appSettings){}
         virtual void OnInit(){}
-        virtual void OnRenderGui(float deltaTime){}
+        //virtual void OnRenderGui(float deltaTime){}
         virtual void OnUpdate(float deltaTime){}
         virtual void OnRender(){}
         virtual void OnDestroy(){}

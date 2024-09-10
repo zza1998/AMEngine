@@ -12,17 +12,17 @@ namespace ade{
         AdEntity *owner = GetOwner();
         if(AdEntity::HasComponent<AdTransformComponent>(owner)){
             auto &transComp = owner->GetComponent<AdTransformComponent>();
-            float yaw = transComp.rotation.x;
-            float pitch = transComp.rotation.y;
+            float yaw = transComp.GetRotation().x;
+            float pitch = transComp.GetRotation().y;
 
             glm::vec3 direction;
             direction.x = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
             direction.y = sin(glm::radians(pitch));
             direction.z = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
 
-            transComp.position = mTarget + direction * mRadius;
+            transComp.SetPosition(mTarget + direction * mRadius);
 
-            mViewMat = glm::lookAt(transComp.position, mTarget, mWorldUp);
+            mViewMat = glm::lookAt(transComp.GetPosition(), mTarget, mWorldUp);
         }
         return mViewMat;
     }

@@ -45,6 +45,36 @@ endif()
 target_include_directories(adiosy_platform PUBLIC ${Vulkan_INCLUDE_DIRS})
 target_link_libraries(adiosy_platform PRIVATE ${Vulkan_LIBRARY})
 
+# imgui
+add_library(imgui
+        External/imgui/imconfig.h
+        External/imgui/imgui.cpp
+        External/imgui/imgui.h
+        External/imgui/imgui_demo.cpp
+        External/imgui/imgui_draw.cpp
+        External/imgui/imgui_impl_glfw.cpp
+        External/imgui/imgui_impl_glfw.h
+        External/imgui/imgui_impl_vulkan.cpp
+        External/imgui/imgui_impl_vulkan.h
+        External/imgui/imgui_internal.h
+        External/imgui/imgui_tables.cpp
+        External/imgui/imgui_widgets.cpp
+        External/imgui/imstb_rectpack.h
+        External/imgui/imstb_textedit.h
+        External/imgui/imstb_truetype.h
+
+        External/imgui/implot.cpp
+        External/imgui/implot.h
+        External/imgui/implot_demo.cpp
+        External/imgui/implot_internal.h
+        External/imgui/implot_items.cpp
+
+        External/imgui/ImGuizmo.cpp
+        External/imgui/ImGuizmo.h
+)
+target_include_directories(imgui PRIVATE ${Vulkan_INCLUDE_DIRS})
+target_link_libraries(imgui PRIVATE ${Vulkan_LIBRARY} glfw)
+target_link_libraries(adiosy_platform PRIVATE imgui)
 
 
 target_include_directories(adiosy_platform PUBLIC External/assimp/include)
