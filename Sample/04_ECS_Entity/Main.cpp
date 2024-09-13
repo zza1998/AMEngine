@@ -29,7 +29,7 @@ protected:
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
-        AdEditorApp::OnInit();
+
         std::vector<ade::Attachment> attachments = {
             {
                 .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
@@ -68,6 +68,7 @@ protected:
         mRenderTarget->AddMaterialSystem<ade::AdBaseMaterialSystem>();
         mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
 
+
         mRenderer = std::make_shared<ade::AdRenderer>();
 
         mCmdBuffers = device->GetDefaultCmdPool()->AllocateCommandBuffer(swapchain->GetImages().size());
@@ -97,6 +98,8 @@ protected:
                        cameraComp.SetRadius(radius);
                    }
                });
+        // 初始化imgui
+        AdEditorApp::OnInit();
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
@@ -183,27 +186,31 @@ protected:
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
 
-        int32_t imageIndex;
+
         if(mRenderer->Begin(&imageIndex)){
             mRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
+            mGuiRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
         }
 
         VkCommandBuffer cmdBuffer = mCmdBuffers[imageIndex];
         ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
-
         mRenderTarget->Begin(cmdBuffer);
         mRenderTarget->RenderMaterialSystems(cmdBuffer);
         mRenderTarget->End(cmdBuffer);
-
         ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
+
+        AdEditorApp::OnRender();
+
         // 确保swapchain 变化后处理
-        if(mRenderer->End(imageIndex, { cmdBuffer })){
+        if(mRenderer->End(imageIndex, { cmdBuffer,mGuiCmdBuffers[imageIndex] })){
             mRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
+            mGuiRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
         }
         CameraChange();
 
-        AdEditorApp::OnRender();
+
     }
+
 
     void CameraChange() {
         ade::AdEntity *camera = mRenderTarget->GetCamera();

@@ -41,7 +41,7 @@ namespace ade{
         CALL_VK(device->CreateSimpleSampler(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER, &mSampler));
     }
 
-    void AdRenderTarget::ReCreate() {
+    void AdRenderTarget::ReCreate(std::vector<std::vector<std::shared_ptr<AdVKImage>>> images) {
         if(mExtent.width == 0 || mExtent.height == 0){
             return;
         }

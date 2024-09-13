@@ -19,7 +19,7 @@ namespace ade{
 
     struct PhongMaterialUbo{
         alignas(16) glm::vec3 baseColor0;
-        alignas(16) glm::vec3 specular{ 0.5f, 0.5f, 0.5f };
+        alignas(16) glm::vec3 specular{ 0.2f, 0.2f, 0.2f };
         alignas(16) TextureParam textureParam0;
         alignas(4) float shininess{ 2.f };
     };

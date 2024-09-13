@@ -18,7 +18,7 @@ namespace ade{
                 .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
                 .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
                 .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                .initialLayout = clearColor? VK_IMAGE_LAYOUT_UNDEFINED:VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
+                .initialLayout = clearColor? VK_IMAGE_LAYOUT_UNDEFINED : VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
                 .finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
                 .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT
             }};
@@ -89,16 +89,17 @@ namespace ade{
                 dependencies[i].dstAccessMask   = VK_ACCESS_INPUT_ATTACHMENT_READ_BIT;
                 dependencies[i].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
             }
-            if(!clearColor) {
-                for(int i = 0; i < dependencies.size(); i++){
-                    dependencies[i].srcSubpass      = VK_SUBPASS_EXTERNAL;
-                    dependencies[i].dstSubpass      = 0;
-                    dependencies[i].srcStageMask    = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-                    dependencies[i].dstStageMask    = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-                    dependencies[i].srcAccessMask   = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
-                    dependencies[i].dstAccessMask   = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
-                    dependencies[i].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
-                }
+        }
+        if(!clearColor) {
+            dependencies.resize(mSubPasses.size());
+            for(int i = 0; i < dependencies.size(); i++){
+                dependencies[i].srcSubpass      = VK_SUBPASS_EXTERNAL;
+                dependencies[i].dstSubpass      = 0;
+                dependencies[i].srcStageMask    = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+                dependencies[i].dstStageMask    = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+                dependencies[i].srcAccessMask   = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+                dependencies[i].dstAccessMask   = 0;
+                dependencies[i].dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
             }
         }
 

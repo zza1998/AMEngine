@@ -86,14 +86,15 @@ namespace ade{
             ImGui::End();
             ImGui::PopStyleVar();
 
-            if(bOpens.bOpenDemoWindow){
-                ImGui::ShowDemoWindow(&bOpens.bOpenDemoWindow);
+            //if(bOpens.bOpenDemoWindow){
+                //ImGui::ShowDemoWindow(&bOpens.bOpenDemoWindow);
                 //ImPlot::ShowDemoWindow(&bOpens.bOpenDemoWindow);
-            }
+            //}
 
-            if(bOpens.bOpenContentWindow){
+            /*if(bOpens.bOpenContentWindow){
                 mEditorContentWindow.Draw(&bOpens.bOpenContentWindow);
             }
+            */
 
             /*if(bOpens.bOpenLayerWindow){
                 mEditorLayerWindow.Draw(&bOpens.bOpenLayerWindow);

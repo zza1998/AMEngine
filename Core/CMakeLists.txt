@@ -28,3 +28,7 @@ add_library(adiosy_core
         Private/Gui/Widget/AdWidget.cpp
 )
 target_link_libraries(adiosy_core PUBLIC adiosy_platform)
+
+if(WIN32)
+    target_compile_definitions(adiosy_platform PUBLIC NOMINMAX)
+endif()

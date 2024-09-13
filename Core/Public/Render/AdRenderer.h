@@ -13,9 +13,12 @@ namespace ade{
 
         bool Begin(int32_t *outImageIndex);
         bool End(int32_t imageIndex, const std::vector<VkCommandBuffer> &cmdBuffers);
+
+        void Present();
     private:
         uint32_t mCurrentBuffer = 0;
         std::vector<VkSemaphore> mImageAvailableSemaphores;
+        std::vector<VkSemaphore> mRenderFinishedSemaphores;
         std::vector<VkSemaphore> mSubmitedSemaphores;
         std::vector<VkFence> mFrameFences;
     };

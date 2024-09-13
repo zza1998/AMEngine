@@ -8,7 +8,7 @@ namespace ade{
     struct AppSettings{
         uint32_t width = 800;
         uint32_t height = 600;
-        const char *title = "Adiosy Engine";
+        const char *title = "AM Engine";
     };
 
     class AdApplication{

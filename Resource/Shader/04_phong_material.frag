@@ -39,7 +39,7 @@ void main()
 
     //vec4 diff = vec4(Color, 1.0) * max(dot(inNormal, inLightVec), 0.0);
     vec4 diff = vec4(Color, 1.0);
-    vec4 spec = vec4(specs, 1) * pow(max(dot(Reflected, Eye), 0.0), 2.0) * materialUbo.shininess;
+    vec4 spec = vec4(materialUbo.specs, 1) * pow(max(dot(Reflected, Eye), 0.0), 2.0) * materialUbo.shininess;
 
     outFragColor = diff + spec;
     outFragColor.a = 1.0;

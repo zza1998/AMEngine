@@ -9,6 +9,7 @@ namespace ade{
 
         mImageAvailableSemaphores.resize(RENDERER_NUM_BUFFER);
         mSubmitedSemaphores.resize(RENDERER_NUM_BUFFER);
+        mRenderFinishedSemaphores.resize(RENDERER_NUM_BUFFER);
         mFrameFences.resize(RENDERER_NUM_BUFFER);
         VkSemaphoreCreateInfo semaphoreInfo = {
                 .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
@@ -24,6 +25,7 @@ namespace ade{
         for(int i = 0; i < RENDERER_NUM_BUFFER; i++){
             CALL_VK(vkCreateSemaphore(device->GetHandle(), &semaphoreInfo, nullptr, &mImageAvailableSemaphores[i]));
             CALL_VK(vkCreateSemaphore(device->GetHandle(), &semaphoreInfo, nullptr, &mSubmitedSemaphores[i]));
+            CALL_VK(vkCreateSemaphore(device->GetHandle(), &semaphoreInfo, nullptr, &mRenderFinishedSemaphores[i]));
             CALL_VK(vkCreateFence(device->GetHandle(), &fenceInfo, nullptr, &mFrameFences[i]));
         }
     }
@@ -35,6 +37,9 @@ namespace ade{
             VK_D(Semaphore, device->GetHandle(), item);
         }
         for (const auto &item: mSubmitedSemaphores){
+            VK_D(Semaphore, device->GetHandle(), item);
+        }
+        for (const auto &item: mRenderFinishedSemaphores){
             VK_D(Semaphore, device->GetHandle(), item);
         }
         for (const auto &item: mFrameFences){
@@ -97,5 +102,9 @@ namespace ade{
         CALL_VK(vkDeviceWaitIdle(device->GetHandle()));
         mCurrentBuffer = (mCurrentBuffer + 1) % RENDERER_NUM_BUFFER;
         return bShouldUpdateTarget;
+    }
+
+    void AdRenderer::Present() {
+
     }
 }

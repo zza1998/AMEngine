@@ -24,6 +24,7 @@ namespace ade{
         AdEntity *GetCamera() const { return mCamera; }
         uint32_t GetBufferCount() const { return mBufferCount; }
         VkSampler GetDefaultSampler() const { return mSampler; }
+
         void SetExtent(const VkExtent2D &extent);
         void SetBufferCount(uint32_t bufferCount);
         void ClearColorClearValue();
@@ -47,11 +48,10 @@ namespace ade{
         }
 
         void SetCamera(AdEntity *camera) { mCamera = camera; }
-        void ReCreate();
+        void ReCreate(std::vector<std::vector<std::shared_ptr<AdVKImage>>> images={});
     private:
         void Init();
         std::vector<std::shared_ptr<AdVKFrameBuffer>> mFrameBuffers;
-
         AdVKRenderPass *mRenderPass;
         std::vector<VkClearValue> mClearValues;
         uint32_t mBufferCount;

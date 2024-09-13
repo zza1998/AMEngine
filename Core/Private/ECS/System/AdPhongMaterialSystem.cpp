@@ -205,7 +205,7 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                     updateFlags[materialIndex] = true;
                 }
 
-                VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, paramsDescSet, resourceDescSet };
+                VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, paramsDescSet, resourceDescSet ,mLightUboDescSet};
                 vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mPipelineLayout->GetHandle(),
                                         0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
 
