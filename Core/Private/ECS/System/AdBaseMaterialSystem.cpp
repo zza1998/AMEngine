@@ -98,7 +98,7 @@ namespace ade{
         glm::mat4 viewMat = GetViewMat(renderTarget);
 
         // setup custom params
-        view.each([this, &cmdBuffer, &projMat, &viewMat](const auto &e, const AdTransformComponent &transComp, const AdBaseMaterialComponent &materialComp){
+        view.each([this, &cmdBuffer, &projMat, &viewMat](const auto &e, AdTransformComponent &transComp, const AdBaseMaterialComponent &materialComp){
             auto meshMaterials = materialComp.GetMeshMaterials();
             for (const auto &entry: meshMaterials){
                 AdBaseMaterial *material = entry.first;

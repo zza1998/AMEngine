@@ -18,9 +18,15 @@ namespace ade{
 
         AdVKRenderPass *GetRenderPass() const { return mRenderPass; }
         AdVKFrameBuffer *GetFrameBuffer() const { return mFrameBuffers[mCurrentBufferIdx].get(); }
-
+        AdVKFrameBuffer *GetFrameBuffer(uint32_t index) const { return mFrameBuffers[index].get(); }
+        uint32_t GetCurrentBufferIdx() const { return mCurrentBufferIdx; }
+        VkExtent2D GetExtent() const { return mExtent; }
+        AdEntity *GetCamera() const { return mCamera; }
+        uint32_t GetBufferCount() const { return mBufferCount; }
+        VkSampler GetDefaultSampler() const { return mSampler; }
         void SetExtent(const VkExtent2D &extent);
         void SetBufferCount(uint32_t bufferCount);
+        void ClearColorClearValue();
 
         void SetColorClearValue(VkClearColorValue colorClearValue);
         void SetColorClearValue(uint32_t attachmentIndex, VkClearColorValue colorClearValue);
@@ -41,11 +47,9 @@ namespace ade{
         }
 
         void SetCamera(AdEntity *camera) { mCamera = camera; }
-        AdEntity *GetCamera() const { return mCamera; }
+        void ReCreate();
     private:
         void Init();
-        void ReCreate();
-
         std::vector<std::shared_ptr<AdVKFrameBuffer>> mFrameBuffers;
 
         AdVKRenderPass *mRenderPass;
@@ -53,6 +57,7 @@ namespace ade{
         uint32_t mBufferCount;
         uint32_t mCurrentBufferIdx = 0;
         VkExtent2D mExtent;
+        VkSampler mSampler = VK_NULL_HANDLE;
 
         bool bSwapchainTarget = false;
         bool bBeginTarget = false;

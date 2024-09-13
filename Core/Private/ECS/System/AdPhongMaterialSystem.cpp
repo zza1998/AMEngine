@@ -56,7 +56,18 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             };
             mMaterialResourceDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
         }
-
+        // Light UBO
+        {
+                const std::vector<VkDescriptorSetLayoutBinding> bindings = {
+                    {
+                        .binding = 0,
+                        .descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,
+                        .descriptorCount = 1,
+                        .stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+                    }
+                };
+                mLightDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
+        }
         VkPushConstantRange modelPC = {
             .stageFlags = VK_SHADER_STAGE_VERTEX_BIT,
             .offset = 0,
@@ -64,7 +75,8 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         };
 
         ShaderLayout shaderLayout = {
-            .descriptorSetLayouts = { mFrameUboDescSetLayout->GetHandle(), mMaterialParamDescSetLayout->GetHandle(), mMaterialResourceDescSetLayout->GetHandle() },
+            .descriptorSetLayouts = { mFrameUboDescSetLayout->GetHandle(), mMaterialParamDescSetLayout->GetHandle(),
+                mMaterialResourceDescSetLayout->GetHandle() ,mLightDescSetLayout->GetHandle()},
             .pushConstants = { modelPC }
         };
         mPipelineLayout = std::make_shared<AdVKPipelineLayout>(device,
@@ -118,10 +130,11 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                 .descriptorCount = 1
             }
         };
-        mDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 1, poolSizes);
+        mDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 10, poolSizes);
         mFrameUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
+        mLightUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
         mFrameUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(FrameUbo), nullptr, true);
-
+        mLightUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(LightUbo), nullptr, true);
         ReCreateMaterialDescPool(NUM_MATERIAL_BATCH);
     }
 
@@ -181,6 +194,8 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                         //LOG_T("Update material params : {0}", materialIndex);
                         UpdateMaterialParamsDescSet(paramsDescSet, material);
                         material->FinishFlushParams();
+                        // modify light
+                        UpdateLightUboDescSet(material);
                     }
                     if(material->ShouldFlushResource() || bShouldForceUpdateMaterial){
                         //LOG_T("Update material resource : {0}", materialIndex);
@@ -277,6 +292,19 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         mFrameUboBuffer->WriteData(&frameUbo);
         VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mFrameUboBuffer->GetHandle(), 0, sizeof(frameUbo));
         VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mFrameUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
+        DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
+    }
+
+    void AdPhongMaterialSystem::UpdateLightUboDescSet(AdPhongMaterial *material) {
+        AdVKDevice *device = GetDevice();
+
+        LightUbo lightUbo = {
+            .light = material->GetLight().light
+        };
+
+        mLightUboBuffer->WriteData(&lightUbo);
+        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mLightUboBuffer->GetHandle(), 0, sizeof(lightUbo));
+        VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mLightUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
         DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }
 

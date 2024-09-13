@@ -1,3 +1,4 @@
+#include <AdEditorApp.h>
 #include <ECS/Component/Material/AdPhongMaterialComponent.h>
 
 #include <Loader/ModelLoader.h>
@@ -14,7 +15,8 @@
 #include "ECS/System/AdBaseMaterialSystem.h"
 #include "ECS/Component/AdLookAtCameraComponent.h"
 #include "ECS/System/AdPhongMaterialSystem.h"
-class SandBoxApp : public ade::AdApplication{
+#include "Event/AdEventObserver.h"
+class SandBoxApp : public ade::AdEditorApp{
 protected:
     void OnConfiguration(ade::AppSettings *appSettings) override {
         appSettings->width = 1360;
@@ -23,10 +25,11 @@ protected:
     }
 
     void OnInit() override {
+
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
-
+        AdEditorApp::OnInit();
         std::vector<ade::Attachment> attachments = {
             {
                 .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
@@ -82,6 +85,18 @@ protected:
         };
         mMultiPixelTexture = std::make_shared<ade::AdTexture>(2, 2, multiColors);
 
+        mObserver = std::make_shared<ade::AdEventObserver>();
+        mObserver->OnEvent<ade::AdMouseScrollEvent>([this](const ade::AdMouseScrollEvent &event){
+                   ade::AdEntity *camera = mRenderTarget->GetCamera();
+                   if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)){
+                       auto &cameraComp = camera->GetComponent<ade::AdLookAtCameraComponent>();
+                       float radius = cameraComp.GetRadius() + event.mYOffset * -0.3f;
+                       if(radius < 0.1f){
+                           radius = 0.1f;
+                       }
+                       cameraComp.SetRadius(radius);
+                   }
+               });
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
@@ -108,22 +123,23 @@ protected:
             for (auto meshTexture : pairs) {
                 auto phongLisa = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPhongMaterial>();
                 phongLisa->SetBaseColor0(glm::linearRand(glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f)));
+                phongLisa->SetLightParam0(glm::vec3(0,-5,-5));
                 phongLisa->SetTextureView(0,mTestModel->mMaterials[meshTexture.second].get(),mDefaultSampler.get());
                 materialComp.AddMesh(meshTexture.first.get(), phongLisa);
             }
             auto &transComp = lisa->GetComponent<ade::AdTransformComponent>();
-            transComp.scale = { 0.1f, 0.1f, 0.1f };
-            transComp.position = { 0.f, -0.8f, 0.0f };
-            transComp.rotation = { 0.f, 0.f, 0.f };
+            transComp.SetScale({ 0.1f, 0.1f, 0.1f });
+            transComp.SetPosition({ 0.f, -0.8f, 0.0f });
+            transComp.SetRotation( { 0.f, 0.f, 0.f });
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 1");
             auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), phong);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.scale = { 0.5f, 0.5f, 0.5f };
-            transComp.position = { -1.f, 0.f, 0.0f };
-            transComp.rotation = { 0.f, 0.f, 0.f };
+            transComp.SetScale({ 0.5f, 0.5f, 0.5f });
+            transComp.SetPosition({ -1.f, 0.f, 0.0f });
+            transComp.SetRotation( { 0.f, 0.f, 0.f });
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 2");
@@ -131,27 +147,27 @@ protected:
             materialComp.AddMesh(mCubeMesh.get(), phong);
             phong->SetTextureView(0, mTexture0.get(), mDefaultSampler.get());
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.scale = { 0.5f, 0.5f, 0.5f };
-            transComp.position = { -0.5f, -1.f, 0.0f };
-            transComp.rotation = { 0.f, 0.f, 0.f };
+            transComp.SetScale({ 0.5f, 0.5f, 0.5f });
+            transComp.SetPosition({ -0.5f, -1.f, 0.0f });
+            transComp.SetRotation( { 0.f, 0.f, 0.f });
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 3");
             auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), baseMat1);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.scale = { 0.5f, 0.5f, 0.5f };
-            transComp.position = { 0.5f, -1.f, 0.0f };
-            transComp.rotation = { 0.f, 0.f, 0.f };
+            transComp.SetScale({ 0.5f, 0.5f, 0.5f });
+            transComp.SetPosition({ 0.5f, -1.f, 0.0f });
+            transComp.SetRotation( { 0.f, 0.f, 0.f });
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 4");
             auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), baseMat1);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.scale = { 0.5f, 0.5f, 0.5f };
-            transComp.position = { 1.f, 0.f, 0.0f };
-            transComp.rotation = { 17.f, 30.f, 0.f };
+            transComp.SetScale({ 0.5f, 0.5f, 0.5f });
+            transComp.SetPosition({ 0.5f, -1.f, 0.0f });
+            transComp.SetRotation( { 17.f, 30.f, 0.f });
         }
     }
 
@@ -185,6 +201,8 @@ protected:
             mRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
         }
         CameraChange();
+
+        AdEditorApp::OnRender();
     }
 
     void CameraChange() {
@@ -205,20 +223,17 @@ protected:
                     bFirstMouseDrag = false;
                 } else {
                     auto &transComp = camera->GetComponent<ade::AdTransformComponent>();
-                    float yaw = transComp.rotation.x;
-                    float pitch = transComp.rotation.y;
+                    glm::vec3 rotation = transComp.GetRotation();
+                    rotation.x += mousePosDelta.x * mMouseSensitivity;
+                    rotation.y += mousePosDelta.y * mMouseSensitivity;
 
-                    yaw += mousePosDelta.x * mMouseSensitivity;
-                    pitch += mousePosDelta.y * mMouseSensitivity;
-
-                    if(pitch > 89.f){
-                        pitch = 89.f;
+                    if( rotation.x > 89.f){
+                         rotation.x = 89.f;
                     }
-                    if(pitch < -89.f){
-                        pitch = -89.f;
+                    if(rotation.y < -89.f){
+                        rotation.y = -89.f;
                     }
-                    transComp.rotation.x = yaw;
-                    transComp.rotation.y = pitch;
+                    transComp.SetRotation(rotation);
                 }
             }
         }
@@ -237,6 +252,8 @@ protected:
         mDefaultSampler.reset();
         mTestModel.reset();
         mTexture0.reset();
+        mObserver.reset();
+        AdEditorApp::OnDestroy();
     }
 private:
     std::shared_ptr<ade::AdVKRenderPass> mRenderPass;
@@ -249,6 +266,8 @@ private:
 
     std::shared_ptr<ade::AdTexture> mMultiPixelTexture;
     std::shared_ptr<ade::AdTexture> mTexture0;
+
+    std::shared_ptr<ade::AdEventObserver> mObserver;
     bool bFirstMouseDrag = true;
     glm::vec2 mLastMousePos;
     float mMouseSensitivity = 0.25f;

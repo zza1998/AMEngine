@@ -28,7 +28,8 @@ namespace ade{
 
     class AdVKRenderPass{
     public:
-        AdVKRenderPass(AdVKDevice *device, const std::vector<Attachment> &attachments = {}, const std::vector<RenderSubPass> &subPasses = {});
+        //AdVKRenderPass(AdVKDevice *device, const std::vector<Attachment> &attachments = {}, const std::vector<RenderSubPass> &subPasses = {});
+        AdVKRenderPass(AdVKDevice *device, const std::vector<Attachment> &attachments = {}, const std::vector<RenderSubPass> &subPasses = {}, bool clearColor = true);
         ~AdVKRenderPass();
 
         VkRenderPass GetHandle() const { return mHandle; }

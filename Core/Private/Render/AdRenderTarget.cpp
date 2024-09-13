@@ -29,12 +29,16 @@ namespace ade{
             item->OnDestroy();
         }
         mMaterialSystemList.clear();
+        VK_D(Sampler,AdApplication::GetAppContext()->renderCxt->GetDevice()->GetHandle(),mSampler);
     }
 
     void AdRenderTarget::Init() {
         mClearValues.resize(mRenderPass->GetAttachmentSize());
         SetColorClearValue({ 0.f, 0.f, 0.f, 1.f });
         SetDepthStencilClearValue({ 1.f, 0 });
+        AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
+        AdVKDevice *device = renderCxt->GetDevice();
+        CALL_VK(device->CreateSimpleSampler(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER, &mSampler));
     }
 
     void AdRenderTarget::ReCreate() {
@@ -111,6 +115,9 @@ namespace ade{
         bShouldUpdate = true;
     }
 
+    void AdRenderTarget::ClearColorClearValue(){
+        mClearValues.clear();
+    }
     void AdRenderTarget::SetColorClearValue(VkClearColorValue colorClearValue) {
         std::vector<Attachment> renderPassAttachments = mRenderPass->GetAttachments();
         for(int i = 0; i < renderPassAttachments.size(); i++){
