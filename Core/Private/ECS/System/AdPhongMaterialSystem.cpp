@@ -193,9 +193,9 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                     if(material->ShouldFlushParams() || bShouldForceUpdateMaterial){
                         //LOG_T("Update material params : {0}", materialIndex);
                         UpdateMaterialParamsDescSet(paramsDescSet, material);
-                        material->FinishFlushParams();
                         // modify light
                         UpdateLightUboDescSet(material);
+                        material->FinishFlushParams();
                     }
                     if(material->ShouldFlushResource() || bShouldForceUpdateMaterial){
                         //LOG_T("Update material resource : {0}", materialIndex);
@@ -204,7 +204,7 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                     }
                     updateFlags[materialIndex] = true;
                 }
-
+                //
                 VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, paramsDescSet, resourceDescSet ,mLightUboDescSet};
                 vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mPipelineLayout->GetHandle(),
                                         0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);

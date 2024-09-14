@@ -25,7 +25,6 @@ protected:
     }
 
     void OnInit() override {
-
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
@@ -100,6 +99,7 @@ protected:
                });
         // ≥ı ºªØimgui
         AdEditorApp::OnInit();
+        //mSceneRenderTargets = std::vector<std::shared_ptr<ade::AdRenderTarget>>{mRenderTarget};
     }
 
     void OnSceneInit(ade::AdScene *scene) override {

@@ -26,7 +26,7 @@ namespace ade{
 
         std::vector<VkCommandBuffer> mGuiCmdBuffers;
         std::shared_ptr<AdRenderTarget> mGuiRenderTarget;
-
+        std::vector<std::shared_ptr<AdRenderTarget>> mSceneRenderTargets;
         int32_t imageIndex;
     private:
         void InitImGui();
@@ -40,7 +40,7 @@ namespace ade{
 
         std::shared_ptr<AdVKRenderPass> mGuiRenderPass;
 
-        std::vector<std::shared_ptr<AdRenderTarget>> mSceneRenderTargets;
+
         std::vector<VkCommandBuffer> mSceneCmdBuffers;
 
         AdEditorMainWindow mMainWindow;

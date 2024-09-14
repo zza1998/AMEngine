@@ -16,16 +16,19 @@ add_library(adiosy_core
         Private/ECS/AdEntity.cpp
         Private/ECS/Component/AdLookAtCameraComponent.cpp
         Private/ECS/Component/AdTransformComponent.cpp
+        Private/ECS/Component/AdPBRMaterialComponent.cpp
         Private/ECS/System/AdMaterialSystem.cpp
         Private/ECS/System/AdBaseMaterialSystem.cpp
         Private/ECS/System/AdUnlitMaterialSystem.cpp
         Private/ECS/System/AdPhongMaterialSystem.cpp
+        Private/ECS/System/AdPBRMaterialSystem.cpp
 
         Private/Loader/ModelLoader.cpp
 
         Private/Gui/Widget/AdFileBrowserWidget.cpp
         Private/Gui/Widget/AdTransformWidget.cpp
         Private/Gui/Widget/AdWidget.cpp
+
 )
 target_link_libraries(adiosy_core PUBLIC adiosy_platform)
 
