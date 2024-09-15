@@ -11,17 +11,20 @@ make -j3
 ```
 
 0908: 
-update assimp importer
-support multi texture model
+
+- update assimp importer
+- support multi texture model
 0915
-support phong pbr material
-support imgui
-enhanced code scalability
+  
+- support phong pbr material
+- support imgui
+- enhanced code scalability
 
 
 todo:
-skybox
-shadow
-postprocess
-deferred pipeline
+
+- skybox
+- shadow
+- postprocess
+- deferred pipeline
 ![model](Resource/Image/model.png)
