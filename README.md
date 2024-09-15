@@ -1,5 +1,6 @@
 # AMEngine
 
+AMengine is a game engine made by vulkan api for learning and is majored in physics and rendering. 
 
 #### Installation
 
