@@ -14,6 +14,7 @@ make -j3
 
 - update assimp importer
 - support multi texture model
+
 0915
   
 - support phong pbr material
