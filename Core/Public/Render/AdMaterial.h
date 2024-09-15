@@ -8,6 +8,15 @@
 
 namespace ade{
 // -------------------------------------------------------------------------------------------------
+
+    struct FrameUbo{
+        glm::mat4  projMat{ 1.f };
+        glm::mat4  viewMat{ 1.f };
+        alignas(8) glm::ivec2 resolution;
+        alignas(4) uint32_t frameId;
+        alignas(4) float time;
+    };
+
     // Shader Params
     struct TextureParam{
         bool enable {true};
@@ -15,6 +24,13 @@ namespace ade{
         alignas(16) glm::vec4 uvTransform { 1.0f, 1.0f, 0.0f, 0.0f };   // x,y --> scale, z,w --> translation
     };
 
+    struct LightUbo{
+        alignas(16) glm::vec3 light{ 0, -5, -5 };
+        /*alignas(16) glm::ivec3 lightCount{ 0, 0, 0 };
+        DirectLight directLight;
+        PointLight pointLights[LIGHT_MAX_COUNT];
+        Spotlight spotlights[LIGHT_MAX_COUNT];*/
+    };
     struct ModelPC{
         alignas(16) glm::mat4 modelMat;
         alignas(16) glm::mat3 normalMat;

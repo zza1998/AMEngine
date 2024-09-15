@@ -25,6 +25,9 @@ namespace ade{
                 observer.func(event);
             }
         }
-        LOG_T("observer count: {0}, timing: {1:.2}ms", observers.size(), stopwatch.elapsed().count() * 1000);
+        if(event.GetEventType() != EVENT_TYPE_MOUSE_MOVED) {
+            LOG_T("observer count: {0}, timing: {1:.2}ms", observers.size(), stopwatch.elapsed().count() * 1000);
+        }
+
     }
 }

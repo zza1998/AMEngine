@@ -10,7 +10,7 @@ namespace ade{
         const glm::mat4 &GetProjMat();
         const glm::mat4 &GetViewMat();
 
-        void UpdateCamera();
+        void UpdateCamera(float deltaTime) const;
         void SetViewMat(const glm::mat4 &viewMat);
 
         float GetFov() const { return mFov; }
@@ -26,6 +26,14 @@ namespace ade{
         void SetFarPlane(float farPlane) { this->mFarPlane = farPlane; }
         void SetRadius(float radius) { this->mRadius = radius; }
         void SetTarget(const glm::vec3 &target) { this->mTarget = target; }
+
+        bool mUpFlag{ false };
+        bool mRightFlag{ false };
+        bool mDownFlag{ false };
+        bool mLeftFlag{ false };
+        bool mForwardFlag{ false };
+        bool mBackwardFlag{ false };
+
     private:
         float mFov{ 65.f };
         float mAspect{ 1.f };
@@ -38,6 +46,7 @@ namespace ade{
 
         glm::mat4 mProjMat{ 1.f };
         glm::mat4 mViewMat{ 1.f };
+
     };
 }
 

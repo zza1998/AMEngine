@@ -47,6 +47,8 @@ namespace ade{
         bool bOpenMainWindow = true;
 
         friend class AdApplicationWidget;
+
+
     };
 }
 #endif

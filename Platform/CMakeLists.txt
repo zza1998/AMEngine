@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-add_library(adiosy_platform
+add_library(am_platform
         Private/AdLog.cpp
         Private/AdGeometryUtil.cpp
         Private/AdWindow.cpp
@@ -23,7 +23,7 @@ add_library(adiosy_platform
         Private/Event/AdEventDispatcher.cpp
 )
 
-target_include_directories(adiosy_platform PUBLIC External)
+target_include_directories(am_platform PUBLIC External)
 
 # glfw
 option(GLFW_BUILD_DOCS OFF)
@@ -32,18 +32,18 @@ option(GLFW_BUILD_EXAMPLES OFF)
 option(GLFW_BUILD_TESTS OFF)
 option(GLFW_INSTALL OFF)
 add_subdirectory(External/glfw)
-target_link_libraries(adiosy_platform PRIVATE glfw)
+target_link_libraries(am_platform PRIVATE glfw)
 
 # glm
 add_subdirectory(External/glm)
-target_link_libraries(adiosy_platform PRIVATE glm)
+target_link_libraries(am_platform PRIVATE glm)
 
 find_package(Vulkan REQUIRED)
 if(Vulkan_FOUND)
     message("----> Find vulkan success : ${Vulkan_INCLUDE_DIRS}")
 endif()
-target_include_directories(adiosy_platform PUBLIC ${Vulkan_INCLUDE_DIRS})
-target_link_libraries(adiosy_platform PRIVATE ${Vulkan_LIBRARY})
+target_include_directories(am_platform PUBLIC ${Vulkan_INCLUDE_DIRS})
+target_link_libraries(am_platform PRIVATE ${Vulkan_LIBRARY})
 
 # imgui
 add_library(imgui
@@ -74,10 +74,10 @@ add_library(imgui
 )
 target_include_directories(imgui PRIVATE ${Vulkan_INCLUDE_DIRS})
 target_link_libraries(imgui PRIVATE ${Vulkan_LIBRARY} glfw)
-target_link_libraries(adiosy_platform PRIVATE imgui)
+target_link_libraries(am_platform PRIVATE imgui)
 
 
-target_include_directories(adiosy_platform PUBLIC External/assimp/include)
+target_include_directories(am_platform PUBLIC External/assimp/include)
 if(WIN32)
     set(ASSIMP_LIB_DIR "Win64/libassimp-5.dll")
 elseif(UNIX)
@@ -89,4 +89,4 @@ elseif(UNIX)
 else()
     message("Platform: Unsupported")
 endif()
-target_link_libraries(adiosy_platform PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/External/assimp/lib/${ASSIMP_LIB_DIR})
+target_link_libraries(am_platform PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/External/assimp/lib/${ASSIMP_LIB_DIR})

@@ -1,9 +1,10 @@
 #ifndef AD_APPLICATION_H
 #define AD_APPLICATION_H
 
+#include <Event/AdEventObserver.h>
+
 #include "AdWindow.h"
 #include "AdApplicationContext.h"
-
 namespace ade{
     struct AppSettings{
         uint32_t width = 800;
@@ -44,16 +45,21 @@ namespace ade{
         std::shared_ptr<AdRenderContext> mRenderContext;
         std::unique_ptr<AdWindow> mWindow;
         std::unique_ptr<AdScene> mScene;
+        std::shared_ptr<AdEventObserver> mObserver;
     private:
         void ParseArgs(int argc, char *argv[]);
         bool LoadScene(const std::string &filePath = "");
         void UnLoadScene();
-
+        void RegisterCameraMove();
         AppSettings mAppSettings;
 
         uint64_t mFrameIndex = 0;
         bool bPause = false;
 
+        // camera
+        bool bFirstMouseDrag = true;
+        glm::vec2 mLastMousePos;
+        float mMouseSensitivity = 0.25f;
         static AdAppContext sAppContext;
     };
 }

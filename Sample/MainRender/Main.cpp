@@ -1,4 +1,5 @@
 #include <AdEditorApp.h>
+#include <ECS/Component/Material/AdPBRMaterialComponent.h>
 #include <ECS/Component/Material/AdPhongMaterialComponent.h>
 
 #include <Loader/ModelLoader.h>
@@ -15,13 +16,14 @@
 #include "ECS/System/AdBaseMaterialSystem.h"
 #include "ECS/Component/AdLookAtCameraComponent.h"
 #include "ECS/System/AdPhongMaterialSystem.h"
+#include "ECS/System/AdPBRMaterialSystem.h"
 #include "Event/AdEventObserver.h"
-class SandBoxApp : public ade::AdEditorApp{
+class MainRenderApp : public ade::AdEditorApp{
 protected:
     void OnConfiguration(ade::AppSettings *appSettings) override {
         appSettings->width = 1360;
         appSettings->height = 768;
-        appSettings->title = "04_ECS_Entity";
+        appSettings->title = "MainRender";
     }
 
     void OnInit() override {
@@ -63,9 +65,10 @@ protected:
         mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
         mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
         mRenderTarget->SetDepthStencilClearValue({ 1, 0 });
-        // 渲染多少材质
+        // add material system
         mRenderTarget->AddMaterialSystem<ade::AdBaseMaterialSystem>();
         mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
+        mRenderTarget->AddMaterialSystem<ade::AdPBRMaterialSystem>();
 
 
         mRenderer = std::make_shared<ade::AdRenderer>();
@@ -85,21 +88,11 @@ protected:
         };
         mMultiPixelTexture = std::make_shared<ade::AdTexture>(2, 2, multiColors);
 
-        mObserver = std::make_shared<ade::AdEventObserver>();
-        mObserver->OnEvent<ade::AdMouseScrollEvent>([this](const ade::AdMouseScrollEvent &event){
-                   ade::AdEntity *camera = mRenderTarget->GetCamera();
-                   if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)){
-                       auto &cameraComp = camera->GetComponent<ade::AdLookAtCameraComponent>();
-                       float radius = cameraComp.GetRadius() + event.mYOffset * -0.3f;
-                       if(radius < 0.1f){
-                           radius = 0.1f;
-                       }
-                       cameraComp.SetRadius(radius);
-                   }
-               });
-        // 初始化imgui
+        // init imgui
         AdEditorApp::OnInit();
         //mSceneRenderTargets = std::vector<std::shared_ptr<ade::AdRenderTarget>>{mRenderTarget};
+        //uint32_t index;
+        //AddViewportWindow(mRenderPass.get(),mRenderTarget->GetCamera(),&index);
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
@@ -110,6 +103,7 @@ protected:
 
         mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lisa/Lisa.obj");
         mTexture0 = std::make_shared<ade::AdTexture>(AD_RES_TEXTURE_DIR"R-C.jpeg");
+        mSphereModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"sphere.gltf");
         auto baseMat0 = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdBaseMaterial>();
         baseMat0->colorType = ade::COLOR_TYPE_NORMAL;
         auto baseMat1 = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdBaseMaterial>();
@@ -117,6 +111,9 @@ protected:
         auto phong = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPhongMaterial>();
         phong->SetBaseColor0(glm::linearRand(glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f)));
         phong->SetTextureView(0, mMultiPixelTexture.get(), mDefaultSampler.get());
+
+        auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
+        pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.2,glm::vec3(0.4f, 0.2f, 0.5f)));
         // 1 shader, 2 component, 3 system
         {
             ade::AdEntity *lisa = scene->CreateEntity("Lisa");
@@ -156,20 +153,20 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 3");
-            auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), baseMat1);
+            auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
+            materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.SetScale({ 0.5f, 0.5f, 0.5f });
+            transComp.SetScale({ 0.3f, 0.3f, 0.3f });
             transComp.SetPosition({ 0.5f, -1.f, 0.0f });
             transComp.SetRotation( { 0.f, 0.f, 0.f });
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 4");
-            auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), baseMat1);
+            auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
             transComp.SetScale({ 0.5f, 0.5f, 0.5f });
-            transComp.SetPosition({ 0.5f, -1.f, 0.0f });
+            transComp.SetPosition({ 1.0f, 0.0f, 0.0f });
             transComp.SetRotation( { 17.f, 30.f, 0.f });
         }
     }
@@ -179,10 +176,15 @@ protected:
     }
 
     void OnUpdate(float deltaTime) override {
-
+        ade::AdEntity *camera = mRenderTarget->GetCamera();
+        if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)) {
+            auto &cameraComp = camera->GetComponent<ade::AdLookAtCameraComponent>();
+            cameraComp.UpdateCamera(deltaTime);
+        }
 
     }
     void OnRender() override {
+
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
 
@@ -201,51 +203,14 @@ protected:
 
         AdEditorApp::OnRender();
 
-        // 确保swapchain 变化后处理
+        //  swapchain end
         if(mRenderer->End(imageIndex, { cmdBuffer,mGuiCmdBuffers[imageIndex] })){
             mRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
             mGuiRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
         }
-        CameraChange();
-
-
     }
 
 
-    void CameraChange() {
-        ade::AdEntity *camera = mRenderTarget->GetCamera();
-        if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)){
-            if(!mWindow->IsMouseDown()){
-                bFirstMouseDrag = true;
-                return;
-            }
-
-            glm::vec2 mousePos;
-            mWindow->GetMousePos(mousePos);
-            glm::vec2 mousePosDelta = { mLastMousePos.x - mousePos.x, mousePos.y - mLastMousePos.y };
-            mLastMousePos = mousePos;
-
-            if(abs(mousePosDelta.x) > 0.1f || abs(mousePosDelta.y) > 0.1f){
-                if(bFirstMouseDrag){
-                    bFirstMouseDrag = false;
-                } else {
-                    auto &transComp = camera->GetComponent<ade::AdTransformComponent>();
-                    glm::vec3 rotation = transComp.GetRotation();
-                    rotation.x += mousePosDelta.x * mMouseSensitivity;
-                    rotation.y += mousePosDelta.y * mMouseSensitivity;
-
-                    if( rotation.x > 89.f){
-                         rotation.x = 89.f;
-                    }
-                    if(rotation.y < -89.f){
-                        rotation.y = -89.f;
-                    }
-                    transComp.SetRotation(rotation);
-                }
-            }
-        }
-
-    }
     void OnDestroy() override {
         ade::AdRenderContext *renderCxt = ade::AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
@@ -260,6 +225,7 @@ protected:
         mTestModel.reset();
         mTexture0.reset();
         mObserver.reset();
+        mSphereModel.reset();
         AdEditorApp::OnDestroy();
     }
 private:
@@ -270,16 +236,15 @@ private:
     std::shared_ptr<ade::AdMesh> mCubeMesh;
     std::shared_ptr<ade::AdSampler> mDefaultSampler;
     std::shared_ptr<ade::AdModel> mTestModel;
+    std::shared_ptr<ade::AdModel> mSphereModel;
 
     std::shared_ptr<ade::AdTexture> mMultiPixelTexture;
     std::shared_ptr<ade::AdTexture> mTexture0;
 
-    std::shared_ptr<ade::AdEventObserver> mObserver;
-    bool bFirstMouseDrag = true;
-    glm::vec2 mLastMousePos;
-    float mMouseSensitivity = 0.25f;
+
+
 };
 
 ade::AdApplication *CreateApplicationEntryPoint(){
-    return new SandBoxApp();
+    return new MainRenderApp();
 }

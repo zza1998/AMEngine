@@ -29,6 +29,9 @@ namespace ade{
             mImageViews.push_back(std::make_shared<AdVKImageView>(mDevice, images[i]->GetHandle(),
                                                                   images[i]->GetFormat(), isDepthFormat ? VK_IMAGE_ASPECT_DEPTH_BIT : VK_IMAGE_ASPECT_COLOR_BIT));
             attachments[i] = mImageViews[i]->GetHandle();
+            if(!isDepthFormat){
+                mFinalColorAttachmentIdx = i;
+            }
         }
 
         VkFramebufferCreateInfo frameBufferInfo = {

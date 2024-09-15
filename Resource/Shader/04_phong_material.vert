@@ -1,10 +1,5 @@
 #version 450
 
-
-
-
-
-// ----------------------------
 layout (location = 0)      in vec3 a_Pos;
 layout (location = 1)      in vec2 a_Texcoord;
 layout (location = 2)      in vec3 a_Normal;
@@ -19,7 +14,6 @@ layout(set=0, binding=0, std140) uniform FrameUbo{
     uint  frameId;
     float time;
 } frameUbo;
-
 
 layout(set=3,binding =0, std140) uniform LightUbo{
     vec3 light;

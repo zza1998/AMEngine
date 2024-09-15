@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-add_library(adiosy_editor
+add_library(am_editor
         Private/AdEditorApp.cpp
         Private/Windows/AdEditorMainWindow.cpp
         Private/Windows/AdEditorViewportWindow.cpp
@@ -9,4 +9,4 @@ add_library(adiosy_editor
         Private/Windows/AdEditorPropertyWindow.cpp
 
 )
-target_link_libraries(adiosy_editor PUBLIC adiosy_core)
+target_link_libraries(am_editor PUBLIC am_core)

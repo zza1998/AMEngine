@@ -9,14 +9,6 @@ namespace ade{
         UNLIT_MAT_BASE_COLOR_1
     };
 
-    struct FrameUbo{
-        glm::mat4  projMat{ 1.f };
-        glm::mat4  viewMat{ 1.f };
-        alignas(8) glm::ivec2 resolution;
-        alignas(4) uint32_t frameId;
-        alignas(4) float time;
-    };
-
     struct UnlitMaterialUbo{
         alignas(16) glm::vec3 baseColor0;
         alignas(16) glm::vec3 baseColor1;

@@ -78,6 +78,9 @@ namespace ade{
         return glfwGetKey(mGLFWwindow, key) == GLFW_RELEASE;
     }
 
+    bool AdGLFWwindow::IsMinWindow() const {
+        return glfwGetWindowAttrib(mGLFWwindow, GLFW_ICONIFIED) != 0;
+    }
     void AdGLFWwindow::SetupWindowCallbacks() {
         glfwSetWindowUserPointer(mGLFWwindow, this);
         glfwSetFramebufferSizeCallback(mGLFWwindow, [](GLFWwindow* window, int width, int height){

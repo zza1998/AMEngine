@@ -132,7 +132,7 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         };
         mDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 10, poolSizes);
         mFrameUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
-        mLightUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
+        mLightUboDescSet = mDescriptorPool->AllocateDescriptorSet(mLightDescSetLayout.get(), 1)[0];
         mFrameUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(FrameUbo), nullptr, true);
         mLightUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(LightUbo), nullptr, true);
         ReCreateMaterialDescPool(NUM_MATERIAL_BATCH);
@@ -168,7 +168,6 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 
         UpdateFrameUboDescSet(renderTarget);
-
         bool bShouldForceUpdateMaterial = false;
         uint32_t materialCount = AdMaterialFactory::GetInstance()->GetMaterialSize<AdPhongMaterial>();
         if(materialCount > mLastDescriptorSetCount){
@@ -204,8 +203,8 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                     }
                     updateFlags[materialIndex] = true;
                 }
-                //
-                VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, paramsDescSet, resourceDescSet ,mLightUboDescSet};
+
+                VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, paramsDescSet, resourceDescSet, mLightUboDescSet};
                 vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mPipelineLayout->GetHandle(),
                                         0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
 

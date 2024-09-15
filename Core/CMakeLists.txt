@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-add_library(adiosy_core
+add_library(am_core
         Private/AdApplication.cpp
         Private/Render/AdRenderContext.cpp
         Private/Render/AdRenderTarget.cpp
@@ -16,7 +16,6 @@ add_library(adiosy_core
         Private/ECS/AdEntity.cpp
         Private/ECS/Component/AdLookAtCameraComponent.cpp
         Private/ECS/Component/AdTransformComponent.cpp
-        Private/ECS/Component/AdPBRMaterialComponent.cpp
         Private/ECS/System/AdMaterialSystem.cpp
         Private/ECS/System/AdBaseMaterialSystem.cpp
         Private/ECS/System/AdUnlitMaterialSystem.cpp
@@ -30,8 +29,8 @@ add_library(adiosy_core
         Private/Gui/Widget/AdWidget.cpp
 
 )
-target_link_libraries(adiosy_core PUBLIC adiosy_platform)
+target_link_libraries(am_core PUBLIC am_platform)
 
 if(WIN32)
-    target_compile_definitions(adiosy_platform PUBLIC NOMINMAX)
+    target_compile_definitions(am_platform PUBLIC NOMINMAX)
 endif()

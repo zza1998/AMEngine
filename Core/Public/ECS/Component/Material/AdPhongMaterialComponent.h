@@ -9,13 +9,6 @@
 
 namespace ade{
 
-    struct FrameUbo{
-        glm::mat4  projMat{ 1.f };
-        glm::mat4  viewMat{ 1.f };
-        alignas(8) glm::ivec2 resolution;
-        alignas(4) uint32_t frameId;
-        alignas(4) float time;
-    };
 
     struct PhongMaterialUbo{
         alignas(16) glm::vec3 baseColor0;
@@ -24,13 +17,7 @@ namespace ade{
         alignas(4) float shininess{ 2.f };
     };
 
-    struct LightUbo{
-        alignas(16) glm::vec3 light{ 0, -5, -5 };
-        /*alignas(16) glm::ivec3 lightCount{ 0, 0, 0 };
-        DirectLight directLight;
-        PointLight pointLights[LIGHT_MAX_COUNT];
-        Spotlight spotlights[LIGHT_MAX_COUNT];*/
-    };
+
 
     struct PhongLightMaterialParams{
         alignas(16) glm::vec3 ambient{ 0.2f, 0.2f, 0.2f };
@@ -56,6 +43,7 @@ namespace ade{
         }
         void SetLightParam0(const glm::vec3 &light) {
             mLight.light = light;
+            bShouldFlushParams = true;
         }
     private:
         PhongMaterialUbo mParams{};

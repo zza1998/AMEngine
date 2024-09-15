@@ -30,4 +30,33 @@ namespace ade{
     void AdLookAtCameraComponent::SetViewMat(const glm::mat4 &viewMat) {
         // TODO
     }
+
+
+    void AdLookAtCameraComponent::UpdateCamera(float deltaTime) const {
+        AdEntity *owner = GetOwner();
+        if(AdEntity::HasComponent<AdTransformComponent>(owner)) {
+            AdTransformComponent &transComp = owner->GetComponent<AdTransformComponent>();
+            float change = 1000*deltaTime;
+            if(mForwardFlag) {
+                transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, 0, 1));
+            }
+            if(mBackwardFlag) {
+                transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, 0, -1));
+            }
+            if(mLeftFlag) {
+
+            }
+            if(mRightFlag) {
+
+            }
+            if(mUpFlag) {
+
+            }
+            if(mDownFlag) {
+
+            }
+        }
+
+
+    }
 }

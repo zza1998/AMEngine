@@ -257,9 +257,9 @@ namespace ade{
         }
     }
      void AdEditorMainWindow::DrawViewportWindow(AdRenderTarget *renderTarget, float deltaTime) {
-        /*if(mViewportWindows.find(renderTarget) != mViewportWindows.end()){
+        if(mViewportWindows.find(renderTarget) != mViewportWindows.end()){
             mViewportWindows[renderTarget]->Draw(nullptr, mViewportDockId);
-        }*/
+        }
     }
     bool AdEditorMainWindow::BeginToolBars(const char* name, ImGuiDir dir) {
         ImGuiViewportP* mainViewport = (ImGuiViewportP*)(void*)ImGui::GetMainViewport();

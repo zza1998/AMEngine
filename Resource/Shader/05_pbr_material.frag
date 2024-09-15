@@ -2,28 +2,21 @@
 
 layout (location = 0) in vec3 inWorldPos;
 layout (location = 1) in vec3 inNormal;
+layout (location = 2) in vec3 inEyePos;
 
-layout (binding = 0) uniform UBO
-{
-    mat4 projection;
-    mat4 model;
-    mat4 view;
-    vec3 camPos;
-} ubo;
+layout(set=1, binding=0, std140) uniform MaterialUbo{
+    float roughness;
+    float metallic;
+    vec3 ambient;
+} materialUbo;
 
-layout (binding = 1) uniform UBOShared {
-    vec4 lights[4];
-} uboParams;
+layout(set=2,binding =0, std140) uniform LightUbo{
+    vec3 light;
+}lightUbo;
 
+/////----------------------------
 layout (location = 0) out vec4 outColor;
 
-layout(push_constant) uniform PushConsts {
-    layout(offset = 12) float roughness;
-    layout(offset = 16) float metallic;
-    layout(offset = 20) float r;
-    layout(offset = 24) float g;
-    layout(offset = 28) float b;
-} material;
 
 const float PI = 3.14159265359;
 
@@ -31,7 +24,7 @@ const float PI = 3.14159265359;
 
 vec3 materialcolor()
 {
-    return vec3(material.r, material.g, material.b);
+    return materialUbo.ambient;
 }
 
 // Normal Distribution function --------------------------------------
@@ -99,9 +92,11 @@ vec3 BRDF(vec3 L, vec3 V, vec3 N, float metallic, float roughness)
 void main()
 {
     vec3 N = normalize(inNormal);
-    vec3 V = normalize(ubo.camPos - inWorldPos);
+    // need to update campos
+    //vec3 V = normalize(ubo.camPos - inWorldPos);
+    vec3 V = normalize(-inEyePos);
 
-    float roughness = material.roughness;
+    float roughness = materialUbo.roughness;
 
     // Add striped pattern to roughness based on vertex position
     #ifdef ROUGHNESS_PATTERN
@@ -110,11 +105,12 @@ void main()
 
     // Specular contribution
     vec3 Lo = vec3(0.0);
-    for (int i = 0; i < uboParams.lights.length(); i++) {
+    /*for (int i = 0; i < uboParams.lights.length(); i++) {
         vec3 L = normalize(uboParams.lights[i].xyz - inWorldPos);
-        Lo += BRDF(L, V, N, material.metallic, roughness);
-    };
-
+        Lo += BRDF(L, V, N, materialUbo.metallic, roughness);
+    };*/
+    vec3 L = normalize(lightUbo.light - inWorldPos);
+    Lo += BRDF(L, V, N, materialUbo.metallic, roughness);
     // Combine with ambient
     vec3 color = materialcolor() * 0.02;
     color += Lo;

@@ -24,6 +24,7 @@ namespace ade{
         virtual bool IsMouseUp(MouseButton mouseButton = MOUSE_BUTTON_LEFT) const = 0;
         virtual bool IsKeyDown(Key key) const = 0;
         virtual bool IsKeyUp(Key key) const = 0;
+        virtual bool IsMinWindow() const = 0;
     protected:
         AdWindow() = default;
     };

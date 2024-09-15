@@ -21,6 +21,7 @@ namespace ade{
         bool IsMouseUp(MouseButton mouseButton) const override;
         bool IsKeyDown(Key key) const override;
         bool IsKeyUp(Key key) const override;
+        bool IsMinWindow() const override;
     private:
         void SetupWindowCallbacks();
 

@@ -23,12 +23,12 @@ namespace ade{
         AdEntity *GetEntity(entt::entity enttEntity);
 
         AdNode *GetPickedNode() const { return mPickedNode; }
-
+        AdEntity GetMainCamera();
         void SetPickedNode(AdNode *node) { mPickedNode = node; }
     private:
         std::string mName;
         entt::registry mEcsRegistry;
-
+        AdUUID mMainCameraId;
         std::unordered_map<entt::entity, std::shared_ptr<AdEntity>> mEntities;
         std::shared_ptr<AdNode> mRootNode;
         AdNode *mPickedNode = nullptr;

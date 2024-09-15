@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.22)
-
-add_executable(00_FirstTriangle
-        ${SHADER_HEADERS}
-        Main.cpp
-)
-target_link_libraries(00_FirstTriangle PRIVATE adiosy_core)
