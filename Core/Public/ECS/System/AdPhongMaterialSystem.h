@@ -6,7 +6,7 @@
 #define ADPHONGMATERIALSYSTEM_H
 #include "ECS/System/AdMaterialSystem.h"
 #include "ECS/Component/Material/AdPhongMaterialComponent.h"
-
+#include "AdGeometryUtil.h"
 
 namespace ade{
 #define NUM_MATERIAL_BATCH              16
@@ -25,7 +25,7 @@ namespace ade{
     private:
         void ReCreateMaterialDescPool(uint32_t materialCount);
         void UpdateFrameUboDescSet(AdRenderTarget *renderTarget);
-        void UpdateLightUboDescSet(AdPhongMaterial *material);
+        void UpdateLightUboDescSet();
         void UpdateMaterialParamsDescSet(VkDescriptorSet descSet, AdPhongMaterial *material);
         void UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdPhongMaterial *material);
 
@@ -45,6 +45,8 @@ namespace ade{
         std::shared_ptr<AdVKBuffer> mFrameUboBuffer;
         std::shared_ptr<AdVKBuffer> mLightUboBuffer;
 
+        LightUbo mLightUbo;
+        FrameUbo mFrameUbo;
         uint32_t mLastDescriptorSetCount = 0;
         std::vector<VkDescriptorSet> mMaterialDescSets;
         std::vector<VkDescriptorSet> mMaterialResourceDescSets;

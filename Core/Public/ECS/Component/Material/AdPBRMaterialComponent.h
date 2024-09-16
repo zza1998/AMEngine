@@ -29,7 +29,6 @@ namespace ade{
 
     class AdPBRMaterial : public AdMaterial{
     public:
-        void SetLight(glm::vec3 light){ mLight.light = light; }
         const PBRMaterialUbo &GetParams() const { return mParams; }
         const LightUbo &GetLight() const { return mLight; }
         void SetPBRMaterialUbo(const PBRMaterialUbo &ubo){mParams = ubo;}
@@ -39,7 +38,10 @@ namespace ade{
     };
 
     class AdPBRMaterialComponent : public AdMaterialComponent<AdPBRMaterial>{
+    public:
+        void OnDrawGui() override {
 
+        };
     };
 }
 

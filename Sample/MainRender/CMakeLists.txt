@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
 
 # search all vert and frag
-file(GLOB SHADER_PATHS "${AD_DEFINE_RES_ROOT_DIR}Shader/*.vert" "${AD_DEFINE_RES_ROOT_DIR}Shader/*.frag")
+file(GLOB SHADER_PATHS
+        "${AD_DEFINE_RES_ROOT_DIR}Shader/*.vert"
+        "${AD_DEFINE_RES_ROOT_DIR}Shader/*.frag")
 set(SHADER_FILE_NAMES)
 
 # get pure name

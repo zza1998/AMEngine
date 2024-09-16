@@ -5,6 +5,7 @@
 
 #include "AdWindow.h"
 #include "AdApplicationContext.h"
+
 namespace ade{
     struct AppSettings{
         uint32_t width = 800;

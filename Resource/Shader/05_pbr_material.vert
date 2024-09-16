@@ -1,5 +1,6 @@
 #version 450
-
+#extension GL_GOOGLE_include_directive : enable
+#include "00_ad_shader_defines.comp"
 layout (location = 0)      in vec3 a_Pos;
 layout (location = 1)      in vec2 a_Texcoord;
 layout (location = 2)      in vec3 a_Normal;
@@ -27,7 +28,7 @@ void main()
     mat4 modelView = frameUbo.viewMat * PC.modelMat;
     vec3 locPos = vec3(PC.modelMat * vec4(a_Pos, 1.0));
     outWorldPos = locPos;
-    outEyePos = vec3(modelView * vec4(locPos,1.0));
+    outEyePos = vec3(modelView * vec4(a_Pos,1.0));
     outNormal = normalize(mat3(inverse(transpose(modelView))) * a_Normal);
     gl_Position =  frameUbo.projMat * frameUbo.viewMat * vec4(outWorldPos, 1.0);
 }

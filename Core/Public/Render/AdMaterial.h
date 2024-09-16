@@ -5,7 +5,8 @@
 #include "AdSampler.h"
 #include "AdGraphicContext.h"
 #include "entt/core/type_info.hpp"
-
+#include "ECS/Component/AdLightComponent.h"
+#include "AdGeometryUtil.h"
 namespace ade{
 // -------------------------------------------------------------------------------------------------
 
@@ -25,11 +26,11 @@ namespace ade{
     };
 
     struct LightUbo{
-        alignas(16) glm::vec3 light{ 0, -5, -5 };
-        /*alignas(16) glm::ivec3 lightCount{ 0, 0, 0 };
-        DirectLight directLight;
+        //alignas(16) glm::vec3 light{ 0, -5, -5 };
+        //alignas(16) glm::ivec3 lightCount{ 0, 0, 0 };
+        //DirectLight directLight;
         PointLight pointLights[LIGHT_MAX_COUNT];
-        Spotlight spotlights[LIGHT_MAX_COUNT];*/
+        //Spotlight spotlights[LIGHT_MAX_COUNT];
     };
     struct ModelPC{
         alignas(16) glm::mat4 modelMat;

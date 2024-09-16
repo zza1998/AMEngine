@@ -1,13 +1,7 @@
 #version 450
-
-
-struct TextureParam{
-    bool  enable;
-    float uvRotation;
-    vec4  uvTransform;   // x,y --> scale, z,w --> translation
-};
-
-
+#extension GL_GOOGLE_include_directive : enable
+#include "00_ad_shader_defines.comp"
+#include "00_ad_light.comp"
 
 layout(set=1, binding=0, std140) uniform MaterialUbo{
     vec3 baseColor0;

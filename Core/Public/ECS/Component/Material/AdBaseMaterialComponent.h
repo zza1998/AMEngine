@@ -14,7 +14,9 @@ namespace ade{
     };
 
     struct AdBaseMaterialComponent : public AdMaterialComponent<AdBaseMaterial> {
+        void OnDrawGui() override {
 
+        };
     };
 }
 

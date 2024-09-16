@@ -43,7 +43,10 @@ namespace ade{
     };
 
     class AdUnlitMaterialComponent : public AdMaterialComponent<AdUnlitMaterial>{
+    public:
+        void OnDrawGui() override {
 
+        };
     };
 }
 

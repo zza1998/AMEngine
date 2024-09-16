@@ -168,6 +168,7 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 
         UpdateFrameUboDescSet(renderTarget);
+        UpdateLightUboDescSet();
         bool bShouldForceUpdateMaterial = false;
         uint32_t materialCount = AdMaterialFactory::GetInstance()->GetMaterialSize<AdPhongMaterial>();
         if(materialCount > mLastDescriptorSetCount){
@@ -193,7 +194,7 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                         //LOG_T("Update material params : {0}", materialIndex);
                         UpdateMaterialParamsDescSet(paramsDescSet, material);
                         // modify light
-                        UpdateLightUboDescSet(material);
+
                         material->FinishFlushParams();
                     }
                     if(material->ShouldFlushResource() || bShouldForceUpdateMaterial){
@@ -294,15 +295,27 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }
 
-    void AdPhongMaterialSystem::UpdateLightUboDescSet(AdPhongMaterial *material) {
-        AdVKDevice *device = GetDevice();
+    void AdPhongMaterialSystem::UpdateLightUboDescSet() {
+        AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
+        AdVKDevice *device = renderCxt->GetDevice();
 
-        LightUbo lightUbo = {
-            .light = material->GetLight().light
-        };
+        AdScene *scene = GetScene();
+        entt::registry &reg = scene->GetEcsRegistry();
 
-        mLightUboBuffer->WriteData(&lightUbo);
-        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mLightUboBuffer->GetHandle(), 0, sizeof(lightUbo));
+
+        uint32_t pointLightCount = 0;
+        reg.view<AdTransformComponent, AdPointLightComponent>()
+                .each([&pointLightCount, this](AdTransformComponent &transComp, AdPointLightComponent &lightComp){
+            if(pointLightCount >= LIGHT_MAX_COUNT){
+                return;
+            }
+            lightComp.params.position = transComp.GetPosition();
+            mLightUbo.pointLights[pointLightCount++] = lightComp.params;
+        });
+
+
+        mLightUboBuffer->WriteData(&mLightUbo);
+        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mLightUboBuffer->GetHandle(), 0, sizeof(mLightUbo));
         VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mLightUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
         DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }

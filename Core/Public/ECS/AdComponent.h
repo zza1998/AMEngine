@@ -28,7 +28,7 @@ entt::meta<className>().prop(HS("Label"), STR(className)) \
         void SetOwner(AdEntity *owner) { mOwner = owner;}
         AdEntity *GetOwner() const { return mOwner; }
 
-        //virtual void OnDrawGui(){}
+        virtual void OnDrawGui(){}
     private:
         AdEntity *mOwner = nullptr;
     };

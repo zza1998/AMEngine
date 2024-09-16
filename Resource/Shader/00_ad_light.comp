@@ -1,0 +1,112 @@
+struct DirectLight{
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    vec3 direction;
+};
+
+struct PointLight{
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    vec3 position;
+    float cstant;
+    float linear;
+    float quadratic;
+};
+
+struct Spotlight{
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    vec3 position;
+    vec3 spot_direction;
+    float cutOff;
+    float outerCutOff;
+    float cstant;
+    float linear;
+    float quadratic;
+};
+
+struct PhongLightMaterial{
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    float shininess;
+};
+
+struct TextureParam {
+    vec2 uvTimes;
+    vec2 uvOffset;
+    bool enable;
+};
+
+vec3 phongLightAmbient(vec3 lightColor, vec3 ambientColor){
+    return lightColor * ambientColor;
+}
+
+vec3 phongLightDiffuse(vec3 nNormal, vec3 lightDir, vec3 lightColor, vec3 diffuseColor){
+    vec3 nLightDir = normalize(lightDir);
+    float d = max(dot(nNormal, nLightDir), 0.f);
+    return lightColor * d * diffuseColor;
+}
+
+vec3 phongLightSpecular(vec3 nNormal, vec3 viewDir, vec3 lightDir, vec3 lightColor, vec3 specularColor, float shininess){
+    vec3 nLightDir = normalize(lightDir);
+    vec3 reflectDir = reflect(-nLightDir, nNormal);
+    float s = pow(max(dot(reflectDir, viewDir), 0.f), shininess);
+    return lightColor * s * specularColor;
+}
+
+vec3 phongDirectLight(DirectLight light, vec3 nNormal, vec3 viewDir, PhongLightMaterial lightMaterial){
+    vec3 ambient = phongLightAmbient(light.ambient, lightMaterial.ambient);
+    vec3 diffuse = phongLightDiffuse(nNormal, -light.direction, light.diffuse, lightMaterial.diffuse);
+    vec3 specular = phongLightSpecular(nNormal, viewDir, -light.direction, light.specular, lightMaterial.specular, lightMaterial.shininess);
+//    return ambient;
+//    return diffuse;
+//    return specular;
+    return ambient + diffuse + specular;
+}
+
+vec3 phongPointLight(PointLight light, vec3 nNormal, vec3 viewDir, vec3 v_FragPos, PhongLightMaterial lightMaterial){
+    vec3 light_direction = normalize(light.position - v_FragPos);
+    vec3 ambient = phongLightAmbient(light.ambient, lightMaterial.ambient);
+    vec3 diffuse = phongLightDiffuse(nNormal, light_direction, light.diffuse, lightMaterial.diffuse);
+    vec3 specular = phongLightSpecular(nNormal, viewDir, light_direction, light.specular, lightMaterial.specular, lightMaterial.shininess);
+
+    float distance = length(light.position - v_FragPos);
+    float attenuation = 1.0 / (light.cstant + light.linear * distance + light.quadratic * (distance * distance));
+
+    ambient *= attenuation;
+    diffuse *= attenuation;
+    specular *= attenuation;
+
+    //    return ambient;
+    //    return diffuse;
+    //    return specular;
+    return ambient + diffuse + specular;
+}
+
+vec3 phongSpotLight(Spotlight light, vec3 nNormal, vec3 viewDir, vec3 v_FragPos, PhongLightMaterial lightMaterial){
+    vec3 light_direction = normalize(light.position - v_FragPos);
+    vec3 ambient = phongLightAmbient(light.ambient, lightMaterial.ambient);
+    vec3 diffuse = phongLightDiffuse(nNormal, light_direction, light.diffuse, lightMaterial.diffuse);
+    vec3 specular = phongLightSpecular(nNormal, viewDir, light_direction, light.specular, lightMaterial.specular, lightMaterial.shininess);
+
+    float theta = dot(light_direction, normalize(-light.spot_direction));
+    float epsilon   = light.cutOff - light.outerCutOff;
+    float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);
+
+    diffuse *= intensity;
+    specular *= intensity;
+
+    float distance = length(light.position - v_FragPos);
+    float attenuation = 1.0 / (light.cstant + light.linear * distance + light.quadratic * (distance * distance));
+    diffuse *= attenuation;
+    specular *= attenuation;
+
+    //        return ambient;
+    //        return diffuse;
+    //        return specular;
+    return ambient + diffuse + specular;
+}

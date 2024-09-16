@@ -1,5 +1,7 @@
 #version 450
-
+#extension GL_GOOGLE_include_directive : enable
+#include "00_ad_shader_defines.comp"
+#include "00_ad_light.comp"
 layout (location = 0)      in vec3 a_Pos;
 layout (location = 1)      in vec2 a_Texcoord;
 layout (location = 2)      in vec3 a_Normal;
@@ -16,7 +18,7 @@ layout(set=0, binding=0, std140) uniform FrameUbo{
 } frameUbo;
 
 layout(set=3,binding =0, std140) uniform LightUbo{
-    vec3 light;
+    PointLight light[LIGHT_MAX_COUNT];
 }lightUbo;
 
 layout(push_constant) uniform PushConstants{
@@ -40,6 +42,6 @@ void main()
     outColor = inColor;
     gl_Position = frameUbo.projMat * pos;
     outEyePos = vec3(modelView * pos);
-    vec4 lightPos = vec4(lightUbo.light, 1.0) * modelView;
+    vec4 lightPos = vec4(lightUbo.light[0].position, 1.0);
     outLightVec = normalize(lightPos.xyz - outEyePos);
 }

@@ -178,15 +178,15 @@ namespace ade{
         io.Fonts->AddFontFromFileTTF(AD_RES_FONT_DIR"fa-solid-900.ttf", 13.f, &config, iconsRanges);
     }
 
-    AdRenderTarget* AdEditorApp::AddViewportWindow(AdVKRenderPass *renderPass, AdEntity *defaultCamera, uint32_t *outIndex) {
+    std::shared_ptr<AdRenderTarget> AdEditorApp::AddViewportWindow(AdVKRenderPass *renderPass, uint32_t *outIndex) {
         std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(renderPass, 1, VkExtent2D{ 100, 100 });
-        newRenderTarget->SetCamera(defaultCamera);
+
         mSceneRenderTargets.push_back(newRenderTarget);
         mMainWindow.AddViewportWindow(newRenderTarget.get());
         if(outIndex){
             *outIndex = mSceneRenderTargets.size() - 1;
         }
-        return newRenderTarget.get();
+        return newRenderTarget;
     }
 
     void AdEditorApp::RemoveViewportWindow(uint32_t index) {

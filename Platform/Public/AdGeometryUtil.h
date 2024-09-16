@@ -2,6 +2,10 @@
 #define ADGEOMETRYUTIL_H
 
 #include "AdGraphicContext.h"
+#ifndef AD_SHADERDEFINES_H
+#define AD_SHADERDEFINES_H
+#include "00_ad_shader_defines.comp"
+#endif
 
 namespace ade {
     struct AdVertex{

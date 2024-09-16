@@ -1,5 +1,6 @@
 #include "AdGeometryUtil.h"
 
+
 namespace ade{
     void AdGeometryUtil::CreateCube(float leftPlane, float rightPlane, float bottomPlane, float topPlane, float nearPlane, float farPlane,
                                     std::vector<AdVertex> &vertices, std::vector<uint32_t> &indices, const bool bUseTextcoords,

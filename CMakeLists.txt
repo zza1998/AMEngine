@@ -35,6 +35,7 @@ include(SPIR-V)
 include_directories(Platform/Public)
 include_directories(Editor/Public)
 include_directories(Core/Public)
+include_directories(Resource/Shader)
 
 add_subdirectory(Platform)
 add_subdirectory(Core)

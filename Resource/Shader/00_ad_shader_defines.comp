@@ -1,0 +1,33 @@
+#define IN_POS                          0
+#define IN_TEXCOORD_0                   1
+#define IN_TEXCOORD_1                   2
+#define IN_TEXCOORD_2                   3
+#define IN_NORMAL                       4
+#define IN_COLOR                        5
+#define IN_JOINTS                       6
+#define IN_WEIGHTS                      7
+#define IN_USE_PROJ_VIEW_MAT            8
+#define IN_TANGENT                      9
+#define IN_BITANGENT                    10
+
+#define IN_TBN_MAT                      14
+#define IN_FRAGPOS                      15
+#define IN_LIGHT_FRAGPOS                16
+
+#define U_TEXTURE_AMBIENT               0
+#define U_TEXTURE_DIFFUSE               1
+#define U_TEXTURE_SPECULAR              2
+#define U_TEXTURE_NORMAL                3
+#define U_TEXTURE_DISPLACEMENT          4
+#define U_TEXTURE_ALPHA                 5
+#define U_TEXTURE_REFLECTION            6
+#define U_TEXTURE_SHADOW_MAP            7
+#define U_TEXTURE_ENVIRONMENT_MAP       8
+#define U_TEXTURE_BONE_MATRIX           9
+
+#define LIGHT_MAX_COUNT                 4
+
+#define ROW0_U ((0.5 + 0.0) / 4.)
+#define ROW1_U ((0.5 + 1.0) / 4.)
+#define ROW2_U ((0.5 + 2.0) / 4.)
+#define ROW3_U ((0.5 + 3.0) / 4.)

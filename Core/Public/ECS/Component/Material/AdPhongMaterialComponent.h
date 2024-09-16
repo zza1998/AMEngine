@@ -32,7 +32,6 @@ namespace ade{
     class AdPhongMaterial : public AdMaterial{
     public:
         const PhongMaterialUbo &GetParams() const { return mParams; }
-        const LightUbo &GetLight() const { return mLight; }
         void SetBaseColor0(const glm::vec3 &color) {
             mParams.baseColor0 = color;
             bShouldFlushParams = true;
@@ -41,17 +40,15 @@ namespace ade{
             mParams.textureParam0 = param;
             bShouldFlushParams = true;
         }
-        void SetLightParam0(const glm::vec3 &light) {
-            mLight.light = light;
-            bShouldFlushParams = true;
-        }
     private:
         PhongMaterialUbo mParams{};
-        LightUbo mLight{};
     };
 
     class AdPhongMaterialComponent : public AdMaterialComponent<AdPhongMaterial>{
+    public:
+        void OnDrawGui() override {
 
+        };
     };
 }
 

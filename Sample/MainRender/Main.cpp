@@ -62,6 +62,9 @@ protected:
         };
         mRenderPass = std::make_shared<ade::AdVKRenderPass>(device, attachments, subpasses);
 
+
+        //uint32_t wIndex;
+        //mRenderTarget = AddViewportWindow(mRenderPass.get(),&wIndex);
         mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
         mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
         mRenderTarget->SetDepthStencilClearValue({ 1, 0 });
@@ -96,10 +99,16 @@ protected:
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
+        // Camera
         ade::AdEntity *camera = scene->CreateEntity("Editor Camera");
         auto &cameraComp = camera->AddComponent<ade::AdLookAtCameraComponent>();
         cameraComp.SetRadius(2.f);
         mRenderTarget->SetCamera(camera);
+
+        // Light
+        ade::AdEntity *pointLight = scene->CreateEntity("PointLight0");
+        auto &pointLightComp = pointLight->AddComponent<ade::AdPointLightComponent>();
+        pointLightComp.params.position = glm::vec3(0, -1, -1);
 
         mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lisa/Lisa.obj");
         mTexture0 = std::make_shared<ade::AdTexture>(AD_RES_TEXTURE_DIR"R-C.jpeg");
@@ -113,7 +122,7 @@ protected:
         phong->SetTextureView(0, mMultiPixelTexture.get(), mDefaultSampler.get());
 
         auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
-        pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.2,glm::vec3(0.4f, 0.2f, 0.5f)));
+        pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.3,glm::vec3(0.8f, 0.2f, 0.5f)));
         // 1 shader, 2 component, 3 system
         {
             ade::AdEntity *lisa = scene->CreateEntity("Lisa");
@@ -123,7 +132,6 @@ protected:
             for (auto meshTexture : pairs) {
                 auto phongLisa = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPhongMaterial>();
                 phongLisa->SetBaseColor0(glm::linearRand(glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f)));
-                phongLisa->SetLightParam0(glm::vec3(0,-5,-5));
                 phongLisa->SetTextureView(0,mTestModel->mMaterials[meshTexture.second].get(),mDefaultSampler.get());
                 materialComp.AddMesh(meshTexture.first.get(), phongLisa);
             }
@@ -134,14 +142,31 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 1");
-            auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
-            materialComp.AddMesh(mCubeMesh.get(), phong);
+            auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
+            materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
-            transComp.SetScale({ 0.5f, 0.5f, 0.5f });
+            transComp.SetScale({ 0.3f, 0.3f, 0.3f });
             transComp.SetPosition({ -1.f, 0.f, 0.0f });
+            transComp.SetRotation( { 0.f, 0.f, 0.f });
+        }{
+            ade::AdEntity *cube = scene->CreateEntity("Cube Light");
+            auto &materialComp = cube->AddComponent<ade::AdBaseMaterialComponent>();
+            materialComp.AddMesh(mCubeMesh.get(), baseMat0);
+            auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
+            transComp.SetScale({ 0.2f, 0.2f, 0.2f });
+            transComp.SetPosition({ 0.0f, -1.0f, -1.0f });
             transComp.SetRotation( { 0.f, 0.f, 0.f });
         }
         {
+            ade::AdEntity *cube = scene->CreateEntity("Cube 0");
+            auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
+            materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
+            auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
+            transComp.SetScale({ 0.3f, 0.3f, 0.3f });
+            transComp.SetPosition({ -0.5f, -1.f, 0.0f });
+            transComp.SetRotation( { 0.f, 0.f, 0.f });
+        }
+        /*{
             ade::AdEntity *cube = scene->CreateEntity("Cube 2");
             auto &materialComp = cube->AddComponent<ade::AdPhongMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), phong);
@@ -150,9 +175,9 @@ protected:
             transComp.SetScale({ 0.5f, 0.5f, 0.5f });
             transComp.SetPosition({ -0.5f, -1.f, 0.0f });
             transComp.SetRotation( { 0.f, 0.f, 0.f });
-        }
+        }*/
         {
-            ade::AdEntity *cube = scene->CreateEntity("Cube 3");
+            ade::AdEntity *cube = scene->CreateEntity("Sphere 3");
             auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
             materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
@@ -169,6 +194,7 @@ protected:
             transComp.SetPosition({ 1.0f, 0.0f, 0.0f });
             transComp.SetRotation( { 17.f, 30.f, 0.f });
         }
+
     }
 
     void OnSceneDestroy(ade::AdScene *scene) override {
