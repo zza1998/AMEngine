@@ -4,6 +4,7 @@
 #include "Graphic/AdVKFrameBuffer.h"
 #include "Render/AdRenderContext.h"
 #include "ECS/System/AdMaterialSystem.h"
+#include "ECS/System/AdSkyBoxSystem.h"
 #include "ECS/AdEntity.h"
 
 namespace ade{
@@ -46,7 +47,12 @@ namespace ade{
                 item->OnRender(cmdBuffer, this);
             }
         }
-
+        void AddSkyBoxSystem(std::shared_ptr<AdSkyBoxSystem> skyBoxSystem) {
+            mSkyBoxSystem = skyBoxSystem;
+        }
+        void RenderSkyBox(VkCommandBuffer cmdBuffer) {
+            mSkyBoxSystem->OnRender(cmdBuffer, this);
+        }
         void SetCamera(AdEntity *camera) { mCamera = camera; }
         void ReCreate(std::vector<std::vector<std::shared_ptr<AdVKImage>>> images={});
     private:
@@ -62,6 +68,7 @@ namespace ade{
         bool bSwapchainTarget = false;
         bool bBeginTarget = false;
 
+        std::shared_ptr<AdSkyBoxSystem> mSkyBoxSystem;
         std::vector<std::shared_ptr<AdMaterialSystem>> mMaterialSystemList;
         AdEntity *mCamera= nullptr;
 

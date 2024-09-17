@@ -223,6 +223,7 @@ protected:
         VkCommandBuffer cmdBuffer = mCmdBuffers[imageIndex];
         ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
         mRenderTarget->Begin(cmdBuffer);
+        mRenderTarget->
         mRenderTarget->RenderMaterialSystems(cmdBuffer);
         mRenderTarget->End(cmdBuffer);
         ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);

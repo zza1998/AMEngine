@@ -281,6 +281,16 @@ namespace ade{
         return this;
     }
 
+    AdVKPipeline *AdVKPipeline::SetCullingMode(VkCullModeFlagBits cullMode) {
+        mPipelineConfig.rasterizationState.cullMode = cullMode;
+        return this;
+    }
+    AdVKPipeline *AdVKPipeline::DisableDepthWriteButTest() {
+        mPipelineConfig.depthStencilState.depthTestEnable = VK_TRUE;
+        mPipelineConfig.depthStencilState.depthWriteEnable = VK_FALSE;
+        mPipelineConfig.depthStencilState.depthCompareOp = VK_COMPARE_OP_LESS_OR_EQUAL;
+        return this;
+    }
     void AdVKPipeline::Bind(VkCommandBuffer cmdBuffer) {
         vkCmdBindPipeline(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mHandle);
     }

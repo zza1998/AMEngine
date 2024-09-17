@@ -14,6 +14,8 @@ layout(set=0, binding=0, std140) uniform FrameUbo{
     mat4  viewMat;
     ivec2 resolution;
     uint  frameId;
+    float exposure;
+    float gamma;
     float time;
 } frameUbo;
 

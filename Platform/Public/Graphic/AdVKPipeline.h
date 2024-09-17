@@ -112,7 +112,8 @@ namespace ade{
         AdVKPipeline *SetDynamicState(const std::vector<VkDynamicState> &dynamicStates);
         AdVKPipeline *EnableAlphaBlend();
         AdVKPipeline *EnableDepthTest();
-
+        AdVKPipeline *DisableDepthWriteButTest();
+        AdVKPipeline* SetCullingMode(VkCullModeFlagBits cullMode);
         VkPipeline GetHandle() const { return mHandle; }
     private:
         VkPipeline mHandle = VK_NULL_HANDLE;

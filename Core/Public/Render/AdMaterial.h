@@ -15,6 +15,8 @@ namespace ade{
         glm::mat4  viewMat{ 1.f };
         alignas(8) glm::ivec2 resolution;
         alignas(4) uint32_t frameId;
+        alignas(4) float exposure{4.5};
+        alignas(4) float gamma{2.2};
         alignas(4) float time;
     };
 
