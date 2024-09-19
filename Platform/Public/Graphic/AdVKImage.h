@@ -11,9 +11,10 @@ namespace ade{
     public:
         AdVKImage(AdVKDevice *device, VkExtent3D extent, VkFormat format, VkImageUsageFlags usage, VkSampleCountFlagBits sampleCount = VK_SAMPLE_COUNT_1_BIT);
         AdVKImage(AdVKDevice *device, VkImage image, VkExtent3D extent, VkFormat format, VkImageUsageFlags usage, VkSampleCountFlagBits sampleCount = VK_SAMPLE_COUNT_1_BIT);
+        AdVKImage(AdVKDevice *device,VkExtent3D extent,VkFormat format, int useCubeSample);
         ~AdVKImage();
 
-        static bool TransitionLayout(VkCommandBuffer cmdBuffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout);
+        static bool TransitionLayout(VkCommandBuffer cmdBuffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout,uint16_t imageNum = 1);
 
         void CopyFromBuffer(VkCommandBuffer cmdBuffer, AdVKBuffer *buffer);
 

@@ -1,4 +1,5 @@
 #include <AdEditorApp.h>
+#include <ECS/Component/AdSkyBoxComponent.h>
 #include <ECS/Component/Material/AdPBRMaterialComponent.h>
 #include <ECS/Component/Material/AdPhongMaterialComponent.h>
 
@@ -72,7 +73,7 @@ protected:
         mRenderTarget->AddMaterialSystem<ade::AdBaseMaterialSystem>();
         mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
         mRenderTarget->AddMaterialSystem<ade::AdPBRMaterialSystem>();
-
+        mRenderTarget->AddSkyBoxSystem();
 
         mRenderer = std::make_shared<ade::AdRenderer>();
 
@@ -82,7 +83,7 @@ protected:
         std::vector<uint32_t> indices;
         ade::AdGeometryUtil::CreateCube(-0.3f, 0.3f, -0.3f, 0.3f, -0.3f, 0.3f, vertices, indices);
         mCubeMesh = std::make_shared<ade::AdMesh>(vertices, indices);
-        mDefaultSampler = std::make_shared<ade::AdSampler>(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_REPEAT);
+        mDefaultSampler = std::make_shared<ade::AdSampler>(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE);
         ade::RGBAColor multiColors[4] = {
             255, 255, 255, 255,
             192, 192, 192, 255,
@@ -109,6 +110,14 @@ protected:
         ade::AdEntity *pointLight = scene->CreateEntity("PointLight0");
         auto &pointLightComp = pointLight->AddComponent<ade::AdPointLightComponent>();
         pointLightComp.params.position = glm::vec3(0, -1, -1);
+
+        //skybox
+        ade::AdEntity *skyBox = scene->CreateEntity("SkyBox");
+        auto &skyBoxComp = skyBox->AddComponent<ade::AdSkyBoxComponent>();
+        skyBoxComp.SetTexture(std::make_shared<ade::AdCubeTexture>(std::vector<std::string>{AD_RES_TEXTURE_DIR"sky1.png",
+            AD_RES_TEXTURE_DIR"sky1.png",AD_RES_TEXTURE_DIR"sky1.png",AD_RES_TEXTURE_DIR"sky1.png",AD_RES_TEXTURE_DIR"sky1.png",
+            AD_RES_TEXTURE_DIR"sky1.png"},VK_FORMAT_R8G8B8A8_UNORM));
+        skyBoxComp.SetSkyBoxCube(mCubeMesh);
 
         mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lisa/Lisa.obj");
         mTexture0 = std::make_shared<ade::AdTexture>(AD_RES_TEXTURE_DIR"R-C.jpeg");
@@ -223,7 +232,7 @@ protected:
         VkCommandBuffer cmdBuffer = mCmdBuffers[imageIndex];
         ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
         mRenderTarget->Begin(cmdBuffer);
-        mRenderTarget->
+        mRenderTarget->RenderSkyBox(cmdBuffer);
         mRenderTarget->RenderMaterialSystems(cmdBuffer);
         mRenderTarget->End(cmdBuffer);
         ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
@@ -267,6 +276,7 @@ private:
 
     std::shared_ptr<ade::AdTexture> mMultiPixelTexture;
     std::shared_ptr<ade::AdTexture> mTexture0;
+    std::shared_ptr<ade::AdTexture> mCubeTexture;
 
 
 

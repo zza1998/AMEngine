@@ -9,6 +9,7 @@ namespace ade {
     class AdVKBuffer{
     public:
         AdVKBuffer(AdVKDevice *device, VkBufferUsageFlags usage, size_t size, void *data = nullptr, bool bHostVisible = false);
+        //AdVKBuffer(AdVKDevice *device, VkBufferUsageFlags usage, size_t size, void *datalist[], bool bHostVisible = false);
         ~AdVKBuffer();
 
         static void CreateBufferInternal(AdVKDevice *device, VkMemoryPropertyFlags memProps, VkBufferUsageFlags usage, size_t size, VkBuffer *outBuffer, VkDeviceMemory *outMemory);

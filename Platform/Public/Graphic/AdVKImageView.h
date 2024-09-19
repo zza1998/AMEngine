@@ -12,6 +12,7 @@ namespace ade{
         ~AdVKImageView();
 
         VkImageView GetHandle() const { return mHandle; }
+        VkImageView * GetHandlePtr() { return &mHandle; }
     private:
         VkImageView mHandle = VK_NULL_HANDLE;
 

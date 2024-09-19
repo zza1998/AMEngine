@@ -1,17 +1,19 @@
-//
-// Created by zhouzian on 2024/9/16.
-//
 #include "ECS\System\AdSkyBoxSystem.h"
 #include "Graphic/AdVKPipeline.h"
 #include "Graphic/AdVKDescriptorSet.h"
 #include "Graphic/AdVKImageView.h"
 #include "Graphic/AdVKFrameBuffer.h"
+#include "ECS/Component/AdSkyBoxComponent.h"
+#include "ECS/Component/AdTransformComponent.h"
+#include "Render/AdRenderTarget.h"
 
 namespace ade {
-    /*渲染顺序：先渲染天空盒，然后再渲染普通物体。
+    /*
+     渲染顺序：先渲染天空盒，然后再渲染普通物体。
      深度设置：渲染天空盒时禁用深度写入，但保留深度测试。渲染普通物体时启用深度写入。
      移除视图矩阵的平移部分：天空盒的视图矩阵应去掉摄像机的位置偏移，只保留旋转。
-     清除缓冲区：在开始渲染每一帧之前，清除颜色和深度缓冲区。*/
+     清除缓冲区：在开始渲染每一帧之前，清除颜色和深度缓冲区。
+     */
     void AdSkyBoxSystem::OnInit(AdVKRenderPass *renderPass) {
         AdVKDevice *device = GetDevice();
 
@@ -115,7 +117,7 @@ namespace ade {
         }
         entt::registry& reg = scene->GetEcsRegistry();
 
-        auto view = reg.view<AdTransformComponent, AdPhongMaterialComponent>();
+        auto view = reg.view<AdTransformComponent, AdSkyBoxComponent>();
         if (view.begin() == view.end()) {
             return;
         }
@@ -138,46 +140,92 @@ namespace ade {
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 
         UpdateFrameUboDescSet(renderTarget);
-        bool bShouldForceUpdateMaterial = false;
-        uint32_t materialCount = AdMaterialFactory::GetInstance()->GetMaterialSize<AdPhongMaterial>();
-        if (materialCount > mLastDescriptorSetCount) {
-            ReCreateMaterialDescPool(materialCount);
-            bShouldForceUpdateMaterial = true;
+        ReCreateMaterialDescPool(1);
+        view.each([this, &cmdBuffer](AdTransformComponent& transComp, AdSkyBoxComponent& materialComp) {
+            VkDescriptorSet resourceDescSet = mMaterialResourceDescSets[0];
+            UpdateMaterialResourceDescSet(resourceDescSet, &materialComp);
+            VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, resourceDescSet };
+            vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mPipelineLayout->GetHandle(),
+                    0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
+            ModelPC pc = { transComp.GetTransform() };
+            vkCmdPushConstants(cmdBuffer, mPipelineLayout->GetHandle(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(pc), &pc);
+            materialComp.GetSkyBoxCube()->Draw(cmdBuffer);
+        });
+
+    }
+    void AdSkyBoxSystem::ReCreateMaterialDescPool(uint32_t materialCount) {
+        AdVKDevice *device = GetDevice();
+
+        uint32_t newDescriptorSetCount = mLastDescriptorSetCount;
+        if(mLastDescriptorSetCount == 0){
+            newDescriptorSetCount = NUM_MATERIAL_BATCH;
         }
 
-        std::vector<bool> updateFlags(materialCount);
-        view.each([this, &updateFlags, &bShouldForceUpdateMaterial, &cmdBuffer](AdTransformComponent& transComp, AdPhongMaterialComponent& materialComp) {
-            for (const auto& entry : materialComp.GetMeshMaterials()) {
-                AdPhongMaterial* material = entry.first;
-                if (!material || material->GetIndex() < 0) {
-                    LOG_W("TODO: default material or error material ?");
-                    continue;
-                }
+        while (newDescriptorSetCount < materialCount) {
+            newDescriptorSetCount *= 2;
+        }
 
-                uint32_t materialIndex = material->GetIndex();
-                VkDescriptorSet resourceDescSet = mMaterialResourceDescSets[materialIndex];
-                // todo 暂时不更新
-                if (!updateFlags[materialIndex]) {
-                    if (material->ShouldFlushResource() || bShouldForceUpdateMaterial) {
-                        //LOG_T("Update material resource : {0}", materialIndex);
-                        UpdateMaterialResourceDescSet(resourceDescSet, material);
-                        material->FinishFlushResource();
-                    }
-                    updateFlags[materialIndex] = true;
-                }
+        if(newDescriptorSetCount > NUM_MATERIAL_BATCH_MAX){
+            LOG_E("Descriptor Set max count is : {0}, but request : {1}", NUM_MATERIAL_BATCH_MAX, newDescriptorSetCount);
+            return;
+        }
 
-                VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, resourceDescSet };
-                vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mPipelineLayout->GetHandle(),
-                    0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
+        LOG_W("{0}: {1} -> {2} S.", __FUNCTION__, mLastDescriptorSetCount, newDescriptorSetCount);
 
-                ModelPC pc = { transComp.GetTransform() , };
-                vkCmdPushConstants(cmdBuffer, mPipelineLayout->GetHandle(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(pc), &pc);
+        // Destroy old
+        mMaterialDescSets.clear();
+        mMaterialResourceDescSets.clear();
+        if(mMaterialDescriptorPool){
+            mMaterialDescriptorPool.reset();
+        }
 
-                for (const auto& meshIndex : entry.second) {
-                    materialComp.GetMesh(meshIndex)->Draw(cmdBuffer);
-                }
+        std::vector<VkDescriptorPoolSize> poolSizes = {
+            {
+                .type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,
+                .descriptorCount = newDescriptorSetCount
+            },
+            {
+                .type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER,
+                .descriptorCount = newDescriptorSetCount               // because has color_tex0 and color_tex1
             }
-            });
+        };
+        mMaterialDescriptorPool = std::make_shared<ade::AdVKDescriptorPool>(device, newDescriptorSetCount * 2, poolSizes);  //because has params and resource desc. set
+        mMaterialResourceDescSets = mMaterialDescriptorPool->AllocateDescriptorSet(mMaterialResourceDescSetLayout.get(), newDescriptorSetCount);
+        assert(mMaterialResourceDescSets.size() == newDescriptorSetCount && "Failed to AllocateDescriptorSet");
 
+        LOG_W("{0}: {1} -> {2} E.", __FUNCTION__, mLastDescriptorSetCount, newDescriptorSetCount);
+        mLastDescriptorSetCount = newDescriptorSetCount;
+    }
+
+    void AdSkyBoxSystem::UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdSkyBoxComponent *skyBoxComp) {
+        AdVKDevice *device = GetDevice();
+
+        VkDescriptorImageInfo textureInfo0 = DescriptorSetWriter::BuildImageInfo(skyBoxComp->GetSampler()->GetHandle(), skyBoxComp->GetTexture()->mImageView->GetHandle());
+
+        VkWriteDescriptorSet textureWrite0 = DescriptorSetWriter::WriteImage(descSet, 0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, &textureInfo0);
+
+        DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { textureWrite0 });
+    }
+
+
+    void AdSkyBoxSystem::UpdateFrameUboDescSet(AdRenderTarget *renderTarget) {
+        AdApplication *app = GetApp();
+        AdVKDevice *device = GetDevice();
+
+        AdVKFrameBuffer *frameBuffer = renderTarget->GetFrameBuffer();
+        glm::ivec2 resolution = { frameBuffer->GetWidth(), frameBuffer->GetHeight() };
+
+        FrameUbo frameUbo = {
+            .projMat = GetProjMat(renderTarget),
+            .viewMat = GetViewMat(renderTarget),
+            .resolution = resolution,
+            .frameId = static_cast<uint32_t>(app->GetFrameIndex()),
+            .time = app->GetStartTimeSecond()
+        };
+
+        mFrameUboBuffer->WriteData(&frameUbo);
+        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mFrameUboBuffer->GetHandle(), 0, sizeof(frameUbo));
+        VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mFrameUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
+        DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }
 }

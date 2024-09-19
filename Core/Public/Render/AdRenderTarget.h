@@ -47,10 +47,15 @@ namespace ade{
                 item->OnRender(cmdBuffer, this);
             }
         }
-        void AddSkyBoxSystem(std::shared_ptr<AdSkyBoxSystem> skyBoxSystem) {
-            mSkyBoxSystem = skyBoxSystem;
+        void AddSkyBoxSystem() {
+            std::shared_ptr<AdSkyBoxSystem> system = std::make_shared<AdSkyBoxSystem>();
+            system->OnInit(mRenderPass);
+            mSkyBoxSystem = system;
         }
         void RenderSkyBox(VkCommandBuffer cmdBuffer) {
+            if(!mSkyBoxSystem) {
+                return;
+            }
             mSkyBoxSystem->OnRender(cmdBuffer, this);
         }
         void SetCamera(AdEntity *camera) { mCamera = camera; }

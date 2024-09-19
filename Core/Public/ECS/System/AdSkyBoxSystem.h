@@ -10,6 +10,8 @@
 #include "Graphic/AdVKCommon.h"
 #include "AdFileUtil.h"
 #include "Render/AdMaterial.h"
+#include "AdApplication.h"
+#include "ECS/Component/AdSkyBoxComponent.h"
 namespace ade{
 #define NUM_MATERIAL_BATCH              16
 #define NUM_MATERIAL_BATCH_MAX          2048
@@ -27,7 +29,7 @@ namespace ade{
     private:
         void ReCreateMaterialDescPool(uint32_t materialCount);
         void UpdateFrameUboDescSet(AdRenderTarget *renderTarget);
-
+        void UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdSkyBoxComponent *skyBoxComp) ;
         std::shared_ptr<AdVKDescriptorSetLayout> mFrameUboDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialParamDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialResourceDescSetLayout;

@@ -9,6 +9,11 @@ namespace ade{
         CreateBuffer(usage, data);
     }
 
+   /* AdVKBuffer::AdVKBuffer(AdVKDevice *device, VkBufferUsageFlags usage, size_t size, void *datalist[],
+        bool bHostVisible) :mDevice(device), mSize(size), bHostVisible(bHostVisible) {
+        CreateBuffer(usage,datalist);
+    }*/
+
     AdVKBuffer::~AdVKBuffer() {
         VK_D(Buffer, mDevice->GetHandle(), mHandle);
         VK_F(mDevice->GetHandle(), mMemory);

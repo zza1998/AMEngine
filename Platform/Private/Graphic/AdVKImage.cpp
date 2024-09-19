@@ -57,6 +57,38 @@ namespace ade{
         }
     }
 
+    AdVKImage::AdVKImage(AdVKDevice *device,VkExtent3D extent,VkFormat format, int useCubeSample):mDevice(device),mExtent(extent),mFormat(format) {
+
+        VkImageCreateInfo imageCreateInfo = {};
+        imageCreateInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+        imageCreateInfo.imageType = VK_IMAGE_TYPE_2D;
+        imageCreateInfo.extent= mExtent,
+        imageCreateInfo.mipLevels = 1; // Adjust for mipmapping if needed
+        imageCreateInfo.arrayLayers = 6; // Cubemap has 6 faces
+        imageCreateInfo.format = mFormat;
+        imageCreateInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
+        imageCreateInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+        imageCreateInfo.usage = VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT;
+        imageCreateInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+        imageCreateInfo.flags = VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT;
+
+        vkCreateImage(mDevice->GetHandle(), &imageCreateInfo, nullptr, &mHandle);
+
+        VkMemoryRequirements memRequirements;
+        vkGetImageMemoryRequirements(mDevice->GetHandle(), mHandle, &memRequirements);
+
+        VkMemoryAllocateInfo allocInfo = {
+            .sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
+            .pNext = nullptr,
+            .allocationSize = memRequirements.size,
+            .memoryTypeIndex = static_cast<uint32_t>(mDevice->GetMemoryIndex(VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, memRequirements.memoryTypeBits))
+        };
+
+
+        CALL_VK(vkAllocateMemory(mDevice->GetHandle(), &allocInfo, nullptr, &mMemory));
+        CALL_VK(vkBindImageMemory(mDevice->GetHandle(), mHandle, mMemory, 0));
+    }
+
     void AdVKImage::CopyFromBuffer(VkCommandBuffer cmdBuffer, AdVKBuffer *buffer) {
         VkBufferImageCopy region = {
             .bufferOffset = 0,
@@ -74,7 +106,8 @@ namespace ade{
         vkCmdCopyBufferToImage(cmdBuffer, buffer->GetHandle(), mHandle, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
     }
 
-    bool AdVKImage::TransitionLayout(VkCommandBuffer cmdBuffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout) {
+
+    bool AdVKImage::TransitionLayout(VkCommandBuffer cmdBuffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout, uint16_t imageNum) {
         if(image == VK_NULL_HANDLE){
             return false;
         }
@@ -93,7 +126,7 @@ namespace ade{
         barrier.subresourceRange.baseMipLevel = 0;
         barrier.subresourceRange.levelCount = 1;
         barrier.subresourceRange.baseArrayLayer = 0;
-        barrier.subresourceRange.layerCount = 1;
+        barrier.subresourceRange.layerCount = imageNum;// cubemap为6
 
         VkPipelineStageFlags srcStage = VK_PIPELINE_STAGE_ALL_COMMANDS_BIT;
         VkPipelineStageFlags dstStage = VK_PIPELINE_STAGE_ALL_COMMANDS_BIT;
