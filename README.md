@@ -22,11 +22,17 @@ make -j3
 - support imgui
 - enhanced code scalability
 
-
-todo:
+0922
 
 - skybox
+- fix bug
+
+
+todo:
 - shadow
 - postprocess
 - deferred pipeline
+- more graphic things
 ![model](Resource/Image/model.png)
+![model](Resource/Image/skybox.png)
+

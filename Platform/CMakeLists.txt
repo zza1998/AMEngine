@@ -38,6 +38,24 @@ target_link_libraries(am_platform PRIVATE glfw)
 add_subdirectory(External/glm)
 target_link_libraries(am_platform PRIVATE glm)
 
+#ktx
+set(KTX_DIR External/ktx)
+set(KTX_SOURCES
+        ${KTX_DIR}/include/ktx.h
+        ${KTX_DIR}/include/ktxvulkan.h
+        ${KTX_DIR}/lib/texture.c
+        ${KTX_DIR}/lib/hashlist.c
+        ${KTX_DIR}/lib/checkheader.c
+        ${KTX_DIR}/lib/swap.c
+        ${KTX_DIR}/lib/memstream.c
+        ${KTX_DIR}/lib/filestream.c
+)
+add_library(ktx STATIC ${KTX_SOURCES})
+target_include_directories(ktx PUBLIC External/ktx/include)
+target_include_directories(ktx PUBLIC External/ktx/other_include)
+target_link_libraries(am_platform PRIVATE ktx)
+
+
 find_package(Vulkan REQUIRED)
 if(Vulkan_FOUND)
     message("----> Find vulkan success : ${Vulkan_INCLUDE_DIRS}")
@@ -79,7 +97,7 @@ target_link_libraries(am_platform PRIVATE imgui)
 
 target_include_directories(am_platform PUBLIC External/assimp/include)
 if(WIN32)
-    set(ASSIMP_LIB_DIR "Win64/assimp-vc143-mt.lib")
+    set(ASSIMP_LIB_DIR "Win64/libassimp-5.dll")
 elseif(UNIX)
     if(APPLE)
         set(ASSIMP_LIB_DIR "Macos/libassimp.5.dylib")
@@ -90,3 +108,4 @@ else()
     message("Platform: Unsupported")
 endif()
 target_link_libraries(am_platform PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/External/assimp/lib/${ASSIMP_LIB_DIR})
+

@@ -114,9 +114,7 @@ protected:
         //skybox
         ade::AdEntity *skyBox = scene->CreateEntity("SkyBox");
         auto &skyBoxComp = skyBox->AddComponent<ade::AdSkyBoxComponent>();
-        skyBoxComp.SetTexture(std::make_shared<ade::AdCubeTexture>(std::vector<std::string>{AD_RES_TEXTURE_DIR"sky1.png",
-            AD_RES_TEXTURE_DIR"sky1.png",AD_RES_TEXTURE_DIR"sky1.png",AD_RES_TEXTURE_DIR"sky1.png",AD_RES_TEXTURE_DIR"sky1.png",
-            AD_RES_TEXTURE_DIR"sky1.png"},VK_FORMAT_R8G8B8A8_UNORM));
+        skyBoxComp.SetTexture(std::make_shared<ade::AdCubeTexture>(AD_RES_TEXTURE_DIR"gcanyon_cube.ktx",VK_FORMAT_R16G16B16A16_SFLOAT));
         skyBoxComp.SetSkyBoxCube(mCubeMesh);
 
         mTestModel = std::make_shared<ade::AdModel>(AD_RES_MODEL_DIR"lisa/Lisa.obj");

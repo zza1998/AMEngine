@@ -30,7 +30,9 @@ public:
     std::shared_ptr<AdSampler> GetSampler() const {
         return mSampler;
     }
-    void SetSampler(const std::shared_ptr<AdSampler> &sampler) {}
+    void SetSampler(const std::shared_ptr<AdSampler> &sampler) {
+        mSampler = sampler;
+    }
 
 private:
     std::shared_ptr<AdMesh> mSkyBoxCube;

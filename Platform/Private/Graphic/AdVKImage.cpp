@@ -57,13 +57,13 @@ namespace ade{
         }
     }
 
-    AdVKImage::AdVKImage(AdVKDevice *device,VkExtent3D extent,VkFormat format, int useCubeSample):mDevice(device),mExtent(extent),mFormat(format) {
+    AdVKImage::AdVKImage(AdVKDevice *device,VkExtent3D extent,VkFormat format,uint32_t mipLevels, int useCubeSample):mDevice(device),mExtent(extent),mFormat(format) {
 
         VkImageCreateInfo imageCreateInfo = {};
         imageCreateInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
         imageCreateInfo.imageType = VK_IMAGE_TYPE_2D;
         imageCreateInfo.extent= mExtent,
-        imageCreateInfo.mipLevels = 1; // Adjust for mipmapping if needed
+        imageCreateInfo.mipLevels = mipLevels; // Adjust for mipmapping if needed
         imageCreateInfo.arrayLayers = 6; // Cubemap has 6 faces
         imageCreateInfo.format = mFormat;
         imageCreateInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
@@ -107,7 +107,7 @@ namespace ade{
     }
 
 
-    bool AdVKImage::TransitionLayout(VkCommandBuffer cmdBuffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout, uint16_t imageNum) {
+    bool AdVKImage::TransitionLayout(VkCommandBuffer cmdBuffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout, uint16_t imageNum, uint16_t levelCount) {
         if(image == VK_NULL_HANDLE){
             return false;
         }
@@ -124,7 +124,7 @@ namespace ade{
         barrier.image = image;
         barrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
         barrier.subresourceRange.baseMipLevel = 0;
-        barrier.subresourceRange.levelCount = 1;
+        barrier.subresourceRange.levelCount = levelCount;
         barrier.subresourceRange.baseArrayLayer = 0;
         barrier.subresourceRange.layerCount = imageNum;// cubemap为6
 

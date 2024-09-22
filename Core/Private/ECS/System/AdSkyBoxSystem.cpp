@@ -88,7 +88,7 @@ namespace ade {
         mPipeline = std::make_shared<AdVKPipeline>(device, renderPass, mPipelineLayout.get());
         mPipeline->SetVertexInputState(vertexBindings, vertexAttrs);
         mPipeline->DisableDepthWriteButTest(); // need disable for skybox
-        mPipeline->SetCullingMode(VK_CULL_MODE_FRONT_BIT); // cull front
+        mPipeline->SetCullingMode(VK_CULL_MODE_NONE); // cull front
         mPipeline->SetDynamicState({VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR});
         mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_4_BIT, VK_FALSE);
         mPipeline->Create();
@@ -140,7 +140,7 @@ namespace ade {
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 
         UpdateFrameUboDescSet(renderTarget);
-        ReCreateMaterialDescPool(1);
+
         view.each([this, &cmdBuffer](AdTransformComponent& transComp, AdSkyBoxComponent& materialComp) {
             VkDescriptorSet resourceDescSet = mMaterialResourceDescSets[0];
             UpdateMaterialResourceDescSet(resourceDescSet, &materialComp);
@@ -200,7 +200,7 @@ namespace ade {
     void AdSkyBoxSystem::UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdSkyBoxComponent *skyBoxComp) {
         AdVKDevice *device = GetDevice();
 
-        VkDescriptorImageInfo textureInfo0 = DescriptorSetWriter::BuildImageInfo(skyBoxComp->GetSampler()->GetHandle(), skyBoxComp->GetTexture()->mImageView->GetHandle());
+        VkDescriptorImageInfo textureInfo0 = DescriptorSetWriter::BuildImageInfo(skyBoxComp->GetTexture()->mSampler->GetHandle(), skyBoxComp->GetTexture()->mImageView->GetHandle());
 
         VkWriteDescriptorSet textureWrite0 = DescriptorSetWriter::WriteImage(descSet, 0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, &textureInfo0);
 
@@ -222,7 +222,8 @@ namespace ade {
             .frameId = static_cast<uint32_t>(app->GetFrameIndex()),
             .time = app->GetStartTimeSecond()
         };
-
+        frameUbo.viewMat = glm::mat4(glm::mat3(frameUbo.viewMat));
+        frameUbo.projMat[1][1] *= -1.f;
         mFrameUboBuffer->WriteData(&frameUbo);
         VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mFrameUboBuffer->GetHandle(), 0, sizeof(frameUbo));
         VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mFrameUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);

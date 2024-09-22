@@ -4,11 +4,11 @@
 #include "Render/AdRenderContext.h"
 
 namespace ade{
-    AdSampler::AdSampler(VkFilter filter, VkSamplerAddressMode addressMode) : mFilter(filter), mAddressMode(addressMode) {
+    AdSampler::AdSampler(VkFilter filter, VkSamplerAddressMode addressMode,uint16_t mipLevels) : mFilter(filter), mAddressMode(addressMode),mMipLevels(mipLevels){
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
 
-        CALL_VK(device->CreateSimpleSampler(mFilter, mAddressMode, &mHandle));
+        CALL_VK(device->CreateSimpleSampler(mFilter, mAddressMode, &mHandle, mipLevels));
     }
 
     AdSampler::~AdSampler() {

@@ -84,7 +84,7 @@ namespace ade{
         device->GetFirstGraphicQueue()->Submit(cmdBuffers, { mImageAvailableSemaphores[mCurrentBuffer] }, { mSubmitedSemaphores[mCurrentBuffer] }, mFrameFences[mCurrentBuffer]);
 
         VkResult ret = swapchain->Present(imageIndex, { mSubmitedSemaphores[mCurrentBuffer] });
-        if(ret == VK_SUBOPTIMAL_KHR){
+        if(ret == VK_SUBOPTIMAL_KHR || ret == VK_ERROR_OUT_OF_DATE_KHR){
             CALL_VK(vkDeviceWaitIdle(device->GetHandle()));
             VkExtent2D originExtent = { swapchain->GetWidth(), swapchain->GetHeight() };
             bool bSuc = swapchain->ReCreate();

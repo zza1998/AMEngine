@@ -2,7 +2,8 @@
 #define ADTEXTURE_H
 
 #include "Graphic/AdVKCommon.h"
-
+#include "AdSampler.h"
+#include "ktx/include/ktx.h"
 namespace ade{
     class AdVKImage;
     class AdVKImageView;
@@ -16,16 +17,19 @@ namespace ade{
     };
     class AdCubeTexture {
     public:
-         AdCubeTexture(const std::vector<std::string>& imageData, VkFormat imageFormat);
+         AdCubeTexture(const std::string& filename, VkFormat imageFormat);
         ~AdCubeTexture();
 
         uint32_t mWidth;
         uint32_t mHeight;
+        uint32_t mMipLevel;
         VkFormat mFormat;
         std::shared_ptr<AdVKImage> mImage;
         std::shared_ptr<AdVKImageView> mImageView;
+        std::shared_ptr<AdSampler> mSampler;
     private:
         void CreateImage(size_t size, void *data);
+        ktxResult loadKTXFile(std::string filename, ktxTexture **target);
     };
 
     class AdTexture{

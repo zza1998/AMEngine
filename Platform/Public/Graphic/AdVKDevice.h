@@ -35,7 +35,7 @@ namespace ade{
         VkCommandBuffer CreateAndBeginOneCmdBuffer();
         void SubmitOneCmdBuffer(VkCommandBuffer cmdBuffer);
 
-        VkResult CreateSimpleSampler(VkFilter filter, VkSamplerAddressMode addressMode, VkSampler *outSampler);
+        VkResult CreateSimpleSampler(VkFilter filter, VkSamplerAddressMode addressMode, VkSampler *outSampler,uint16_t mipLevels =1);
     private:
         void CreatePipelineCache();
         void CreateDefaultCmdPool();

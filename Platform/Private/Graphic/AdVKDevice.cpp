@@ -156,7 +156,7 @@ namespace ade{
         queue->WaitIdle();
     }
 
-    VkResult AdVKDevice::CreateSimpleSampler(VkFilter filter, VkSamplerAddressMode addressMode, VkSampler *outSampler) {
+    VkResult AdVKDevice::CreateSimpleSampler(VkFilter filter, VkSamplerAddressMode addressMode, VkSampler *outSampler,uint16_t mipLevels) {
         VkSamplerCreateInfo samplerInfo = {
                 .sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO,
                 .pNext = nullptr,
@@ -173,7 +173,7 @@ namespace ade{
                 .compareEnable = VK_FALSE,
                 .compareOp = VK_COMPARE_OP_NEVER,
                 .minLod = 0,
-                .maxLod = 1,
+                .maxLod = (float)mipLevels,
                 .borderColor = VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK,
                 .unnormalizedCoordinates = VK_FALSE
         };
