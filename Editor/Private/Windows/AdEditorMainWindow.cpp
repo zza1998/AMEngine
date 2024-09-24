@@ -23,7 +23,7 @@ namespace ade{
             ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), dockNodeFlags);
 
             ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-            if(ImGui::Begin("Viewport", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_UnsavedDocument | ImGuiWindowFlags_MenuBar)){
+            /*if(ImGui::Begin("Viewport", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_UnsavedDocument | ImGuiWindowFlags_MenuBar)){
                 AdApplication *app = AdApplication::GetAppContext()->app;
                 if(ImGui::BeginMenuBar()){
                     float size = 26.f;
@@ -83,26 +83,26 @@ namespace ade{
                 ImGui::EndChild();
                 ImGui::PopStyleColor();
             }
-            ImGui::End();
+            ImGui::End();*/
             ImGui::PopStyleVar();
 
-            //if(bOpens.bOpenDemoWindow){
-                //ImGui::ShowDemoWindow(&bOpens.bOpenDemoWindow);
+            if(bOpens.bOpenDemoWindow){
+                ImGui::ShowDemoWindow(&bOpens.bOpenDemoWindow);
                 //ImPlot::ShowDemoWindow(&bOpens.bOpenDemoWindow);
-            //}
+            }
 
             /*if(bOpens.bOpenContentWindow){
                 mEditorContentWindow.Draw(&bOpens.bOpenContentWindow);
             }
             */
 
-            /*if(bOpens.bOpenLayerWindow){
+            if(bOpens.bOpenLayerWindow){
                 mEditorLayerWindow.Draw(&bOpens.bOpenLayerWindow);
             }
 
             if(bOpens.bOpenPropertyWindow){
                 mEditorPropertyWindow.Draw(&bOpens.bOpenPropertyWindow);
-            }*/
+            }
         }
     }
 

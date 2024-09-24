@@ -18,7 +18,7 @@ namespace ade{
     static AdTransformWidget sTransformWidget;
 
     AdEditorViewportWindow::AdEditorViewportWindow(AdRenderTarget *renderTarget, const std::string &name) : mRenderTarget(renderTarget), mName(name) {
-
+        //RecreateRenderTarget(renderTarget->GetExtent());
     }
 
     AdEditorViewportWindow::~AdEditorViewportWindow() {
@@ -52,7 +52,7 @@ namespace ade{
                     RecreateRenderTarget(newExtent);
                 }
             }
-
+            //ImGui_ImplVulkan_AddTexture();
             ImVec2 imagePos = ImGui::GetCursorScreenPos();
             if(mDescriptorSets[acquireBufferIndex] != VK_NULL_HANDLE){
                 ImGui::Image(mDescriptorSets[acquireBufferIndex], imageSize, { 0, 0 }, { 1, 1});

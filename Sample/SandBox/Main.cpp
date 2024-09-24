@@ -74,7 +74,7 @@ protected:
         mObserver = std::make_shared<ade::AdEventObserver>();
         mObserver->OnEvent<ade::AdMouseScrollEvent>([this](const ade::AdMouseScrollEvent &event){
             ade::AdEntity *camera = mRenderTarget->GetCamera();
-            if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)){
+            if(ade::AdEntity::HasComponent2<ade::AdLookAtCameraComponent>(camera)){
                 auto &cameraComp = camera->GetComponent<ade::AdLookAtCameraComponent>();
                 float radius = cameraComp.GetRadius() + event.mYOffset * -0.3f;
                 if(radius < 0.1f){
@@ -143,7 +143,7 @@ protected:
             material->SetMixValue(glm::linearRand(0.1f, 0.8f));
 
             uint32_t cubeIndex = mUnlitMaterials.size();
-            if(!ade::AdEntity::HasComponent<ade::AdUnlitMaterialComponent>(mSmallCubes[cubeIndex])){
+            if(!ade::AdEntity::HasComponent2<ade::AdUnlitMaterialComponent>(mSmallCubes[cubeIndex])){
                 mSmallCubes[cubeIndex]->AddComponent<ade::AdUnlitMaterialComponent>();
             }
             auto &materialComp = mSmallCubes[cubeIndex]->GetComponent<ade::AdUnlitMaterialComponent>();
@@ -159,7 +159,7 @@ protected:
         }
 
         ade::AdEntity *camera = mRenderTarget->GetCamera();
-        if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)){
+        if(ade::AdEntity::HasComponent2<ade::AdLookAtCameraComponent>(camera)){
             if(!mWindow->IsMouseDown()){
                 bFirstMouseDrag = true;
                 return;

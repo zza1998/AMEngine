@@ -5,6 +5,11 @@
 namespace ade{
     AdScene::AdScene() {
         mRootNode = std::make_shared<AdNode>();
+        mRootNode->SetName("RootNode");
+
+        // register component to show imgui
+        AdTransformComponent::OnRegisterReflections();
+
     }
 
     AdScene::~AdScene() {

@@ -1,4 +1,7 @@
 #include "AdEditorApp.h"
+
+#include <ECS/Component/AdTransformComponent.h>
+
 #include "AdLog.h"
 #include "AdFileUtil.h"
 #include "Gui/AdFontAwesomeIcons.h"
@@ -30,6 +33,7 @@ namespace ade{
         mGuiRenderTarget = std::make_shared<AdRenderTarget>(mGuiRenderPass.get());
         mRenderer = std::make_shared<AdRenderer>();
         mSceneCmdBuffers = mRenderContext->GetDevice()->GetDefaultCmdPool()->AllocateCommandBuffer(5);
+        AdTransformComponent::OnRegisterReflections();
         InitImGui();
     }
 
@@ -43,19 +47,22 @@ namespace ade{
 
         mMainWindow.Draw(&bOpenMainWindow);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+
         for(int i = 0; i < mSceneRenderTargets.size(); i++){
             VkCommandBuffer cmdBuffer = mSceneCmdBuffers[i];
             ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
 
             mSceneRenderTargets[i]->Begin(cmdBuffer);
+            mSceneRenderTargets[i]->RenderSkyBox(cmdBuffer);
             mSceneRenderTargets[i]->RenderMaterialSystems(cmdBuffer);
             mSceneRenderTargets[i]->End(cmdBuffer);
             ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
             ade::AdVKDevice *device = mRenderContext->GetDevice();
             ade::AdVKQueue *graphicQueue = device->GetFirstGraphicQueue();
+            graphicQueue->WaitIdle();
             graphicQueue->Submit({ cmdBuffer });
             graphicQueue->WaitIdle();
-
+            // render image to imgui window
             mMainWindow.DrawViewportWindow(mSceneRenderTargets[i].get());
         }
         ImGui::PopStyleVar();
@@ -75,12 +82,13 @@ namespace ade{
             mGuiRenderTarget->Begin(cmdBuffer);
             ImGui_ImplVulkan_RenderDrawData(main_draw_data, cmdBuffer);
             mGuiRenderTarget->End(cmdBuffer);
-
             ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
-            /*if(mRenderer->End(imageIndex, { cmdBuffer })){
+
+            /*if(mRenderer->End(imageIndex, {cmdBuffer})){
                 mGuiRenderTarget->SetExtent({ swapchain->GetWidth(), swapchain->GetHeight() });
             }*/
         }
+
 
         // Update and Render additional Platform Windows
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
@@ -180,6 +188,7 @@ namespace ade{
 
     std::shared_ptr<AdRenderTarget> AdEditorApp::AddViewportWindow(AdVKRenderPass *renderPass, uint32_t *outIndex) {
         std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(renderPass, 1, VkExtent2D{ 100, 100 });
+        //std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(renderPass);
 
         mSceneRenderTargets.push_back(newRenderTarget);
         mMainWindow.AddViewportWindow(newRenderTarget.get());

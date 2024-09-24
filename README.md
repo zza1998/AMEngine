@@ -27,12 +27,18 @@ make -j3
 - skybox
 - fix bug
 
+0925
+
+- adjust part ui to show for adjust properties
 
 todo:
 - shadow
-- postprocess
+- postprocess bloom 
 - deferred pipeline
+- adjust ui
+- physics 
 - more graphic things
 ![model](Resource/Image/model.png)
 ![model](Resource/Image/skybox.png)
+![model](Resource/Image/gui.jpg)  
 

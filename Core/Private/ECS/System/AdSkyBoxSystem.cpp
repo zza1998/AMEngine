@@ -88,7 +88,7 @@ namespace ade {
         mPipeline = std::make_shared<AdVKPipeline>(device, renderPass, mPipelineLayout.get());
         mPipeline->SetVertexInputState(vertexBindings, vertexAttrs);
         mPipeline->DisableDepthWriteButTest(); // need disable for skybox
-        mPipeline->SetCullingMode(VK_CULL_MODE_NONE); // cull front
+        mPipeline->SetCullingMode(VK_CULL_MODE_FRONT_BIT); // cull front
         mPipeline->SetDynamicState({VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR});
         mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_4_BIT, VK_FALSE);
         mPipeline->Create();

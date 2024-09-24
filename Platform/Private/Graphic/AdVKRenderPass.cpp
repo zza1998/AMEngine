@@ -61,7 +61,7 @@ namespace ade{
                     .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
                     .finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
                     .samples = VK_SAMPLE_COUNT_1_BIT,
-                    .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT
+                    .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
                 });
                 resolveAttachmentRefs[i] = { static_cast<uint32_t>(mAttachments.size() - 1), VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL };
             }

@@ -64,7 +64,7 @@ protected:
         mRenderPass = std::make_shared<ade::AdVKRenderPass>(device, attachments, subpasses);
 
 
-        //uint32_t wIndex;
+        uint32_t wIndex;
         //mRenderTarget = AddViewportWindow(mRenderPass.get(),&wIndex);
         mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
         mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
@@ -94,9 +94,6 @@ protected:
 
         // init imgui
         AdEditorApp::OnInit();
-        //mSceneRenderTargets = std::vector<std::shared_ptr<ade::AdRenderTarget>>{mRenderTarget};
-        //uint32_t index;
-        //AddViewportWindow(mRenderPass.get(),mRenderTarget->GetCamera(),&index);
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
@@ -210,7 +207,7 @@ protected:
 
     void OnUpdate(float deltaTime) override {
         ade::AdEntity *camera = mRenderTarget->GetCamera();
-        if(ade::AdEntity::HasComponent<ade::AdLookAtCameraComponent>(camera)) {
+        if(ade::AdEntity::HasComponent2<ade::AdLookAtCameraComponent>(camera)) {
             auto &cameraComp = camera->GetComponent<ade::AdLookAtCameraComponent>();
             cameraComp.UpdateCamera(deltaTime);
         }

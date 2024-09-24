@@ -10,7 +10,7 @@ namespace ade{
 
     const glm::mat4 &AdLookAtCameraComponent::GetViewMat() {
         AdEntity *owner = GetOwner();
-        if(AdEntity::HasComponent<AdTransformComponent>(owner)){
+        if(AdEntity::HasComponent2<AdTransformComponent>(owner)){
             auto &transComp = owner->GetComponent<AdTransformComponent>();
             float yaw = transComp.GetRotation().x;
             float pitch = transComp.GetRotation().y;
@@ -34,7 +34,7 @@ namespace ade{
 
     void AdLookAtCameraComponent::UpdateCamera(float deltaTime) const {
         AdEntity *owner = GetOwner();
-        if(AdEntity::HasComponent<AdTransformComponent>(owner)) {
+        if(AdEntity::HasComponent2<AdTransformComponent>(owner)) {
             AdTransformComponent &transComp = owner->GetComponent<AdTransformComponent>();
             float change = 1000*deltaTime;
             if(mForwardFlag) {

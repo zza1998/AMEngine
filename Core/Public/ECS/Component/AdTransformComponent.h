@@ -1,6 +1,8 @@
 #ifndef AD_TRANSFORMCOMPONENT_H
 #define AD_TRANSFORMCOMPONENT_H
 
+#include <AdLog.h>
+
 #include "ECS/AdComponent.h"
 #include "AdGraphicContext.h"
 #include "glm/gtx/matrix_decompose.hpp"
@@ -28,6 +30,8 @@ namespace ade{
             return mScale;
         }
 
+        void OnDrawGui() override;
+        REG_COMPONENT(AdTransformComponent);
     private:
         glm::vec3 mPosition{ 0.f, 0.f, 0.f };
         glm::qua<float> mRotationQua{ 0.f, 0.f, 0.f ,0.f};  // degree

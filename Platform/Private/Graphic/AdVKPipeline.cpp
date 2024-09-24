@@ -286,7 +286,7 @@ namespace ade{
         return this;
     }
     AdVKPipeline *AdVKPipeline::DisableDepthWriteButTest() {
-        mPipelineConfig.depthStencilState.depthTestEnable = VK_FALSE;
+        mPipelineConfig.depthStencilState.depthTestEnable = VK_TRUE;
         mPipelineConfig.depthStencilState.depthWriteEnable = VK_FALSE;
         mPipelineConfig.depthStencilState.depthCompareOp = VK_COMPARE_OP_LESS_OR_EQUAL;
         return this;

@@ -83,7 +83,7 @@ namespace ade{
         }
         
         if(mCamera != nullptr ){
-            if(AdEntity::HasComponent<AdLookAtCameraComponent>(mCamera))
+            if(AdEntity::HasComponent2<AdLookAtCameraComponent>(mCamera))
             mCamera->GetComponent<AdLookAtCameraComponent>().SetAspect(mExtent.width * 1.f / mExtent.height);
         }
         if(bSwapchainTarget){

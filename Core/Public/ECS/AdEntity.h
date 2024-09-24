@@ -15,9 +15,10 @@ namespace ade{
         }
 
         template<typename T>
-        static bool HasComponent(AdEntity *entity){
+        static bool HasComponent2(AdEntity *entity){
             return IsValid(entity) && entity->HasComponent<T>();
         }
+
 
         bool operator==(const AdEntity& other) const{
             return mEcsEntity == other.mEcsEntity && mScene == other.mScene;

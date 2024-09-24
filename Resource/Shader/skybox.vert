@@ -28,6 +28,6 @@ out gl_PerVertex
 void main()
 {
     outUVW = inPos;
-    gl_Position = frameUbo.projMat * PC.modelMat * vec4(inPos.xyz, 1.0);
+    gl_Position = frameUbo.projMat * frameUbo.viewMat * vec4(inPos.xyz, 1.0);
     gl_Position.z = (gl_Position.z + 0.3) * 0.5;
 }

@@ -35,7 +35,7 @@ namespace ade{
     const glm::mat4 AdMaterialSystem::GetProjMat(AdRenderTarget *renderTarget) const {
         glm::mat4 projMat{1.f};
         AdEntity *camera = renderTarget->GetCamera();
-        if(AdEntity::HasComponent<AdLookAtCameraComponent>(camera)){
+        if(AdEntity::HasComponent2<AdLookAtCameraComponent>(camera)){
             auto &cameraComp = camera->GetComponent<AdLookAtCameraComponent>();
             projMat = cameraComp.GetProjMat();
         }
@@ -45,7 +45,7 @@ namespace ade{
     const glm::mat4 AdMaterialSystem::GetViewMat(AdRenderTarget *renderTarget) const {
         glm::mat4 viewMat{1.f};
         AdEntity *camera = renderTarget->GetCamera();
-        if(AdEntity::HasComponent<AdLookAtCameraComponent>(camera)){
+        if(AdEntity::HasComponent2<AdLookAtCameraComponent>(camera)){
             auto &cameraComp = camera->GetComponent<AdLookAtCameraComponent>();
             viewMat = cameraComp.GetViewMat();
         }

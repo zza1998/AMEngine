@@ -4,6 +4,8 @@
 
 #include "ECS/Component/AdTransformComponent.h"
 
+#include <Gui/Widget/AdWidget.h>
+
 namespace ade {
     void AdTransformComponent::SetTransform(const glm::mat4 &matrix) {
         glm::vec3 position;
@@ -29,6 +31,7 @@ namespace ade {
 
     void AdTransformComponent::SetPosition(glm::vec3 position) {
         mPosition = position;
+        updated = true;
     }
 
     void AdTransformComponent::SetRotation(glm::vec3 rotation) {
@@ -50,5 +53,18 @@ namespace ade {
         glm::mat4 scaleMat = glm::scale(glm::mat4(1.f), mScale);
         mTransform = transMat * rotationMat * scaleMat;
 
+    }
+
+    void AdTransformComponent::OnDrawGui() {
+        if(AdWidget::DrawVec3Field("Position", &mPosition.x, 0.1f)){
+            updated = true;
+        }
+        glm::vec3 rotation = GetRotation();
+        if(AdWidget::DrawRotation3Field("Rotation", rotation, 1.f)){
+            SetRotation(rotation);
+        }
+        if(AdWidget::DrawVec3Field("Scale", &mScale.x, 0.1f)){
+            updated = true;
+        }
     }
 }
