@@ -125,8 +125,7 @@ protected:
         phong->SetBaseColor0(glm::linearRand(glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f)));
         phong->SetTextureView(0, mMultiPixelTexture.get(), mDefaultSampler.get());
 
-        auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
-        pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.3,glm::vec3(0.8f, 0.2f, 0.5f)));
+
         // 1 shader, 2 component, 3 system
         {
             ade::AdEntity *lisa = scene->CreateEntity("Lisa");
@@ -146,6 +145,8 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 1");
+            auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
+            pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.3,glm::vec3(0.8f, 0.2f, 0.5f)));
             auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
             materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
@@ -163,6 +164,8 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 0");
+            auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
+            pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.3,glm::vec3(0.8f, 0.2f, 0.5f)));
             auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
             materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
@@ -182,6 +185,8 @@ protected:
         }*/
         {
             ade::AdEntity *cube = scene->CreateEntity("Sphere 3");
+            auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
+            pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.3,glm::vec3(0.8f, 0.2f, 0.5f)));
             auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
             materialComp.AddMesh(mSphereModel.get()->GetMeshes(0)[0], pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();
@@ -191,6 +196,8 @@ protected:
         }
         {
             ade::AdEntity *cube = scene->CreateEntity("Cube 4");
+            auto pbrMat = ade::AdMaterialFactory::GetInstance()->CreateMaterial<ade::AdPBRMaterial>();
+            pbrMat->SetPBRMaterialUbo(ade::PBRMaterialUbo(0.4,0.3,glm::vec3(0.8f, 0.2f, 0.5f)));
             auto &materialComp = cube->AddComponent<ade::AdPBRMaterialComponent>();
             materialComp.AddMesh(mCubeMesh.get(), pbrMat);
             auto &transComp = cube->GetComponent<ade::AdTransformComponent>();

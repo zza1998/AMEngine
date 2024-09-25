@@ -17,6 +17,7 @@ add_library(am_core
         Private/ECS/Component/AdLookAtCameraComponent.cpp
         Private/ECS/Component/AdTransformComponent.cpp
         Private/ECS/Component/Material/AdPhongMaterialComponent.cpp
+        Private/ECS/Component/Material/AdPBRMaterialComponent.cpp
         Private/ECS/System/AdMaterialSystem.cpp
         Private/ECS/System/AdBaseMaterialSystem.cpp
         Private/ECS/System/AdUnlitMaterialSystem.cpp

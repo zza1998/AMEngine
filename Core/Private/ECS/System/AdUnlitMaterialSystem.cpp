@@ -163,7 +163,7 @@ namespace ade{
         std::vector<bool> updateFlags(materialCount);
         view.each([this, &updateFlags, &bShouldForceUpdateMaterial, &cmdBuffer](AdTransformComponent &transComp, AdUnlitMaterialComponent &materialComp){
             for (const auto &entry: materialComp.GetMeshMaterials()){
-                AdUnlitMaterial *material = entry.first;
+                AdUnlitMaterial *material = materialComp.GetMeshMaterial(entry.first);;
                 if(!material || material->GetIndex() < 0){
                     LOG_W("TODO: default material or error material ?");
                     continue;

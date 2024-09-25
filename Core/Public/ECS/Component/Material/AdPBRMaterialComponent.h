@@ -32,16 +32,16 @@ namespace ade{
         const PBRMaterialUbo &GetParams() const { return mParams; }
         const LightUbo &GetLight() const { return mLight; }
         void SetPBRMaterialUbo(const PBRMaterialUbo &ubo){mParams = ubo;}
-    private:
+        void MarkDirty(){bShouldFlushParams = true;}
+    public:
         PBRMaterialUbo mParams{};
         LightUbo mLight{};
     };
 
     class AdPBRMaterialComponent : public AdMaterialComponent<AdPBRMaterial>{
     public:
-        void OnDrawGui() override {
-
-        };
+        void OnDrawGui() override;
+        REG_COMPONENT(AdPBRMaterialComponent);
     };
 }
 

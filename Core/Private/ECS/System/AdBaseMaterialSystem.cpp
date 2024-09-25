@@ -101,7 +101,7 @@ namespace ade{
         view.each([this, &cmdBuffer, &projMat, &viewMat](const auto &e, AdTransformComponent &transComp, const AdBaseMaterialComponent &materialComp){
             auto meshMaterials = materialComp.GetMeshMaterials();
             for (const auto &entry: meshMaterials){
-                AdBaseMaterial *material = entry.first;
+                AdBaseMaterial *material =  materialComp.GetMeshMaterial(entry.first);
                 if(!material){
                     LOG_W("TODO: default material or error material ?");
                     continue;

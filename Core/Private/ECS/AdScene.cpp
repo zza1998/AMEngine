@@ -1,5 +1,6 @@
 #include "ECS/AdScene.h"
 
+#include <ECS/Component/Material/AdPBRMaterialComponent.h>
 #include <ECS/Component/Material/AdPhongMaterialComponent.h>
 
 #include "ECS/AdEntity.h"
@@ -13,6 +14,7 @@ namespace ade{
         // register component to show imgui
         AdTransformComponent::OnRegisterReflections();
         AdPhongMaterialComponent::OnRegisterReflections();
+        AdPBRMaterialComponent::OnRegisterReflections();
     }
 
     AdScene::~AdScene() {

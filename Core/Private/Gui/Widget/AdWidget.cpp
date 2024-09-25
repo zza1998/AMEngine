@@ -29,6 +29,13 @@ namespace ade{
         ImGui::PopID();
     }
 
+    bool AdWidget::DrawOneFloat(const char *fieldName, float *v,float v_speed , float v_min , float v_max ) {
+        BeginGuiField(fieldName);
+        bool value_changed = false;
+        value_changed |= ImGui::DragFloat(fieldName,v,v_speed,v_min,v_max);
+        EndGuiField();
+        return value_changed;
+    }
     bool AdWidget::DrawVecColorField(const char *fieldName, glm::vec4 &v, float v_speed, float v_min, float v_max) {
 
         ImGuiColorEditFlags misc_flags = ImGuiColorEditFlags_HDR | ImGuiColorEditFlags_NoDragDrop ;

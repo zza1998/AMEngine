@@ -40,5 +40,5 @@ todo:
 - more graphic things
 ![model](Resource/Image/model.png)
 ![model](Resource/Image/skybox.png)
-![model](Resource/Image/gui.jpg)  
+![model](Resource/Image/gui.png)  
 
