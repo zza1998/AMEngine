@@ -1,4 +1,7 @@
 #include "ECS/AdScene.h"
+
+#include <ECS/Component/Material/AdPhongMaterialComponent.h>
+
 #include "ECS/AdEntity.h"
 #include "ECS/Component/AdTransformComponent.h"
 
@@ -9,7 +12,7 @@ namespace ade{
 
         // register component to show imgui
         AdTransformComponent::OnRegisterReflections();
-
+        AdPhongMaterialComponent::OnRegisterReflections();
     }
 
     AdScene::~AdScene() {

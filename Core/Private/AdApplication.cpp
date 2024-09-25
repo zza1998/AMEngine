@@ -110,7 +110,7 @@ namespace ade {
 
                 mObserver->OnEvent<ade::AdMouseMovedEvent>(
                     [this,&cameraComp,&transform](const ade::AdMouseMovedEvent &event) {
-                        if (!mWindow->IsMouseDown()) {
+                        if (!mWindow->IsMouseDown(MOUSE_BUTTON_RIGHT)) {
                             bFirstMouseDrag = true;
                             return;
                         }

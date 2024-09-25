@@ -29,6 +29,15 @@ namespace ade{
         ImGui::PopID();
     }
 
+    bool AdWidget::DrawVecColorField(const char *fieldName, glm::vec4 &v, float v_speed, float v_min, float v_max) {
+
+        ImGuiColorEditFlags misc_flags = ImGuiColorEditFlags_HDR | ImGuiColorEditFlags_NoDragDrop ;
+        BeginGuiField(fieldName);
+        ImGui::ColorEdit4("MyColor##2f", (float*)&v.x, ImGuiColorEditFlags_Float | misc_flags);
+        EndGuiField();
+        return true;
+    }
+
     static void DrawFloatDragColorReact(ImU32 color){
         float sz = ImGui::GetFrameHeight();
         ImVec2 p = ImGui::GetCursorScreenPos();

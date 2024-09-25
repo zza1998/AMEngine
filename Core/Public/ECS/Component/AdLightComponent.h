@@ -37,20 +37,23 @@ namespace ade{
 
     struct AdDirectLightComponent : public AdComponent {
         DirectLight params{};
+        REG_COMPONENT(AdDirectLightComponent);
         void OnDrawGui() override{};
-        //REG_COMPONENT(AdDirectLightComponent)
     };
 
     struct AdPointLightComponent : public AdComponent {
         PointLight params{};
-        void OnDrawGui() override{};
-        //REG_COMPONENT(AdPointLightComponent)
+        REG_COMPONENT(AdPointLightComponent);
+        void OnDrawGui() override {
+
+        };
     };
 
     struct AdSpotlightComponent : public AdComponent {
         Spotlight params{};
+        REG_COMPONENT(AdSpotlightComponent)
         void OnDrawGui() override{};
-        //REG_COMPONENT(AdSpotlightComponent)
+
     };
 }
 

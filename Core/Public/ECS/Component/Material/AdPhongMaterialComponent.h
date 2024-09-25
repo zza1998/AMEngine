@@ -5,6 +5,8 @@
 #ifndef ADPHONGMATERIALCOMPONENT_H
 #define ADPHONGMATERIALCOMPONENT_H
 
+#include <Gui/Widget/AdWidget.h>
+
 #include  "AdMaterialComponent.h"
 
 namespace ade{
@@ -46,9 +48,9 @@ namespace ade{
 
     class AdPhongMaterialComponent : public AdMaterialComponent<AdPhongMaterial>{
     public:
-        void OnDrawGui() override {
 
-        };
+        void OnDrawGui() override;
+        REG_COMPONENT(AdPhongMaterialComponent)
     };
 }
 
