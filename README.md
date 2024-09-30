@@ -38,7 +38,9 @@ todo:
 - adjust ui
 - physics 
 - more graphic things
+
+Gbuffer Design which based on UE
+![model](Resource/Image/gbuffer.png)
 ![model](Resource/Image/model.png)
-![model](Resource/Image/skybox.png)
 ![model](Resource/Image/gui.png)  
 
