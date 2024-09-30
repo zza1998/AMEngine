@@ -22,8 +22,8 @@ namespace ade{
             }
             ImGui::DockSpaceOverViewport(ImGui::GetMainViewport(), dockNodeFlags);
 
-            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-            /*if(ImGui::Begin("Viewport", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_UnsavedDocument | ImGuiWindowFlags_MenuBar)){
+            /*ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+            if(ImGui::Begin("Viewport", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_UnsavedDocument | ImGuiWindowFlags_MenuBar)){
                 AdApplication *app = AdApplication::GetAppContext()->app;
                 if(ImGui::BeginMenuBar()){
                     float size = 26.f;
@@ -83,8 +83,8 @@ namespace ade{
                 ImGui::EndChild();
                 ImGui::PopStyleColor();
             }
-            ImGui::End();*/
-            ImGui::PopStyleVar();
+            ImGui::End();
+            ImGui::PopStyleVar();*/
 
             if(bOpens.bOpenDemoWindow){
                 ImGui::ShowDemoWindow(&bOpens.bOpenDemoWindow);
@@ -102,6 +102,9 @@ namespace ade{
 
             if(bOpens.bOpenPropertyWindow){
                 mEditorPropertyWindow.Draw(&bOpens.bOpenPropertyWindow);
+            }
+            if(bOpens.bOpenGlobalSettingWindow) {
+                mEditorSettingWindow.Draw(&bOpens.bOpenGlobalSettingWindow);
             }
         }
     }
@@ -171,6 +174,7 @@ namespace ade{
                 ImGui::MenuItem("Layer", "", &bOpens.bOpenLayerWindow);
                 ImGui::MenuItem("Content",  "", &bOpens.bOpenContentWindow);
                 ImGui::MenuItem("Header Bars",  "", &bOpens.bOpenHeaderBar);
+                ImGui::MenuItem("Global Setting Window",  "", &bOpens.bOpenGlobalSettingWindow);
                 ImGui::Separator();
                 if(ImGui::BeginMenu("Add Viewport Window", mViewportWindows.size() < 5)){
                     AdScene *scene = AdApplication::GetAppContext()->scene;

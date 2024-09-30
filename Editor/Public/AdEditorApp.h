@@ -16,7 +16,7 @@ namespace ade{
     class AdEditorApp : public AdApplication{
     public:
         AdEditorApp() = default;
-        std::shared_ptr<AdRenderTarget> AddViewportWindow(AdVKRenderPass *renderPass, uint32_t *outIndex = nullptr);
+        AdRenderTarget* AddViewportWindow(AdVKRenderPass *renderPass, AdEntity *defaultCamera, uint32_t *outIndex = nullptr);
 
         void RemoveViewportWindow(uint32_t index);
     protected:

@@ -75,6 +75,8 @@ namespace ade{
         return bShouldUpdateTarget;
     }
 
+
+
     bool AdRenderer::End(int32_t imageIndex, const std::vector<VkCommandBuffer> &cmdBuffers) {
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();

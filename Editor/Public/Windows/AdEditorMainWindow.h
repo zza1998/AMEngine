@@ -5,6 +5,7 @@
 #include "AdEditorContentWindow.h"
 #include "AdEditorLayerWindow.h"
 #include "AdEditorPropertyWindow.h"
+#include "AdEditorSettingWindow.h"
 
 #include "imgui/imgui.h"
 #include "imgui/implot.h"
@@ -19,6 +20,7 @@ namespace ade{
         bool bOpenContentWindow = true;
         bool bOpenLayerWindow = true;
         bool bOpenPropertyWindow = true;
+        bool bOpenGlobalSettingWindow = true;
     };
 
     class AdEditorMainWindow{
@@ -37,6 +39,7 @@ namespace ade{
         AdEditorContentWindow mEditorContentWindow;
         AdEditorLayerWindow mEditorLayerWindow;
         AdEditorPropertyWindow mEditorPropertyWindow;
+        AdEditorSettingWindow mEditorSettingWindow;
         std::unordered_map<AdRenderTarget*, std::shared_ptr<AdEditorViewportWindow>> mViewportWindows;
 
         ImGuiID mViewportDockId;

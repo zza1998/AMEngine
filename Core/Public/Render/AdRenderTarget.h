@@ -42,11 +42,16 @@ namespace ade{
             mMaterialSystemList.push_back(system);
         }
 
+
         void RenderMaterialSystems(VkCommandBuffer cmdBuffer) {
             for (auto &item: mMaterialSystemList){
                 item->OnRender(cmdBuffer, this);
             }
         }
+        void AddGBufferRenderSystem() {
+
+        }
+
         void AddSkyBoxSystem() {
             std::shared_ptr<AdSkyBoxSystem> system = std::make_shared<AdSkyBoxSystem>();
             system->OnInit(mRenderPass);

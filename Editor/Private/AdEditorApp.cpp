@@ -33,7 +33,6 @@ namespace ade{
         mGuiRenderTarget = std::make_shared<AdRenderTarget>(mGuiRenderPass.get());
         mRenderer = std::make_shared<AdRenderer>();
         mSceneCmdBuffers = mRenderContext->GetDevice()->GetDefaultCmdPool()->AllocateCommandBuffer(5);
-        AdTransformComponent::OnRegisterReflections();
         InitImGui();
     }
 
@@ -49,6 +48,7 @@ namespace ade{
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 
         for(int i = 0; i < mSceneRenderTargets.size(); i++){
+            //continue;
             VkCommandBuffer cmdBuffer = mSceneCmdBuffers[i];
             ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
 
@@ -59,7 +59,7 @@ namespace ade{
             ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
             ade::AdVKDevice *device = mRenderContext->GetDevice();
             ade::AdVKQueue *graphicQueue = device->GetFirstGraphicQueue();
-            graphicQueue->WaitIdle();
+
             graphicQueue->Submit({ cmdBuffer });
             graphicQueue->WaitIdle();
             // render image to imgui window
@@ -78,10 +78,11 @@ namespace ade{
             }*/
             VkCommandBuffer cmdBuffer = mGuiCmdBuffers[imageIndex];
             ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
-            //mGuiRenderTarget->ClearColorClearValue();
+
             mGuiRenderTarget->Begin(cmdBuffer);
             ImGui_ImplVulkan_RenderDrawData(main_draw_data, cmdBuffer);
             mGuiRenderTarget->End(cmdBuffer);
+
             ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
 
             /*if(mRenderer->End(imageIndex, {cmdBuffer})){
@@ -186,16 +187,15 @@ namespace ade{
         io.Fonts->AddFontFromFileTTF(AD_RES_FONT_DIR"fa-solid-900.ttf", 13.f, &config, iconsRanges);
     }
 
-    std::shared_ptr<AdRenderTarget> AdEditorApp::AddViewportWindow(AdVKRenderPass *renderPass, uint32_t *outIndex) {
+    AdRenderTarget* AdEditorApp::AddViewportWindow(AdVKRenderPass *renderPass, AdEntity *defaultCamera, uint32_t *outIndex) {
         std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(renderPass, 1, VkExtent2D{ 100, 100 });
-        //std::shared_ptr<AdRenderTarget> newRenderTarget = std::make_shared<AdRenderTarget>(renderPass);
-
+        newRenderTarget->SetCamera(defaultCamera);
         mSceneRenderTargets.push_back(newRenderTarget);
         mMainWindow.AddViewportWindow(newRenderTarget.get());
         if(outIndex){
             *outIndex = mSceneRenderTargets.size() - 1;
         }
-        return newRenderTarget;
+        return newRenderTarget.get();
     }
 
     void AdEditorApp::RemoveViewportWindow(uint32_t index) {

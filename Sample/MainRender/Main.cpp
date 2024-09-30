@@ -27,7 +27,75 @@ protected:
         appSettings->title = "MainRender";
     }
 
-    void OnInit() override {
+
+    void buildGbufferPass() {
+        ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
+        ade::AdVKDevice *device = renderCxt->GetDevice();
+        ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
+
+        std::vector<ade::Attachment> attachments = {
+            //
+            {
+                .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
+                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
+                .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
+                .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
+                .finalLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
+            },
+            {
+                .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
+                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
+                .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
+                .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
+                .finalLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
+            },{
+                .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
+                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
+                .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
+                .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
+                .finalLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
+            },
+            {
+                .format = device->GetSettings().depthFormat,
+                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
+                .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
+                .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
+                .finalLayout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL,
+                .usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT
+            }
+        };
+        std::vector<ade::RenderSubPass> subpasses = {
+            {
+                .inputAttachments = { 0,1,2 },
+                .depthStencilAttachments = { 3 },
+                .sampleCount = VK_SAMPLE_COUNT_1_BIT
+            }
+        };
+        mRenderPass = std::make_shared<ade::AdVKRenderPass>(device, attachments, subpasses);
+
+
+        uint32_t wIndex;
+        //mRenderTarget = AddViewportWindow(mRenderPass.get(),nullptr, &wIndex);
+        mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
+        mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
+        mRenderTarget->SetDepthStencilClearValue({ 1, 0 });
+        mRenderTarget->AddGBufferRenderSystem();
+        // add material system
+
+    }
+
+    void buildLightPass() {
         ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         ade::AdVKDevice *device = renderCxt->GetDevice();
         ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
@@ -41,7 +109,7 @@ protected:
                 .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
                 .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
                 .finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
-                .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT
+                .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
             },
             {
                 .format = device->GetSettings().depthFormat,
@@ -65,7 +133,7 @@ protected:
 
 
         uint32_t wIndex;
-        //mRenderTarget = AddViewportWindow(mRenderPass.get(),&wIndex);
+        //mRenderTarget = AddViewportWindow(mRenderPass.get(),nullptr, &wIndex);
         mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
         mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
         mRenderTarget->SetDepthStencilClearValue({ 1, 0 });
@@ -74,6 +142,16 @@ protected:
         mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
         mRenderTarget->AddMaterialSystem<ade::AdPBRMaterialSystem>();
         mRenderTarget->AddSkyBoxSystem();
+
+    }
+    void OnInit() override {
+        // init imgui
+        AdEditorApp::OnInit();
+        ade::AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
+        ade::AdVKDevice *device = renderCxt->GetDevice();
+        ade::AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
+
+        buildGbufferPass();
 
         mRenderer = std::make_shared<ade::AdRenderer>();
 
@@ -92,8 +170,6 @@ protected:
         };
         mMultiPixelTexture = std::make_shared<ade::AdTexture>(2, 2, multiColors);
 
-        // init imgui
-        AdEditorApp::OnInit();
     }
 
     void OnSceneInit(ade::AdScene *scene) override {
@@ -233,10 +309,15 @@ protected:
 
         VkCommandBuffer cmdBuffer = mCmdBuffers[imageIndex];
         ade::AdVKCommandPool::BeginCommandBuffer(cmdBuffer);
+        // render to gBuffer
         mRenderTarget->Begin(cmdBuffer);
         mRenderTarget->RenderSkyBox(cmdBuffer);
         mRenderTarget->RenderMaterialSystems(cmdBuffer);
         mRenderTarget->End(cmdBuffer);
+        // render to screen
+
+        // postprocess
+
         ade::AdVKCommandPool::EndCommandBuffer(cmdBuffer);
 
         AdEditorApp::OnRender();
@@ -255,7 +336,6 @@ protected:
         vkDeviceWaitIdle(device->GetHandle());
         mCubeMesh.reset();
         mCmdBuffers.clear();
-        mRenderTarget.reset();
         mRenderPass.reset();
         mRenderer.reset();
         mMultiPixelTexture.reset();

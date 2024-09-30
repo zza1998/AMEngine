@@ -24,6 +24,7 @@ add_library(am_core
         Private/ECS/System/AdPhongMaterialSystem.cpp
         Private/ECS/System/AdPBRMaterialSystem.cpp
         Private/ECS/System/AdSkyBoxSystem.cpp
+        Private/ECS/System/AdGbufferRenderSystem.cpp
 
         Private/Loader/ModelLoader.cpp
 
