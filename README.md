@@ -39,7 +39,6 @@ make -j3
 todo:
 - shadow
 - postprocess bloom 
-- deferred pipeline
 - adjust ui
 - physics 
 - more graphic things
