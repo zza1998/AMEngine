@@ -31,6 +31,11 @@ make -j3
 
 - adjust part ui to show for adjust properties
 
+1005
+
+- deferred pipeline 80%
+
+
 todo:
 - shadow
 - postprocess bloom 
@@ -42,9 +47,10 @@ todo:
 Gbuffer Design which based on UE
 
 ![model](Resource/Image/gBuffer.png)
-
+![model](Resource/Image/gBufferOut.png)
 sence demo
 
 ![model](Resource/Image/model.png)
-![model](Resource/Image/gui.png)  
+![model](Resource/Image/gui.png) 
+
 
