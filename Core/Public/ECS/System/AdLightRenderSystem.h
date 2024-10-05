@@ -1,9 +1,10 @@
 //
-// Created by zhouzian on 2024/9/16.
+// Created by zhouzian on 2024/10/4.
 //
 
-#ifndef ADGBUFFER_RENDERSYSTEM_H
-#define ADGBUFFER_RENDERSYSTEM_H
+#ifndef ADLIGHTRENDERSYSTEM_H
+#define ADLIGHTRENDERSYSTEM_H
+
 #include <Graphic/AdVKBuffer.h>
 #include <Graphic/AdVKRenderPass.h>
 #include <Render/AdRenderContext.h>
@@ -11,6 +12,8 @@
 #include "Graphic/AdVKCommon.h"
 #include "Render/AdMaterial.h"
 #include "AdApplication.h"
+#include "AdMaterialSystem.h"
+
 namespace ade{
 #define NUM_MATERIAL_BATCH              16
 #define NUM_MATERIAL_BATCH_MAX          2048
@@ -20,19 +23,19 @@ namespace ade{
     class AdVKDescriptorSetLayout;
     class AdVKDescriptorPool;
 
-    class AdGbufferRenderSystem {
+    class AdLightRenderSystem : AdMaterialSystem{
     public:
-        void OnInit(AdVKRenderPass *renderPass) ;
-        void OnRender(VkCommandBuffer cmdBuffer) ;
-        void OnDestroy();
+        void OnInit(AdVKRenderPass *renderPass) override;
+        void OnRender(VkCommandBuffer cmdBuffer, AdRenderTarget *renderTarget) override;
+        void OnDestroy() override;
 
-        VkDescriptorSet GetFrameUboDescriptor() { return  mFrameUboDescSet; }
-        std::shared_ptr<AdVKBuffer> GetFrameUboBuffer() { return mFrameUboBuffer; }
-        std::shared_ptr<AdVKPipelineLayout> GetPipelineLayout() { return mPipelineLayout; }
     private:
-        //void UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdSkyBoxComponent *skyBoxComp) ;
+
+        void UpdateLightUboDescSet();
+        void UpdateGbufferUboDescSet(AdRenderTarget *renderTarget);
         std::shared_ptr<AdVKDescriptorSetLayout> mFrameUboDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialParamDescSetLayout;
+        std::shared_ptr<AdVKDescriptorSetLayout> mLightDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialResourceDescSetLayout;
 
         std::shared_ptr<AdVKPipelineLayout> mPipelineLayout;
@@ -41,14 +44,13 @@ namespace ade{
         std::shared_ptr<AdVKDescriptorPool> mDescriptorPool;
         std::shared_ptr<AdVKDescriptorPool> mMaterialDescriptorPool;
 
-        VkDescriptorSet mFrameUboDescSet;
-        VkDescriptorSet mMaterialUboDescSet;
-        std::shared_ptr<AdVKBuffer> mFrameUboBuffer;
-        std::shared_ptr<AdVKBuffer> mMaterialUboBuffer;
-
-
+        VkDescriptorSet mGbufferUboDescSet;
+        VkDescriptorSet mLightUboDescSet;
+        std::shared_ptr<AdVKBuffer> mGbufferUboBuffer;
+        std::shared_ptr<AdVKBuffer> mLightUboBuffer;
 
         FrameUbo mFrameUbo;
+        LightUbo mLightUbo;
         uint32_t mLastDescriptorSetCount = 0;
         std::vector<VkDescriptorSet> mMaterialDescSets;
         std::vector<VkDescriptorSet> mMaterialResourceDescSets;
@@ -70,5 +72,4 @@ namespace ade{
 }
 
 
-
-#endif //ADGBUFFER_RENDERSYSTEM_H
+#endif //ADLIGHTRENDERSYSTEM_H

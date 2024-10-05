@@ -8,13 +8,15 @@ layout (location = 2) in vec3 inEyePos;
 layout (location = 3) in vec2 inUV;
 
 layout(set=1, binding=0, std140) uniform MaterialUbo{
-    float roughness;
-    float metallic;
     vec3 ambient;
+    float roughness;
+    float specular;
+    float metallic;
+    int shadingModelId;
     bool useUV;
 } materialUbo;
 
-layout(set=2, binding=0) uniform sampler2D texture0;
+//layout(set=2, binding=0) uniform sampler2D texture0;
 /////----------------------------
 const float PI = 3.14159265359;
 
@@ -22,23 +24,25 @@ const float PI = 3.14159265359;
 
 vec3 materialcolor()
 {
-    if(useUV){
-        return texture(texture0,inUV);
-    }
+//    if(materialUbo.useUV){
+//        return texture(texture0,inUV).xyz;
+//    }
     return materialUbo.ambient;
 }
 
-layout (location = 0) out vec4 outPosition;
-layout (location = 1) out vec4 outNormal;
-layout (location = 2) out vec4 outAlbedo;
-layout (location = 3) out vec4 outRoughnessMetallicDepth;//{roughness,metallic,depth,0}
+layout (location = 0) out vec4 gufferA; // world normal perObjectGbufferData
+layout (location = 1) out vec4 gufferB; // metallic specular roughness shadingmodelId
+layout (location = 2) out vec4 gufferC; // BaseColor AO
 
 
 // ----------------------------------------------------------------------------
 void main()
 {
-    outAlbedo = vec4(materialcolor(),1.0);
-    outNormal = vec4(normalize(inNormal)*0.5+0.5,1.0);
-    outPosition = vec4(inWorldPos,1.0);
-    outRoughnessMetallicDepth = vec4(materialUbo.roughness,materialUbo.metallic,outPosition.z,1.0);
+    gufferA.rgb = normalize(inNormal)*0.5+0.5;
+    gufferB.r = materialUbo.metallic;
+    gufferB.g = materialUbo.specular;
+    gufferB.b = materialUbo.roughness;
+    gufferB.a = materialUbo.shadingModelId;
+    gufferC.rgb = materialcolor();
+
 }

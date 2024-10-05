@@ -162,8 +162,8 @@ namespace ade{
                 .flags = 0,
                 .logicOpEnable = VK_FALSE,
                 .logicOp = VK_LOGIC_OP_CLEAR,
-                .attachmentCount = 1,
-                .pAttachments = &mPipelineConfig.colorBlendAttachmentState,
+                .attachmentCount =  static_cast<uint32_t>(mPipelineConfig.colorBlendAttachmentStateList.size()),
+                .pAttachments = mPipelineConfig.colorBlendAttachmentStateList.data(),
         };
         colorBlendStateInfo.blendConstants[0] = colorBlendStateInfo.blendConstants[1] = colorBlendStateInfo.blendConstants[2] = colorBlendStateInfo.blendConstants[3] = 0;
 
@@ -191,7 +191,7 @@ namespace ade{
                 .pDynamicState = &dynamicStateInfo,
                 .layout = mPipelineLayout->GetHandle(),
                 .renderPass = mRenderPass->GetHandle(),
-                .subpass = 0,
+                .subpass = mPipelineConfig.subPassNo,
                 .basePipelineHandle = VK_NULL_HANDLE,
                 .basePipelineIndex = 0
         };
@@ -247,12 +247,23 @@ namespace ade{
                                                              VkBlendFactor srcAlphaBlendFactor,
                                                              VkBlendFactor dstAlphaBlendFactor,
                                                              VkBlendOp alphaBlendOp) {
+        mPipelineConfig.colorBlendAttachmentStateList.clear();
         mPipelineConfig.colorBlendAttachmentState.blendEnable = blendEnable;
         mPipelineConfig.colorBlendAttachmentState.srcColorBlendFactor = srcColorBlendFactor;
         mPipelineConfig.colorBlendAttachmentState.dstColorBlendFactor = dstColorBlendFactor;
         mPipelineConfig.colorBlendAttachmentState.srcAlphaBlendFactor = srcAlphaBlendFactor;
         mPipelineConfig.colorBlendAttachmentState.dstAlphaBlendFactor = dstAlphaBlendFactor;
         mPipelineConfig.colorBlendAttachmentState.alphaBlendOp = alphaBlendOp;
+
+        mPipelineConfig.colorBlendAttachmentStateList.push_back(mPipelineConfig.colorBlendAttachmentState);
+        return this;
+    }
+
+    AdVKPipeline *AdVKPipeline::SetColorBlendAttachmentStateDefault(uint32_t attachmentNum) {
+        mPipelineConfig.colorBlendAttachmentStateList.clear();
+        for(int i =0;i<attachmentNum;i++) {
+            mPipelineConfig.colorBlendAttachmentStateList.push_back(mPipelineConfig.colorBlendAttachmentState);
+        }
         return this;
     }
 
@@ -291,6 +302,17 @@ namespace ade{
         mPipelineConfig.depthStencilState.depthCompareOp = VK_COMPARE_OP_LESS_OR_EQUAL;
         return this;
     }
+    AdVKPipeline *AdVKPipeline::DisableDepthTestAndWrite() {
+        mPipelineConfig.depthStencilState.depthTestEnable = VK_FALSE;
+        mPipelineConfig.depthStencilState.depthWriteEnable = VK_FALSE;
+        return this;
+    }
+
+    AdVKPipeline * AdVKPipeline::SetSubPassNo(uint32_t no) {
+        mPipelineConfig.subPassNo = no;
+        return this;
+    }
+
     void AdVKPipeline::Bind(VkCommandBuffer cmdBuffer) {
         vkCmdBindPipeline(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mHandle);
     }

@@ -21,6 +21,7 @@ namespace ade{
         VkFramebuffer GetHandle() const { return mHandle; }
         uint32_t GetWidth() const { return mWidth; }
         uint32_t GetHeight() const { return mHeight; }
+        std::vector<std::shared_ptr<AdVKImageView>> GetImageViews() const { return mImageViews; }
     private:
         VkFramebuffer mHandle = VK_NULL_HANDLE;
         AdVKDevice *mDevice;

@@ -41,7 +41,7 @@ todo:
 
 Gbuffer Design which based on UE
 
-![model](Resource/Image/gbuffer.png)
+![model](Resource/Image/gBuffer.png)
 
 sence demo
 

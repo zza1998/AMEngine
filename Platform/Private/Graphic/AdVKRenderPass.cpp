@@ -27,15 +27,20 @@ namespace ade{
         //2. subpasses
         std::vector<VkSubpassDescription> subpassDescriptions(mSubPasses.size());
         std::vector<VkAttachmentReference>* inputAttachmentRefs  = new std::vector<VkAttachmentReference>[mSubPasses.size()];
-        std::vector<VkAttachmentReference>* colorAttachmentRefs =new std::vector<VkAttachmentReference>[mSubPasses.size()];
-        std::vector<VkAttachmentReference>* depthStencilAttachmentRefs =new std::vector<VkAttachmentReference>[mSubPasses.size()];
+        std::vector<VkAttachmentReference>* colorAttachmentRefs = new std::vector<VkAttachmentReference>[mSubPasses.size()];
+        std::vector<VkAttachmentReference>* depthStencilAttachmentRefs = new std::vector<VkAttachmentReference>[mSubPasses.size()];
         VkAttachmentReference* resolveAttachmentRefs = new VkAttachmentReference[mSubPasses.size()];
 
         for(int i = 0; i < mSubPasses.size(); i++){
             RenderSubPass subpass = mSubPasses[i];
 
             for (const auto &inputAttachment: subpass.inputAttachments){
-                inputAttachmentRefs[i].push_back({ inputAttachment, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL });
+                if(mAttachments[inputAttachment].finalLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL) {
+                    inputAttachmentRefs[i].push_back({ inputAttachment, VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL });
+                }else {
+                    inputAttachmentRefs[i].push_back({ inputAttachment, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL });
+                }
+
             }
 
             for (const auto &colorAttachment: subpass.colorAttachments){

@@ -11,8 +11,8 @@ namespace ade{
 // -------------------------------------------------------------------------------------------------
 
     struct FrameUbo{
-        glm::mat4  projMat{ 1.f };
-        glm::mat4  viewMat{ 1.f };
+        alignas(16) glm::mat4  projMat{ 1.f };
+        alignas(16) glm::mat4  viewMat{ 1.f };
         alignas(8) glm::ivec2 resolution;
         alignas(4) uint32_t frameId;
         alignas(4) float exposure{4.5};
@@ -20,6 +20,14 @@ namespace ade{
         alignas(4) float time;
     };
 
+    struct MaterialUbo {
+        alignas(16) glm::vec3 ambient;
+        alignas(4) float roughness;
+        alignas(4) float specular;
+        alignas(4) float metallic;
+        alignas(4) uint32_t shadingModelId = SHADING_MODEL_UN_LIGHT;
+        bool useUV = false;
+    };
     // Shader Params
     struct TextureParam{
         bool enable {true};
@@ -34,6 +42,7 @@ namespace ade{
         PointLight pointLights[LIGHT_MAX_COUNT];
         //Spotlight spotlights[LIGHT_MAX_COUNT];
     };
+
     struct ModelPC{
         alignas(16) glm::mat4 modelMat;
         alignas(16) glm::mat3 normalMat;

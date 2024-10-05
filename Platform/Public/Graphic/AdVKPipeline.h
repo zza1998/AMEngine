@@ -72,7 +72,9 @@ namespace ade{
                                   | VK_COLOR_COMPONENT_B_BIT
                                   | VK_COLOR_COMPONENT_A_BIT
         };
+        std::vector<VkPipelineColorBlendAttachmentState> colorBlendAttachmentStateList{colorBlendAttachmentState};
         PipelineDynamicState dynamicState;
+        uint32_t subPassNo = 0 ;
     };
 
     class AdVKPipelineLayout{
@@ -110,9 +112,12 @@ namespace ade{
                                                    VkBlendFactor srcColorBlendFactor = VK_BLEND_FACTOR_ONE, VkBlendFactor dstColorBlendFactor = VK_BLEND_FACTOR_ZERO, VkBlendOp colorBlendOp = VK_BLEND_OP_ADD,
                                                    VkBlendFactor srcAlphaBlendFactor = VK_BLEND_FACTOR_ONE, VkBlendFactor dstAlphaBlendFactor = VK_BLEND_FACTOR_ZERO, VkBlendOp alphaBlendOp = VK_BLEND_OP_ADD);
         AdVKPipeline *SetDynamicState(const std::vector<VkDynamicState> &dynamicStates);
+        AdVKPipeline *SetColorBlendAttachmentStateDefault(uint32_t attachmentNum);
         AdVKPipeline *EnableAlphaBlend();
         AdVKPipeline *EnableDepthTest();
         AdVKPipeline *DisableDepthWriteButTest();
+        AdVKPipeline *DisableDepthTestAndWrite();
+        AdVKPipeline *SetSubPassNo(uint32_t no);
         AdVKPipeline* SetCullingMode(VkCullModeFlagBits cullMode);
         VkPipeline GetHandle() const { return mHandle; }
     private:

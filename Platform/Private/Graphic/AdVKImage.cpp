@@ -7,7 +7,8 @@ namespace ade{
                                                                                                             mExtent(extent),
                                                                                                             mFormat(format),
                                                                                                             mUsage(usage) {
-        VkImageTiling tiling = VK_IMAGE_TILING_LINEAR;
+        //VkImageTiling tiling = VK_IMAGE_TILING_LINEAR;
+        VkImageTiling tiling = VK_IMAGE_TILING_OPTIMAL;
         bool isDepthStencilFormat = IsDepthStencilFormat(format);
         if(isDepthStencilFormat || sampleCount > VK_SAMPLE_COUNT_1_BIT){
             tiling = VK_IMAGE_TILING_OPTIMAL;

@@ -150,7 +150,7 @@ void AdPhongMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             return;
         }
 
-        mPipeline->Bind(cmdBuffer);
+        //mPipeline->Bind(cmdBuffer);
         AdVKFrameBuffer *frameBuffer = renderTarget->GetFrameBuffer();
         VkViewport viewport = {
             .x = 0,

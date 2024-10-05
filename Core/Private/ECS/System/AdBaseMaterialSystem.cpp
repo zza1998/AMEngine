@@ -76,7 +76,7 @@ namespace ade{
             return;
         }
         // bind pipeline
-        mPipeline->Bind(cmdBuffer);
+        //mPipeline->Bind(cmdBuffer);
         // setup global params
         AdVKFrameBuffer *frameBuffer = renderTarget->GetFrameBuffer();
         VkViewport viewport = {

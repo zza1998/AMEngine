@@ -18,6 +18,19 @@ namespace ade{
 void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         AdVKDevice *device = GetDevice();
 
+    // Material Params
+    {
+            const std::vector<VkDescriptorSetLayoutBinding> bindings = {
+                {
+                    .binding = 0,
+                    .descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,
+                    .descriptorCount = 1,
+                    .stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT
+                }
+            };
+            mMaterialParamDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
+    }
+#ifdef INIT_PBR_PIPELINE
         //Frame Ubo
         {
              const std::vector<VkDescriptorSetLayoutBinding> bindings = {
@@ -31,18 +44,7 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             mFrameUboDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
         }
 
-        // Material Params
-        {
-            const std::vector<VkDescriptorSetLayoutBinding> bindings = {
-                {
-                    .binding = 0,
-                    .descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,
-                    .descriptorCount = 1,
-                    .stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT
-                }
-            };
-            mMaterialParamDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
-        }
+
         // Light UBO
         {
                 const std::vector<VkDescriptorSetLayoutBinding> bindings = {
@@ -110,7 +112,7 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         mPipeline->SetDynamicState({ VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR });
         mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_4_BIT, VK_FALSE);
         mPipeline->Create();
-
+#endif
         std::vector<VkDescriptorPoolSize> poolSizes = {
             {
                 .type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,
@@ -118,10 +120,10 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             }
         };
         mDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 10, poolSizes);
-        mFrameUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
-        mLightUboDescSet = mDescriptorPool->AllocateDescriptorSet(mLightDescSetLayout.get(), 1)[0];
-        mFrameUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(FrameUbo), nullptr, true);
-        mLightUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(LightUbo), nullptr, true);
+        //mFrameUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
+        //mLightUboDescSet = mDescriptorPool->AllocateDescriptorSet(mLightDescSetLayout.get(), 1)[0];
+        //mFrameUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(FrameUbo), nullptr, true);
+        //mLightUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(LightUbo), nullptr, true);
         //ReCreateMaterialDescPool(NUM_MATERIAL_BATCH);
     }
 
@@ -137,7 +139,7 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             return;
         }
 
-        mPipeline->Bind(cmdBuffer);
+        //mPipeline->Bind(cmdBuffer);
         AdVKFrameBuffer *frameBuffer = renderTarget->GetFrameBuffer();
         VkViewport viewport = {
             .x = 0,
@@ -154,8 +156,8 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         };
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 
-        UpdateFrameUboDescSet(renderTarget);
-        UpdateLightUboDescSet();
+        UpdateFrameUboDescSet(renderTarget,mGbufferRender->GetFrameUboDescriptor() ,mGbufferRender->GetFrameUboBuffer());
+        //UpdateLightUboDescSet();
         bool bShouldForceUpdateMaterial = false;
         uint32_t materialCount = AdMaterialFactory::GetInstance()->GetMaterialSize<AdPBRMaterial>();
         if(materialCount > mLastDescriptorSetCount){
@@ -175,13 +177,11 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                 uint32_t materialIndex = material->GetIndex();
                 VkDescriptorSet paramsDescSet = mMaterialDescSets[materialIndex];
                 //VkDescriptorSet resourceDescSet = mMaterialResourceDescSets[materialIndex];
-                // todo 暂时不更新
                 if(!updateFlags[materialIndex]){
                     if(material->ShouldFlushParams() || bShouldForceUpdateMaterial){
                         //LOG_T("Update material params : {0}", materialIndex);
                         UpdateMaterialParamsDescSet(paramsDescSet, material);
                         // modify light
-
                         material->FinishFlushParams();
                     }
                     if(material->ShouldFlushResource() || bShouldForceUpdateMaterial){
@@ -191,13 +191,13 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                     }
                     updateFlags[materialIndex] = true;
                 }
-                //
-                VkDescriptorSet descriptorSets[] = { mFrameUboDescSet, paramsDescSet, mLightUboDescSet};
-                vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mPipelineLayout->GetHandle(),
+                // 无需bind 都用同一套
+                VkDescriptorSet descriptorSets[] = { mGbufferRender->GetFrameUboDescriptor(), paramsDescSet};
+                vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, mGbufferRender->GetPipelineLayout()->GetHandle(),
                                         0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
 
                 ModelPC pc = { transComp.GetTransform() ,};
-                vkCmdPushConstants(cmdBuffer, mPipelineLayout->GetHandle(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(pc), &pc);
+                vkCmdPushConstants(cmdBuffer, mGbufferRender->GetPipelineLayout()->GetHandle(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(pc), &pc);
 
                 for (const auto &meshIndex: entry.second){
                     materialComp.GetMesh(meshIndex)->Draw(cmdBuffer);
@@ -261,7 +261,7 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         mLastDescriptorSetCount = newDescriptorSetCount;
     }
 
-    void AdPBRMaterialSystem::UpdateFrameUboDescSet(AdRenderTarget *renderTarget) {
+    void AdPBRMaterialSystem::UpdateFrameUboDescSet(AdRenderTarget *renderTarget,VkDescriptorSet mFrameUboDescSet,std::shared_ptr<AdVKBuffer> mFrameUboBuffer) {
         AdApplication *app = GetApp();
         AdVKDevice *device = GetDevice();
 
@@ -282,40 +282,45 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
         DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }
 
-    void AdPBRMaterialSystem::UpdateLightUboDescSet() {
-        AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
-        AdVKDevice *device = renderCxt->GetDevice();
-
-        AdScene *scene = GetScene();
-        entt::registry &reg = scene->GetEcsRegistry();
-
-
-        uint32_t pointLightCount = 0;
-        reg.view<AdTransformComponent, AdPointLightComponent>()
-                .each([&pointLightCount, this](AdTransformComponent &transComp, AdPointLightComponent &lightComp){
-            if(pointLightCount >= LIGHT_MAX_COUNT){
-                return;
-            }
-            lightComp.params.position = transComp.GetPosition();
-            mLightUbo.pointLights[pointLightCount++] = lightComp.params;
-        });
-
-        mLightUboBuffer->WriteData(&mLightUbo);
-        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mLightUboBuffer->GetHandle(), 0, sizeof(mLightUbo));
-        VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mLightUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
-        DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
-    }
+    // void AdPBRMaterialSystem::UpdateLightUboDescSet() {
+    //     AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
+    //     AdVKDevice *device = renderCxt->GetDevice();
+    //
+    //     AdScene *scene = GetScene();
+    //     entt::registry &reg = scene->GetEcsRegistry();
+    //
+    //
+    //     uint32_t pointLightCount = 0;
+    //     reg.view<AdTransformComponent, AdPointLightComponent>()
+    //             .each([&pointLightCount, this](AdTransformComponent &transComp, AdPointLightComponent &lightComp){
+    //         if(pointLightCount >= LIGHT_MAX_COUNT){
+    //             return;
+    //         }
+    //         lightComp.params.position = transComp.GetPosition();
+    //         mLightUbo.pointLights[pointLightCount++] = lightComp.params;
+    //     });
+    //
+    //     mLightUboBuffer->WriteData(&mLightUbo);
+    //     VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mLightUboBuffer->GetHandle(), 0, sizeof(mLightUbo));
+    //     VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mLightUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
+    //     DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
+    // }
 
     void AdPBRMaterialSystem::UpdateMaterialParamsDescSet(VkDescriptorSet descSet, AdPBRMaterial *material) {
         AdVKDevice *device = GetDevice();
 
         AdVKBuffer *materialBuffer = mMaterialBuffers[material->GetIndex()].get();
-
         PBRMaterialUbo params = material->GetParams();
+        MaterialUbo materialUbo = {
+            .ambient = params.ambient,
+            .roughness = params.roughness,
+            .specular = 1.0,
+            .metallic = params.metallic,
+            .shadingModelId = SHADING_MODEL_PBR_LIGHT,
+        };
 
-
-        materialBuffer->WriteData(&params);
-        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(materialBuffer->GetHandle(), 0, sizeof(params));
+        materialBuffer->WriteData(&materialUbo);
+        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(materialBuffer->GetHandle(), 0, sizeof(materialUbo));
         VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(descSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
         DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }

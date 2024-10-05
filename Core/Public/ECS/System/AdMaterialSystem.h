@@ -1,6 +1,8 @@
 #ifndef AD_MATERIAL_SYSTEM_H
 #define AD_MATERIAL_SYSTEM_H
 
+
+
 #include "AdGraphicContext.h"
 #include "Graphic/AdVKCommon.h"
 #include "ECS/AdSystem.h"
@@ -12,11 +14,14 @@ namespace ade{
     class AdApplication;
     class AdScene;
     class AdVKDevice;
+    class AdVKBuffer;
+    class AdGbufferRenderSystem;
 
     class AdMaterialSystem : public AdSystem{
     public:
         virtual void OnInit(AdVKRenderPass *renderPass) = 0;
         virtual void OnRender(VkCommandBuffer cmdBuffer, AdRenderTarget *renderTarget) = 0;
+        virtual void SetGbufferSystem(std::shared_ptr<AdGbufferRenderSystem> gbufferRender){};
         virtual void OnDestroy() = 0;
     protected:
         AdApplication *GetApp() const;
