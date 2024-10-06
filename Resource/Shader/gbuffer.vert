@@ -14,6 +14,7 @@ layout(set=0, binding=0, std140) uniform FrameUbo{
     float exposure;
     float gamma;
     float time;
+    vec3 cameraPos;
 } frameUbo;
 
 layout(push_constant) uniform PushConstants{

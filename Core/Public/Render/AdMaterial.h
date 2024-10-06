@@ -18,6 +18,7 @@ namespace ade{
         alignas(4) float exposure{4.5};
         alignas(4) float gamma{2.2};
         alignas(4) float time;
+        alignas(16) glm::vec3 cameraPos;
     };
 
     struct MaterialUbo {

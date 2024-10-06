@@ -29,6 +29,7 @@ namespace ade{
         AdVKDevice *GetDevice() const;
         const glm::mat4 GetProjMat(AdRenderTarget *renderTarget) const;
         const glm::mat4 GetViewMat(AdRenderTarget *renderTarget) const;
+        const glm::vec3 GetCameraPos(AdRenderTarget *renderTarget) const;
     };
 }
 

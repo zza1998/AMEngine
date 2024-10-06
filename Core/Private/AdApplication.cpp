@@ -124,15 +124,15 @@ namespace ade {
                                 bFirstMouseDrag = false;
                             } else {
                                 glm::vec3 rotation = transform.GetRotation();
-                                rotation.x += mousePosDelta.x * mMouseSensitivity;
+                                rotation.x -= mousePosDelta.x * mMouseSensitivity;
                                 rotation.y += mousePosDelta.y * mMouseSensitivity;
 
-                                if (rotation.x > 89.f) {
-                                    rotation.x = 89.f;
-                                }
-                                if (rotation.y < -89.f) {
-                                    rotation.y = -89.f;
-                                }
+                                // if (rotation.x > 89.f) {
+                                //     rotation.x = 89.f;
+                                // }
+                                // if (rotation.y < -89.f) {
+                                //     rotation.y = -89.f;
+                                // }
                                 transform.SetRotation(rotation);
                             }
                         }

@@ -8,7 +8,7 @@ layout (input_attachment_index = 1, set = 0, binding = 1) uniform subpassInput s
 layout (input_attachment_index = 2, set = 0, binding = 2) uniform subpassInput samplerGbufferC;
 layout (input_attachment_index = 3, set = 0, binding = 3) uniform subpassInput samplerDepth;
 
-layout(set=1, binding=0, std140) uniform FrameUbo{
+layout(set=2, binding=0, std140) uniform FrameUbo{
     mat4  projMat;
     mat4  viewMat;
     ivec2 resolution;
@@ -16,6 +16,7 @@ layout(set=1, binding=0, std140) uniform FrameUbo{
     float exposure;
     float gamma;
     float time;
+    vec3 cameraPos;
 } frameUbo;
 
 layout (set = 1,binding = 0) uniform LightUbo {
@@ -26,19 +27,19 @@ layout (location = 0) in vec2 inUV;
 layout (location = 0) out vec4 outFragcolor;
 
 vec3 calPos(){
-    return vec3(1.0,1.0,1.0);
+    //return vec3(1.0,1.0,1.0);
     // 获取深度值 [0, 1]
-//    float depth = subpassLoad(samplerDepth).r;
-//
-//    // 计算片元在 NDC（归一化设备坐标系）中的坐标 (x, y, z) (-1 到 1)
-//    vec4 ndcPos = vec4((inUV * 2.0 - 1.0), depth * 2.0 - 1.0, 1.0);
-//
-//    // 使用逆投影矩阵将 NDC 坐标转换到视空间
-//    vec4 viewPos = inverse(projMat) * ndcPos;
-//    viewPos /= viewPos.w;  // 透视除法得到视空间坐标
-//
-//    // 返回视空间坐标的 xyz
-//    return viewPos.xyz;
+    float depth = subpassLoad(samplerDepth).r;
+
+    // 计算片元在 NDC（归一化设备坐标系）中的坐标 (x, y, z) (-1 到 1)
+    vec4 ndcPos = vec4((inUV * 2.0 - 1.0), depth * 2.0 - 1.0, 1.0);
+
+    // 使用逆投影矩阵将 NDC 坐标转换到视空间
+    vec4 viewPos = inverse(frameUbo.projMat) * ndcPos;
+    viewPos /= viewPos.w;  // 透视除法得到视空间坐标
+
+    // 返回视空间坐标的 xyz
+    return viewPos.xyz;
 }
 void main() {
     vec4 bufferA = subpassLoad(samplerGbufferA);//
@@ -55,11 +56,11 @@ void main() {
     vec3 materialcolor = baseColor;
 
 
-    if (int(bufferB.a) == SHADING_MODEL_UN_LIGHT) {
+    if (int(bufferB.a) == SHADING_MODEL_PBR_LIGHT) {
         // need to update campos
         //vec3 V = normalize(ubo.camPos - inWorldPos);
         //vec3 V = normalize(-inEyePos);
-        vec3 camsPos = vec3(0.,0.,0.);
+        vec3 camsPos = frameUbo.cameraPos;
         vec3 worldPos = calPos();
         vec3 V = normalize(camsPos - worldPos);
         // Add striped pattern to roughness based on vertex position
@@ -82,6 +83,7 @@ void main() {
         color = pow(color, vec3(0.4545));
 
         outFragcolor = vec4(color, 1.0);
+        return;
     }
-    outFragcolor = vec4(materialcolor, 1.0);
+    outFragcolor = vec4(0.2,0.5,0.1, 1.0);
 }

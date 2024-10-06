@@ -19,8 +19,8 @@ namespace ade{
             direction.x = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
             direction.y = sin(glm::radians(pitch));
             direction.z = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
-
-            transComp.SetPosition(mTarget + direction * mRadius);
+            mTarget = transComp.GetPosition() + direction * mRadius;
+            //transComp.SetPosition(mTarget);
 
             mViewMat = glm::lookAt(transComp.GetPosition(), mTarget, mWorldUp);
         }
@@ -31,12 +31,21 @@ namespace ade{
         // TODO
     }
 
+    const glm::vec3 & AdLookAtCameraComponent::GetCamPosition() {
+        AdEntity *owner = GetOwner();
+        if(AdEntity::HasComponent2<AdTransformComponent>(owner)) {
+            AdTransformComponent &transComp = owner->GetComponent<AdTransformComponent>();
+            mPosition = transComp.GetPosition();
+        }
+        return mPosition;
+    }
 
     void AdLookAtCameraComponent::UpdateCamera(float deltaTime) const {
         AdEntity *owner = GetOwner();
         if(AdEntity::HasComponent2<AdTransformComponent>(owner)) {
             AdTransformComponent &transComp = owner->GetComponent<AdTransformComponent>();
-            float change = 1000*deltaTime;
+            float change = 10 * deltaTime;
+
             if(mForwardFlag) {
                 transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, 0, 1));
             }
@@ -44,16 +53,16 @@ namespace ade{
                 transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, 0, -1));
             }
             if(mLeftFlag) {
-
+                transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(1, 0, 0));
             }
             if(mRightFlag) {
-
+                transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(-1, 0, 0));
             }
             if(mUpFlag) {
-
+                transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, -1, 0));
             }
             if(mDownFlag) {
-
+                transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, 1, 0));
             }
         }
 

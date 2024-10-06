@@ -273,7 +273,8 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             .viewMat = GetViewMat(renderTarget),
             .resolution = resolution,
             .frameId = static_cast<uint32_t>(app->GetFrameIndex()),
-            .time = app->GetStartTimeSecond()
+            .time = app->GetStartTimeSecond(),
+            .cameraPos = GetCameraPos(renderTarget)
         };
 
         mFrameUboBuffer->WriteData(&frameUbo);

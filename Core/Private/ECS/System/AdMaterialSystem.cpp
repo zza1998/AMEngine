@@ -51,4 +51,14 @@ namespace ade{
         }
         return viewMat;
     }
+    const glm::vec3 AdMaterialSystem::GetCameraPos(AdRenderTarget *renderTarget) const {
+        glm::vec3 camPos{1.f};
+        AdEntity *camera = renderTarget->GetCamera();
+        if(AdEntity::HasComponent2<AdLookAtCameraComponent>(camera)){
+            auto &cameraComp = camera->GetComponent<AdLookAtCameraComponent>();
+            camPos = cameraComp.GetCamPosition();
+        }
+        return camPos;
+    }
+
 }

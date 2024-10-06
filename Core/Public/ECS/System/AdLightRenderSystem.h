@@ -33,6 +33,7 @@ namespace ade{
 
         void UpdateLightUboDescSet();
         void UpdateGbufferUboDescSet(AdRenderTarget *renderTarget);
+        void UpdateFrameUboDescSet(AdRenderTarget *renderTarget);
         std::shared_ptr<AdVKDescriptorSetLayout> mFrameUboDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialParamDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mLightDescSetLayout;
@@ -46,8 +47,10 @@ namespace ade{
 
         VkDescriptorSet mGbufferUboDescSet;
         VkDescriptorSet mLightUboDescSet;
+        VkDescriptorSet mFrameUboDescSet;
         std::shared_ptr<AdVKBuffer> mGbufferUboBuffer;
         std::shared_ptr<AdVKBuffer> mLightUboBuffer;
+        std::shared_ptr<AdVKBuffer> mFrameUboBuffer;
 
         FrameUbo mFrameUbo;
         LightUbo mLightUbo;

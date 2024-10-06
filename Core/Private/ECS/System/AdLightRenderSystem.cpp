@@ -53,9 +53,21 @@ namespace ade {
             };
             mLightDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
         }
+        // Frame UBO
+        {
+            const std::vector<VkDescriptorSetLayoutBinding> bindings = {
+                {
+                    .binding = 0,
+                    .descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER,
+                    .descriptorCount = 1,
+                    .stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+                }
+            };
+            mFrameUboDescSetLayout = std::make_shared<AdVKDescriptorSetLayout>(device, bindings);
+        }
         ShaderLayout shaderLayout = {
             .descriptorSetLayouts = {
-                mMaterialResourceDescSetLayout->GetHandle(), mLightDescSetLayout->GetHandle()
+                mMaterialResourceDescSetLayout->GetHandle(), mLightDescSetLayout->GetHandle(),mFrameUboDescSetLayout->GetHandle()
             }
         };
         mPipelineLayout = std::make_shared<AdVKPipelineLayout>(device,
@@ -111,9 +123,11 @@ namespace ade {
         };
         mDescriptorPool = std::make_shared<AdVKDescriptorPool>(device, 10, poolSizes);
         mLightUboDescSet = mDescriptorPool->AllocateDescriptorSet(mLightDescSetLayout.get(), 1)[0];
+        mFrameUboDescSet = mDescriptorPool->AllocateDescriptorSet(mFrameUboDescSetLayout.get(), 1)[0];
         mGbufferUboDescSet = mDescriptorPool->AllocateDescriptorSet(mMaterialResourceDescSetLayout.get(), 1)[0];
         mLightUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
                                                             sizeof(LightUbo), nullptr, true);
+        mFrameUboBuffer = std::make_shared<ade::AdVKBuffer>(device, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, sizeof(FrameUbo), nullptr, true);
 
     }
 
@@ -141,9 +155,10 @@ namespace ade {
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 
         UpdateLightUboDescSet();
+        UpdateFrameUboDescSet(renderTarget);
         UpdateGbufferUboDescSet(renderTarget);
         // vkUpdateDescriptorSet
-        VkDescriptorSet descriptorSets[] = {mGbufferUboDescSet, mLightUboDescSet};
+        VkDescriptorSet descriptorSets[] = {mGbufferUboDescSet, mLightUboDescSet, mFrameUboDescSet};
         vkCmdBindDescriptorSets(cmdBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS,mPipelineLayout->GetHandle(),
             0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
         // vkBindDescriptorSets
@@ -220,6 +235,28 @@ namespace ade {
         mLightUboBuffer->WriteData(&mLightUbo);
         VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mLightUboBuffer->GetHandle(), 0, sizeof(mLightUbo));
         VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mLightUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
+        DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
+    }
+
+    void AdLightRenderSystem::UpdateFrameUboDescSet(AdRenderTarget *renderTarget) {
+        AdApplication *app = GetApp();
+        AdVKDevice *device = GetDevice();
+
+        AdVKFrameBuffer *frameBuffer = renderTarget->GetFrameBuffer();
+        glm::ivec2 resolution = { frameBuffer->GetWidth(), frameBuffer->GetHeight() };
+
+        FrameUbo frameUbo = {
+            .projMat = GetProjMat(renderTarget),
+            .viewMat = GetViewMat(renderTarget),
+            .resolution = resolution,
+            .frameId = static_cast<uint32_t>(app->GetFrameIndex()),
+            .time = app->GetStartTimeSecond(),
+            .cameraPos = GetCameraPos(renderTarget)
+        };
+
+        mFrameUboBuffer->WriteData(&frameUbo);
+        VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mFrameUboBuffer->GetHandle(), 0, sizeof(frameUbo));
+        VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mFrameUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);
         DescriptorSetWriter::UpdateDescriptorSets(device->GetHandle(), { bufferWrite });
     }
 

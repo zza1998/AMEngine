@@ -9,7 +9,7 @@ namespace ade{
     public:
         const glm::mat4 &GetProjMat();
         const glm::mat4 &GetViewMat();
-
+        const glm::vec3 &GetCamPosition();
         void UpdateCamera(float deltaTime) const;
         void SetViewMat(const glm::mat4 &viewMat);
 
@@ -39,7 +39,7 @@ namespace ade{
         float mAspect{ 1.f };
         float mNearPlane{ 0.3f };
         float mFarPlane{ 1000.f };
-       // glm::vec3 mPosition {0.f,0.f,0.f};
+        glm::vec3 mPosition {0.f,0.f,0.f};
         glm::vec3 mTarget{ 0.f, 0.f, 0.f };
         glm::vec3 mWorldUp{ 0.f, 1.f, 0.f };
 
