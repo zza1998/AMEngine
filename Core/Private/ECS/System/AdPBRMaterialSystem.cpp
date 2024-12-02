@@ -197,6 +197,7 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
                                         0, ARRAY_SIZE(descriptorSets), descriptorSets, 0, nullptr);
 
                 ModelPC pc = { transComp.GetTransform() ,};
+
                 vkCmdPushConstants(cmdBuffer, mGbufferRender->GetPipelineLayout()->GetHandle(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(pc), &pc);
 
                 for (const auto &meshIndex: entry.second){

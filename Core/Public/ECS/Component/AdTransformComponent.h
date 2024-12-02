@@ -2,7 +2,7 @@
 #define AD_TRANSFORMCOMPONENT_H
 
 #include <AdLog.h>
-
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include "ECS/AdComponent.h"
 #include "AdGraphicContext.h"
 #include "glm/gtx/matrix_decompose.hpp"

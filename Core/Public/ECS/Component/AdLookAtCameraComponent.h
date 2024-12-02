@@ -39,7 +39,7 @@ namespace ade{
         float mAspect{ 1.f };
         float mNearPlane{ 0.3f };
         float mFarPlane{ 1000.f };
-        glm::vec3 mPosition {0.f,0.f,0.f};
+        glm::vec3 mPosition {0.f,0.f,-5.f};
         glm::vec3 mTarget{ 0.f, 0.f, 0.f };
         glm::vec3 mWorldUp{ 0.f, 1.f, 0.f };
 
