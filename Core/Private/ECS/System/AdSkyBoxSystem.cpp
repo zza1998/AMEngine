@@ -122,7 +122,7 @@ namespace ade {
             return;
         }
 
-        //mPipeline->Bind(cmdBuffer);
+        mPipeline->Bind(cmdBuffer);
         AdVKFrameBuffer* frameBuffer = renderTarget->GetFrameBuffer();
         VkViewport viewport = {
             .x = 0,

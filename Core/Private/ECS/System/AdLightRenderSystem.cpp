@@ -109,7 +109,7 @@ namespace ade {
             }
         };
         mPipeline = std::make_shared<AdVKPipeline>(device, renderPass, mPipelineLayout.get());
-        mPipeline->SetVertexInputState(vertexBindings, vertexAttrs);
+        //mPipeline->SetVertexInputState(vertexBindings, vertexAttrs);
         mPipeline->SetSubPassNo(1);
         mPipeline->DisableDepthTestAndWrite();
         mPipeline->SetDynamicState({VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR});

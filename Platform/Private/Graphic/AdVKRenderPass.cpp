@@ -40,6 +40,7 @@ namespace ade{
                 }else {
                     inputAttachmentRefs[i].push_back({ inputAttachment, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL });
                 }
+               // mAttachments[inputAttachment].samples = subpass.sampleCount;
 
             }
 
