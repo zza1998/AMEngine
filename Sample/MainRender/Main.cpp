@@ -18,6 +18,7 @@
 #include "ECS/Component/AdLookAtCameraComponent.h"
 #include "ECS/System/AdPhongMaterialSystem.h"
 #include "ECS/System/AdPBRMaterialSystem.h"
+
 #include "Event/AdEventObserver.h"
 
 class MainRenderApp : public ade::AdEditorApp {

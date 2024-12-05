@@ -80,11 +80,13 @@ namespace ade{
     class AdVKPipelineLayout{
     public:
         AdVKPipelineLayout(AdVKDevice *device, const std::string &vertexShaderFile, const std::string &fragShaderFile, const ShaderLayout &shaderLayout = {});
+        AdVKPipelineLayout(AdVKDevice *device, const std::string &compShaderFile, const ShaderLayout &shaderLayout = {});
         ~AdVKPipelineLayout();
 
         VkPipelineLayout GetHandle() const { return mHandle; }
         VkShaderModule GetVertexShaderModule() const { return mVertexShaderModule; }
         VkShaderModule GetFragShaderModule() const { return mFragShaderModule; }
+        VkShaderModule GetCompShaderModule() const { return mCompShaderModule; }
     private:
         VkResult CreateShaderModule(const std::string &filePath, VkShaderModule *outShaderModule);
 
@@ -92,6 +94,7 @@ namespace ade{
 
         VkShaderModule mVertexShaderModule = VK_NULL_HANDLE;
         VkShaderModule mFragShaderModule = VK_NULL_HANDLE;
+        VkShaderModule mCompShaderModule = VK_NULL_HANDLE;
         AdVKDevice *mDevice;
     };
 

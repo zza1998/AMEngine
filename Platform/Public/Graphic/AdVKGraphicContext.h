@@ -20,6 +20,7 @@ namespace ade{
         VkPhysicalDevice GetPhyDevice() const { return mPhyDevice; }
         const QueueFamilyInfo &GetGraphicQueueFamilyInfo() const { return mGraphicQueueFamily; }
         const QueueFamilyInfo &GetPresentQueueFamilyInfo() const { return mPresentQueueFamily; }
+        const QueueFamilyInfo &GetComputeQueueFamilyInfo() const { return mComputeQueueFamily; }
         VkPhysicalDeviceMemoryProperties GetPhyDeviceMemProperties() const { return mPhyDeviceMemProperties; }
         bool IsSameGraphicPresentQueueFamily() const { return mGraphicQueueFamily.queueFamilyIndex == mPresentQueueFamily.queueFamilyIndex; }
     private:
@@ -37,6 +38,7 @@ namespace ade{
         VkPhysicalDevice mPhyDevice;
         QueueFamilyInfo mGraphicQueueFamily;
         QueueFamilyInfo mPresentQueueFamily;
+        QueueFamilyInfo mComputeQueueFamily;
         VkPhysicalDeviceMemoryProperties mPhyDeviceMemProperties;
     };
 }

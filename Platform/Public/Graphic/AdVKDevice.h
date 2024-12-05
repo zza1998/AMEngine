@@ -17,7 +17,7 @@ namespace ade{
 
     class AdVKDevice{
     public:
-        AdVKDevice(AdVKGraphicContext *context, uint32_t graphicQueueCount, uint32_t presentQueueCount, const AdVkSettings &settings = {});
+        AdVKDevice(AdVKGraphicContext *context, uint32_t graphicQueueCount, uint32_t presentQueueCount, uint32_t computeQueueCount,const AdVkSettings &settings = {});
         ~AdVKDevice();
 
         VkDevice GetHandle() const { return mHandle; }
@@ -29,23 +29,28 @@ namespace ade{
         AdVKQueue* GetFirstGraphicQueue() const { return mGraphicQueues.empty() ? nullptr : mGraphicQueues[0].get(); };
         AdVKQueue* GetPresentQueue(uint32_t index) const { return mPresentQueues.size() < index + 1 ? nullptr : mPresentQueues[index].get(); };
         AdVKQueue* GetFirstPresentQueue() const { return mPresentQueues.empty() ? nullptr : mPresentQueues[0].get(); };
+        AdVKQueue* GetComputeQueue(uint32_t index) const { return mComputeQueues.size() < index + 1 ? nullptr : mComputeQueues[index].get(); };
+        AdVKQueue* GetFirstComputeQueue() const { return mComputeQueues.empty() ? nullptr : mComputeQueues[0].get(); };
         AdVKCommandPool *GetDefaultCmdPool() const { return mDefaultCmdPool.get(); }
 
         int32_t GetMemoryIndex(VkMemoryPropertyFlags memProps, uint32_t memoryTypeBits) const;
-        VkCommandBuffer CreateAndBeginOneCmdBuffer();
-        void SubmitOneCmdBuffer(VkCommandBuffer cmdBuffer);
+        VkCommandBuffer CreateAndBeginOneCmdBuffer(bool isGraphic = true);
+        void SubmitOneCmdBuffer(VkCommandBuffer cmdBuffer,bool isGraphic = true);
 
         VkResult CreateSimpleSampler(VkFilter filter, VkSamplerAddressMode addressMode, VkSampler *outSampler,uint16_t mipLevels =1);
     private:
         void CreatePipelineCache();
         void CreateDefaultCmdPool();
+        void CreateComputeCmdPool();
 
         VkDevice mHandle = VK_NULL_HANDLE;
         AdVKGraphicContext *mContext;
 
         std::vector<std::shared_ptr<AdVKQueue>> mGraphicQueues;
         std::vector<std::shared_ptr<AdVKQueue>> mPresentQueues;
+        std::vector<std::shared_ptr<AdVKQueue>> mComputeQueues;
         std::shared_ptr<AdVKCommandPool> mDefaultCmdPool;
+        std::shared_ptr<AdVKCommandPool> mComputeCmdPool;
 
         AdVkSettings mSettings;
 

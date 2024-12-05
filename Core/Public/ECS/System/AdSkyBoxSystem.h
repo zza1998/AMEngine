@@ -7,10 +7,8 @@
 #include <Graphic/AdVKBuffer.h>
 
 #include "ECS/System/AdMaterialSystem.h"
-#include "Graphic/AdVKCommon.h"
 #include "AdFileUtil.h"
 #include "Render/AdMaterial.h"
-#include "AdApplication.h"
 #include "ECS/Component/AdSkyBoxComponent.h"
 namespace ade{
 #define NUM_MATERIAL_BATCH              16

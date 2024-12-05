@@ -1,4 +1,4 @@
-#include "Graphic/AdVKPipeline.h"
+#include "Graphic/AdVKGraphicPipeline.h"
 #include "AdFileUtil.h"
 #include "Graphic/AdVKDevice.h"
 #include "Graphic/AdVKRenderPass.h"
@@ -17,6 +17,23 @@ namespace ade{
                 .pSetLayouts = shaderLayout.descriptorSetLayouts.data(),
                 .pushConstantRangeCount = static_cast<uint32_t>(shaderLayout.pushConstants.size()),
                 .pPushConstantRanges = shaderLayout.pushConstants.data()
+        };
+        CALL_VK(vkCreatePipelineLayout(mDevice->GetHandle(), &pipelineLayoutInfo, nullptr, &mHandle));
+    }
+
+    AdVKPipelineLayout::AdVKPipelineLayout(AdVKDevice *device, const std::string &compShaderFile,
+        const ShaderLayout &shaderLayout) : mDevice(device){
+        // compile shaders
+        CALL_VK(CreateShaderModule(compShaderFile + ".spv", &mVertexShaderModule));
+        // pipeline layout
+        VkPipelineLayoutCreateInfo pipelineLayoutInfo = {
+            .sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO,
+            .pNext = nullptr,
+            .flags = 0,
+            .setLayoutCount = static_cast<uint32_t>(shaderLayout.descriptorSetLayouts.size()),
+            .pSetLayouts = shaderLayout.descriptorSetLayouts.data(),
+            .pushConstantRangeCount = static_cast<uint32_t>(shaderLayout.pushConstants.size()),
+            .pPushConstantRanges = shaderLayout.pushConstants.data()
         };
         CALL_VK(vkCreatePipelineLayout(mDevice->GetHandle(), &pipelineLayoutInfo, nullptr, &mHandle));
     }

@@ -13,7 +13,7 @@ namespace ade{
 #endif
     };
 
-    AdVKDevice::AdVKDevice(AdVKGraphicContext *context, uint32_t graphicQueueCount, uint32_t presentQueueCount, const AdVkSettings &settings) : mContext(context), mSettings(settings) {
+    AdVKDevice::AdVKDevice(AdVKGraphicContext *context, uint32_t graphicQueueCount, uint32_t presentQueueCount, uint32_t computeQueueCount, const AdVkSettings &settings) : mContext(context), mSettings(settings) {
         if(!context){
             LOG_E("Must create a vulkan graphic context before create device.");
             return;
@@ -21,12 +21,17 @@ namespace ade{
 
         QueueFamilyInfo graphicQueueFamilyInfo = context->GetGraphicQueueFamilyInfo();
         QueueFamilyInfo presentQueueFamilyInfo = context->GetPresentQueueFamilyInfo();
+        QueueFamilyInfo computeQueueFamilyInfo = context->GetComputeQueueFamilyInfo();
         if(graphicQueueCount > graphicQueueFamilyInfo.queueCount){
-            LOG_E("this queue family has {0} queue, but request {1}", graphicQueueFamilyInfo.queueCount, graphicQueueCount);
+            LOG_E("this graphic queue family has {0} queue, but request {1}", graphicQueueFamilyInfo.queueCount, graphicQueueCount);
             return;
         }
         if(presentQueueCount > presentQueueFamilyInfo.queueCount){
-            LOG_E("this queue family has {0} queue, but request {1}", presentQueueFamilyInfo.queueCount, presentQueueCount);
+            LOG_E("this present queue family has {0} queue, but request {1}", presentQueueFamilyInfo.queueCount, presentQueueCount);
+            return;
+        }
+        if(computeQueueCount > computeQueueFamilyInfo.queueCount){
+            LOG_E("this compute queue family has {0} queue, but request {1}", computeQueueFamilyInfo.queueCount, computeQueueCount);
             return;
         }
         std::vector<float> graphicQueuePriorities(graphicQueueCount, 0.f);
@@ -100,17 +105,26 @@ namespace ade{
             vkGetDeviceQueue(mHandle, presentQueueFamilyInfo.queueFamilyIndex, i, &queue);
             mPresentQueues.push_back(std::make_shared<AdVKQueue>(presentQueueFamilyInfo.queueFamilyIndex, i, queue, true));
         }
+        for(int i = 0; i < computeQueueCount; i++){
+            VkQueue queue;
+            vkGetDeviceQueue(mHandle, computeQueueFamilyInfo.queueFamilyIndex, i, &queue);
+            mComputeQueues.push_back(std::make_shared<AdVKQueue>(computeQueueFamilyInfo.queueFamilyIndex, i, queue, false));
+        }
 
         // create a pipeline cache
         CreatePipelineCache();
 
         // create default cmd pool
         CreateDefaultCmdPool();
+
+        // create compute cmd pool
+        CreateComputeCmdPool();
     }
 
     AdVKDevice::~AdVKDevice() {
         vkDeviceWaitIdle(mHandle);
         mDefaultCmdPool = nullptr;
+        mComputeCmdPool = nullptr;
         VK_D(PipelineCache, mHandle, mPipelineCache);
         vkDestroyDevice(mHandle, nullptr);
     }
@@ -128,6 +142,10 @@ namespace ade{
         mDefaultCmdPool = std::make_shared<ade::AdVKCommandPool>(this, mContext->GetGraphicQueueFamilyInfo().queueFamilyIndex);
     }
 
+    void AdVKDevice::CreateComputeCmdPool() {
+        mComputeCmdPool = std::make_shared<ade::AdVKCommandPool>(this, mContext->GetComputeQueueFamilyInfo().queueFamilyIndex);
+    }
+
     int32_t AdVKDevice::GetMemoryIndex(VkMemoryPropertyFlags memProps, uint32_t memoryTypeBits) const {
         VkPhysicalDeviceMemoryProperties phyDeviceMemProps = mContext->GetPhyDeviceMemProperties();
         if(phyDeviceMemProps.memoryTypeCount == 0){
@@ -143,15 +161,28 @@ namespace ade{
         return 0;
     }
 
-    VkCommandBuffer AdVKDevice::CreateAndBeginOneCmdBuffer() {
-        VkCommandBuffer cmdBuffer = mDefaultCmdPool->AllocateOneCommandBuffer();
-        mDefaultCmdPool->BeginCommandBuffer(cmdBuffer);
+    VkCommandBuffer AdVKDevice::CreateAndBeginOneCmdBuffer(bool isGraphic) {
+        VkCommandBuffer cmdBuffer;
+        if(isGraphic) {
+            cmdBuffer = mDefaultCmdPool->AllocateOneCommandBuffer();
+            mDefaultCmdPool->BeginCommandBuffer(cmdBuffer);
+        }else {
+            cmdBuffer = mComputeCmdPool->AllocateOneCommandBuffer();
+            mComputeCmdPool->BeginCommandBuffer(cmdBuffer);
+        }
         return cmdBuffer;
     }
 
-    void AdVKDevice::SubmitOneCmdBuffer(VkCommandBuffer cmdBuffer) {
-        mDefaultCmdPool->EndCommandBuffer(cmdBuffer);
-        AdVKQueue *queue = GetFirstGraphicQueue();
+    void AdVKDevice::SubmitOneCmdBuffer(VkCommandBuffer cmdBuffer,bool isGraphic) {
+        AdVKQueue *queue ;
+        if(isGraphic) {
+            mDefaultCmdPool->EndCommandBuffer(cmdBuffer);
+            queue = GetFirstGraphicQueue();
+        }else {
+            mComputeCmdPool->EndCommandBuffer(cmdBuffer);
+            queue = GetFirstComputeQueue();
+        }
+
         queue->Submit({ cmdBuffer });
         queue->WaitIdle();
     }

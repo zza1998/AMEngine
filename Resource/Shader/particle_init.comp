@@ -1,0 +1,184 @@
+#version 430
+
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+//theres no way floating point allows this much precision lol
+#define PI 3.1415926535897932384626433832795028841971693993751058209749445923078164062
+
+//----------------------------------------------------------------------------//
+
+struct Particle
+{
+    vec2 pos;
+    float height;
+    float angle;
+    float tiltAngle;
+    float angleVel;
+    float opacity;
+    float temp;
+};
+
+//----------------------------------------------------------------------------//
+
+layout(std140, binding = 0) buffer Particles
+{
+    Particle particles[];
+};
+
+//----------------------------------------------------------------------------//
+
+layout(push_constant) uniform Params
+{
+    uint u_numStars;
+
+    float u_maxRad;
+    float u_bulgeRad;
+
+    float u_angleOffset;
+    float u_eccentricity;
+
+    float u_baseHeight;
+    float u_height;
+
+    float u_minTemp;
+    float u_maxTemp;
+    float u_dustBaseTemp;
+
+    float u_minStarOpacity;
+    float u_maxStarOpacity;
+
+    float u_minDustOpacity;
+    float u_maxDustOpacity;
+
+    float u_speed;
+};
+
+//----------------------------------------------------------------------------//
+
+//source: http://www.gamedev.net/topic/592001-random-number-generation-based-on-time-in-hlsl/
+//(says it is from the NVidia Direct3D 10 SDK but i could not find the SDK download to verify)
+
+#define RANDOM_IA 16807
+#define RANDOM_IM 2147483647
+#define RANDOM_AM 1.0 / float(RANDOM_IM)
+#define RANDOM_IQ 127773
+#define RANDOM_IR 2836
+#define RANDOM_MASK 123459876
+
+int _SEED = 0;
+
+void srand_cycle()
+{
+    _SEED ^= RANDOM_MASK;
+    int k = _SEED / RANDOM_IQ;
+    _SEED = RANDOM_IA * (_SEED - k * RANDOM_IQ) - RANDOM_IR * k;
+
+    if (_SEED < 0)
+    _SEED += RANDOM_IM;
+
+    _SEED ^= RANDOM_MASK;
+}
+
+void srand_set(int seed)
+{
+    _SEED = seed;
+    srand_cycle();
+}
+
+float rand()
+{
+    srand_cycle();
+    return RANDOM_AM * _SEED;
+}
+
+//----------------------------------------------------------------------------//
+
+float ease_in_exp(float x)
+{
+    return x <= 0.0 ? 0.0 : pow(2, 10.0 * x - 10.0);
+}
+
+float ease_in_circ(float x)
+{
+    return x >= 1.0 ? 1.0 : 1.0 - sqrt(1.0 - x * x);
+}
+
+//----------------------------------------------------------------------------//
+
+float rand_height()
+{
+    float r = ease_in_circ(rand());
+    if(rand() < 0.5)
+    r *= -1;
+
+    return u_baseHeight + (u_height * 0.5) * r;
+}
+
+float rand_height_bulge(float rad)
+{
+    float r = ease_in_circ(rand());
+    if(rand() < 0.5)
+    r *= -1;
+
+    float bound = (u_height * 0.5) + (u_height * 0.5) * cos(PI * rad / u_bulgeRad);
+
+    return u_baseHeight + bound * r;
+}
+
+float rand_height_bulge_dust(float rad)
+{
+    float r = ease_in_circ(rand());
+    if(rand() < 0.5)
+    r *= -1;
+
+    float bound = (u_height * 0.5) * cos(PI * rad / u_bulgeRad);
+
+    return u_baseHeight + bound * r;
+}
+
+//----------------------------------------------------------------------------//
+
+void main()
+{
+    srand_set(int(gl_GlobalInvocationID.x));
+
+    Particle particle;
+    if(gl_GlobalInvocationID.x < u_numStars) //star
+    {
+        float rad = ease_in_exp(rand()) * u_maxRad;
+
+        particle.pos = vec2(rad, u_eccentricity * rad);
+        particle.angle = rand() * 2.0 * PI;
+        particle.tiltAngle = (rad / u_maxRad) * u_angleOffset;
+        particle.angleVel = -u_speed * sqrt(1.0 / rad);
+        particle.temp = u_minTemp + (u_maxTemp - u_minTemp) * rand();
+        particle.opacity = u_minStarOpacity + (u_maxStarOpacity - u_minStarOpacity) * rand();
+
+        if(rad < u_bulgeRad)
+        particle.height = rand_height_bulge(rad);
+        else
+        particle.height = rand_height();
+    }
+    else //dust
+    {
+        float rad;
+        if(gl_GlobalInvocationID.x % 2 == 0)
+        rad = rand() * u_maxRad;
+        else
+        rad = ease_in_exp(rand()) * u_maxRad;
+
+        particle.pos = vec2(rad, u_eccentricity * rad);
+        particle.angle = rand() * 2.0 * PI;
+        particle.tiltAngle = (rad / u_maxRad) * u_angleOffset;
+        particle.angleVel = -u_speed * sqrt(1.0 / rad);
+        particle.temp = u_dustBaseTemp + 2.0 * rad;
+        particle.opacity = u_minDustOpacity + (u_maxDustOpacity - u_minDustOpacity) * rand();
+
+        if(rad < u_bulgeRad)
+        particle.height = rand_height_bulge_dust(rad);
+        else
+        particle.height = u_baseHeight;
+    }
+
+    particles[gl_GlobalInvocationID.x] = particle;
+}

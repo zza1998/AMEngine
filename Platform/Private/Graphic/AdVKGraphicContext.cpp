@@ -185,6 +185,7 @@ namespace ade{
             // 重新选择
             mGraphicQueueFamily.queueFamilyIndex = -1;
             mPresentQueueFamily.queueFamilyIndex = -1;
+            mComputeQueueFamily.queueFamilyIndex = -1;
             for(int j = 0; j < queueFamilyCount; j++){
                 if(queueFamilys[j].queueCount == 0){
                     continue;
@@ -196,12 +197,20 @@ namespace ade{
                     mGraphicQueueFamily.queueCount = queueFamilys[j].queueCount;
                 }
 
-                if(mGraphicQueueFamily.queueFamilyIndex >= 0 && mPresentQueueFamily.queueFamilyIndex >= 0
-                    && mGraphicQueueFamily.queueFamilyIndex != mPresentQueueFamily.queueFamilyIndex){
-                    break;
+
+                //2. compute family
+                if(queueFamilys[j].queueFlags & VK_QUEUE_COMPUTE_BIT){
+                    mComputeQueueFamily.queueFamilyIndex = j;
+                    mComputeQueueFamily.queueCount = queueFamilys[j].queueCount;
                 }
 
-                //2. present family
+                if(mGraphicQueueFamily.queueFamilyIndex >= 0 && mPresentQueueFamily.queueFamilyIndex >= 0 && mComputeQueueFamily.queueFamilyIndex>=0
+                   && mGraphicQueueFamily.queueFamilyIndex != mPresentQueueFamily.queueFamilyIndex
+                   && mComputeQueueFamily.queueFamilyIndex != mGraphicQueueFamily.queueFamilyIndex){
+                    break;
+                   }
+
+                //3. present family
                 VkBool32 bSupportSurface;
                 vkGetPhysicalDeviceSurfaceSupportKHR(phyDevices[i], j, mSurface, &bSupportSurface);
                 if(bSupportSurface){
@@ -223,8 +232,9 @@ namespace ade{
 
         mPhyDevice = phyDevices[maxScorePhyDeviceIndex];
         vkGetPhysicalDeviceMemoryProperties(mPhyDevice, &mPhyDeviceMemProperties);
-        LOG_T("{0} : physical device:{1}, score:{2}, graphic queue: {3} : {4}, present queue: {5} : {6}", __FUNCTION__, maxScorePhyDeviceIndex, maxScore,
+        LOG_T("{0} : physical device:{1}, score:{2}, graphic queue: {3} : {4}, compute queue: {5} : {6} present queue: {7} : {8}", __FUNCTION__, maxScorePhyDeviceIndex, maxScore,
               mGraphicQueueFamily.queueFamilyIndex, mGraphicQueueFamily.queueCount,
+              mComputeQueueFamily.queueFamilyIndex, mComputeQueueFamily.queueCount,
               mPresentQueueFamily.queueFamilyIndex, mPresentQueueFamily.queueCount);
     }
 

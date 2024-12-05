@@ -15,7 +15,8 @@ add_library(am_platform
         Private/Graphic/AdVKFrameBuffer.cpp
         Private/Graphic/AdVKImage.cpp
         Private/Graphic/AdVKImageView.cpp
-        Private/Graphic/AdVKPipeline.cpp
+        Private/Graphic/AdVKGraphicPipeline.cpp
+        Private/Graphic/AdVKComputePipeline.cpp
         Private/Graphic/AdVKCommandBuffer.cpp
         Private/Graphic/AdVKBuffer.cpp
         Private/Graphic/AdVKDescriptorSet.cpp
@@ -97,8 +98,8 @@ target_link_libraries(am_platform PRIVATE imgui)
 
 target_include_directories(am_platform PUBLIC External/assimp/include)
 if(WIN32)
-#    set(ASSIMP_LIB_DIR "Win64/libassimp-5.dll")
-    set(ASSIMP_LIB_DIR "Win64/assimp-vc143-mt.lib")
+    set(ASSIMP_LIB_DIR "Win64/libassimp-5.dll")
+    #set(ASSIMP_LIB_DIR "Win64/assimp-vc143-mt.lib")
 elseif(UNIX)
     if(APPLE)
         set(ASSIMP_LIB_DIR "Macos/libassimp.5.dylib")
