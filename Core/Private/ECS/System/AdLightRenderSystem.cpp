@@ -113,7 +113,7 @@ namespace ade {
         mPipeline->SetSubPassNo(1);
         mPipeline->DisableDepthTestAndWrite();
         mPipeline->SetDynamicState({VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR});
-        mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_4_BIT, VK_FALSE);
+        mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_1_BIT, VK_FALSE);
         mPipeline->Create();
         std::vector<VkDescriptorPoolSize> poolSizes = {
             {

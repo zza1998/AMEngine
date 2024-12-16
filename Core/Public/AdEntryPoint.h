@@ -10,7 +10,7 @@ extern ade::AdApplication *CreateApplicationEntryPoint();
 
 int main(int argc, char *argv[]){
 
-    std::cout<< "Adiosy Engine starting..." << std::endl;
+    std::cout<< "AMEngine starting..." << std::endl;
 
     ade::AdApplication *app = CreateApplicationEntryPoint();
     // start

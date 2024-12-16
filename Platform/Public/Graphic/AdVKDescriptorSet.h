@@ -8,6 +8,7 @@ namespace ade{
 
     class AdVKDescriptorSetLayout{
     public:
+        //AdVKDescriptorSetLayout(AdVKDescriptorSetLayout && other);
         AdVKDescriptorSetLayout(AdVKDevice *device, const std::vector<VkDescriptorSetLayoutBinding> &bindings);
         ~AdVKDescriptorSetLayout();
 

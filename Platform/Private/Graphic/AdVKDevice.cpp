@@ -185,6 +185,12 @@ namespace ade{
 
         queue->Submit({ cmdBuffer });
         queue->WaitIdle();
+        // if(isGraphic) {
+        //     vkFreeCommandBuffers(mHandle,mDefaultCmdPool->GetHandle(),1,&cmdBuffer);
+        // }else {
+        //     vkFreeCommandBuffers(mHandle,mComputeCmdPool->GetHandle(),1,&cmdBuffer);
+        // }
+
     }
 
     VkResult AdVKDevice::CreateSimpleSampler(VkFilter filter, VkSamplerAddressMode addressMode, VkSampler *outSampler,uint16_t mipLevels) {

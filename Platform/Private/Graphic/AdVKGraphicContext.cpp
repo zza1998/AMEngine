@@ -185,23 +185,33 @@ namespace ade{
             // 重新选择
             mGraphicQueueFamily.queueFamilyIndex = -1;
             mPresentQueueFamily.queueFamilyIndex = -1;
-            mComputeQueueFamily.queueFamilyIndex = -1;
+            mComputeQueueFamily.queueFamilyIndex = -1; //-1 暂时改为0
             for(int j = 0; j < queueFamilyCount; j++){
                 if(queueFamilys[j].queueCount == 0){
                     continue;
                 }
 
                 //1. graphic family
-                if(queueFamilys[j].queueFlags & VK_QUEUE_GRAPHICS_BIT){
+                if(queueFamilys[j].queueFlags & VK_QUEUE_GRAPHICS_BIT && mGraphicQueueFamily.queueFamilyIndex == -1){
                     mGraphicQueueFamily.queueFamilyIndex = j;
                     mGraphicQueueFamily.queueCount = queueFamilys[j].queueCount;
+                    continue;
                 }
 
+                //3. present family
+                VkBool32 bSupportSurface;
+                vkGetPhysicalDeviceSurfaceSupportKHR(phyDevices[i], j, mSurface, &bSupportSurface);
+                if(bSupportSurface && mPresentQueueFamily.queueFamilyIndex == -1){
+                    mPresentQueueFamily.queueFamilyIndex = j;
+                    mPresentQueueFamily.queueCount = queueFamilys[j].queueCount;
+
+                }
 
                 //2. compute family
-                if(queueFamilys[j].queueFlags & VK_QUEUE_COMPUTE_BIT){
+                if(queueFamilys[j].queueFlags & VK_QUEUE_COMPUTE_BIT && mComputeQueueFamily.queueFamilyIndex == -1){
                     mComputeQueueFamily.queueFamilyIndex = j;
                     mComputeQueueFamily.queueCount = queueFamilys[j].queueCount;
+                    continue;
                 }
 
                 if(mGraphicQueueFamily.queueFamilyIndex >= 0 && mPresentQueueFamily.queueFamilyIndex >= 0 && mComputeQueueFamily.queueFamilyIndex>=0
@@ -210,13 +220,7 @@ namespace ade{
                     break;
                    }
 
-                //3. present family
-                VkBool32 bSupportSurface;
-                vkGetPhysicalDeviceSurfaceSupportKHR(phyDevices[i], j, mSurface, &bSupportSurface);
-                if(bSupportSurface){
-                    mPresentQueueFamily.queueFamilyIndex = j;
-                    mPresentQueueFamily.queueCount = queueFamilys[j].queueCount;
-                }
+
             }
             if(mGraphicQueueFamily.queueFamilyIndex >= 0 && mPresentQueueFamily.queueFamilyIndex >= 0){
                 maxScorePhyDeviceIndex = i;

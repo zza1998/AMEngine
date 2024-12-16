@@ -88,9 +88,10 @@ namespace ade {
         mPipeline = std::make_shared<AdVKPipeline>(device, renderPass, mPipelineLayout.get());
         mPipeline->SetVertexInputState(vertexBindings, vertexAttrs);
         mPipeline->DisableDepthWriteButTest(); // need disable for skybox
-        mPipeline->SetCullingMode(VK_CULL_MODE_FRONT_BIT); // cull front
+        mPipeline->SetCullingMode(VK_CULL_MODE_NONE); // cull front
+        mPipeline->SetSubPassNo(2);
         mPipeline->SetDynamicState({VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR});
-        mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_4_BIT, VK_FALSE);
+        mPipeline->SetMultisampleState(VK_SAMPLE_COUNT_1_BIT, VK_FALSE);
         mPipeline->Create();
 
         std::vector<VkDescriptorPoolSize> poolSizes = {
@@ -135,7 +136,7 @@ namespace ade {
         vkCmdSetViewport(cmdBuffer, 0, 1, &viewport);
         VkRect2D scissor = {
             .offset = { 0, 0 },
-            .extent = { frameBuffer->GetWidth(), frameBuffer->GetHeight() }
+            .extent = { frameBuffer->GetWidth(), frameBuffer->GetHeight()}
         };
         vkCmdSetScissor(cmdBuffer, 0, 1, &scissor);
 

@@ -16,7 +16,7 @@ namespace ade {
         //1 create pipeline:
         //---------------
         VkShaderModule computerShader;
-        std::vector<char> content = ReadCharArrayFromFile(AD_RES_SHADER_DIR"particle_init.comp");
+        std::vector<char> content = ReadCharArrayFromFile(AD_RES_SHADER_DIR"particle_init.comp.spv");
 
         VkShaderModuleCreateInfo shaderModuleInfo = {
             .sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO,
@@ -68,7 +68,7 @@ namespace ade {
                                                           device->GetHandle());
         //3 run pipeline:
         //---------------
-        VkCommandBuffer OnceCmdBuffer = device->CreateAndBeginOneCmdBuffer(false);
+
         ParticleGenParamsGPU params;
         params.numStars = DRAW_NUM_PARTICLES;
         params.maxRad = 3500.0f;
@@ -86,7 +86,7 @@ namespace ade {
         params.maxDustOpacity = 0.05f;
         params.speed = 10.0f;
         uint32_t dynamicOffset = 0;
-
+        VkCommandBuffer OnceCmdBuffer = device->CreateAndBeginOneCmdBuffer(false);
         vkCmdBindPipeline(OnceCmdBuffer, VK_PIPELINE_BIND_POINT_COMPUTE, mPipeline->Get());
         vkCmdBindDescriptorSets(OnceCmdBuffer, VK_PIPELINE_BIND_POINT_COMPUTE, mPipelineLayout->GetHandle(), 0, 1,
                                 &mDescSets[0], 1, &dynamicOffset);
@@ -94,103 +94,24 @@ namespace ade {
                            sizeof(ParticleGenParamsGPU), &params);
         vkCmdDispatch(OnceCmdBuffer, DRAW_NUM_PARTICLES / DRAW_PARTICLE_WORK_GROUP_SIZE, 1, 1);
 
-        device->SubmitOneCmdBuffer(OnceCmdBuffer);
+        device->SubmitOneCmdBuffer(OnceCmdBuffer,false);
         vkDeviceWaitIdle(device->GetHandle());
         //4 cleanup:
         //---------------
+        mDescriptorPool.reset();
+        mDescSetLayout.reset();
+        mPipelineLayout.reset();
+        mPipeline.reset();
+        return true;
     }
 
+    AdParticleInitSystem::AdParticleInitSystem() {
+    }
 
-    //    VKHcomputePipeline* pipeline;
-    //	VKHdescriptorSets* descriptorSets;
-    //
-    //
-    //	pipeline = vkh_compute_pipeline_create();
-    //	if(!pipeline)
-    //		return false;
-    //
-    //	uint64 computeCodeSize;
-    //	uint32 *computeCode = vkh_load_spirv("assets/spirv/particle_generate.comp.spv", &computeCodeSize);
-    //	VkShaderModule computeModule = vkh_create_shader_module(s->instance, computeCodeSize, computeCode);
-    //	vkh_compute_pipeline_set_shader(pipeline, computeModule);
-    //
-    //	VkDescriptorSetLayoutBinding particleLayoutBinding = {};
-    //	particleLayoutBinding.binding = 0;
-    //	particleLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC;
-    //	particleLayoutBinding.descriptorCount = 1;
-    //	particleLayoutBinding.stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
-    //	particleLayoutBinding.pImmutableSamplers = nullptr;
-    //
-    //	vkh_compute_pipeline_add_desc_set_binding(pipeline, particleLayoutBinding);
-    //
-    //	VkPushConstantRange pushConstant = {};
-    //	pushConstant.stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
-    //	pushConstant.offset = 0;
-    //	pushConstant.size = sizeof(ParticleGenParamsGPU);
-    //
-    //	vkh_compute_pipeline_add_push_constant(pipeline, pushConstant);
-    //
-    //	if(!vkh_compute_pipeline_generate(pipeline, s->instance))
-    //		return false;
-    //
-    //	//2 create descriptor sets:
-    //	//---------------
-    //	descriptorSets = vkh_descriptor_sets_create(1);
-    //	if(!descriptorSets)
-    //		return false;
-    //
-    //	VkDescriptorBufferInfo particleBufferInfo = {};
-    //	particleBufferInfo.buffer = s->particleBuffer;
-    //	particleBufferInfo.offset = 0;
-    //	particleBufferInfo.range = VK_WHOLE_SIZE;
-    //
-    //	vkh_descriptor_sets_add_buffers(descriptorSets, 0, VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC,
-    //		0, 0, 1, &particleBufferInfo);
-    //
-    //	if(!vkh_desctiptor_sets_generate(descriptorSets, s->instance, pipeline->descriptorLayout))
-    //		return false;
-    //
-    //	//3 run pipeline:
-    //	//---------------
-    //	VkCommandBuffer commandBuf = vkh_start_single_time_command(s->instance);
-    //
-    //	ParticleGenParamsGPU params;
-    //	params.numStars = DRAW_NUM_STARS;
-    //	params.maxRad = 3500.0f;
-    //	params.bulgeRad = 1250.0f;
-    //	params.angleOffset = 6.28f;
-    //	params.eccentricity = 0.85f;
-    //	params.baseHeight = 300.0f;
-    //	params.height = 250.0f;
-    //	params.minTemp = 3000.0f;
-    //	params.maxTemp = 9000.0f;
-    //	params.dustBaseTemp = 4000.0f;
-    //	params.minStarOpacity = 0.1f;
-    //	params.maxStarOpacity = 0.5f;
-    //	params.minDustOpacity = 0.01f;
-    //	params.maxDustOpacity = 0.05f;
-    //	params.speed = 10.0f;
-    //
-    //	uint32 dynamicOffset = 0;
-    //	vkCmdBindPipeline(commandBuf, VK_PIPELINE_BIND_POINT_COMPUTE, pipeline->pipeline);
-    //	vkCmdBindDescriptorSets(commandBuf, VK_PIPELINE_BIND_POINT_COMPUTE, pipeline->layout, 0, 1, &descriptorSets->sets[0], 1, &dynamicOffset);
-    //	vkCmdPushConstants(commandBuf, pipeline->layout, VK_SHADER_STAGE_COMPUTE_BIT, 0, sizeof(ParticleGenParamsGPU), &params);
-    //	vkCmdDispatch(commandBuf, DRAW_NUM_PARTICLES / DRAW_PARTICLE_WORK_GROUP_SIZE, 1, 1);
-    //
-    //	vkh_end_single_time_command(s->instance, commandBuf);
-    //
-    //	vkDeviceWaitIdle(s->instance->device);
-    //
-    //	//4 cleanup:
-    //	//---------------
-    //	vkh_descriptor_sets_cleanup(descriptorSets, s->instance);
-    //	vkh_descriptor_sets_destroy(descriptorSets);
-    //
-    //	vkh_compute_pipeline_cleanup(pipeline, s->instance);
-    //	vkh_compute_pipeline_destroy(pipeline);
-    //
-    //	vkh_free_spirv(computeCode);
-    //	vkh_destroy_shader_module(s->instance, computeModule);
-    //
-    //	return true;
+    AdParticleInitSystem::~AdParticleInitSystem() {
+        mDescriptorPool.reset();
+        mDescSetLayout.reset();
+        mPipelineLayout.reset();
+        mPipeline.reset();
+    }
 }

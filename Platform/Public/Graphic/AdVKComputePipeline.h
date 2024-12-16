@@ -18,6 +18,7 @@ namespace ade {
         VkPipeline Get() {return pipeline;}
     private:
         VkPipeline pipeline{};
+        VkDevice mDevice;
     };
 
 }

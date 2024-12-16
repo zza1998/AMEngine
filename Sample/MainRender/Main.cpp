@@ -68,7 +68,7 @@ protected:
                 .usage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT | VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
             },
             {
-                .format = device->GetSettings().depthFormat,
+                .format = device->GetSettings().depthFormat, //
                 .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
                 .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
                 .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
@@ -78,24 +78,14 @@ protected:
                 .usage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT | VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT
             },{
                 .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
-                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
+                .loadOp = VK_ATTACHMENT_LOAD_OP_LOAD,
                 .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
                 .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
                 .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
                 .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
                 .finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
                 .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
-            },
-            {
-                .format = swapchain->GetSurfaceInfo().surfaceFormat.format,
-                .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
-                .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
-                .stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                .stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
-                .finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
-                .usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT
-            },
+            }
 
         };
         std::vector<ade::RenderSubPass> subpasses = {
@@ -107,24 +97,24 @@ protected:
             {
                 .inputAttachments = {0,1,2,3},
                 .colorAttachments = {4},
-                .sampleCount = VK_SAMPLE_COUNT_4_BIT
+                .sampleCount = VK_SAMPLE_COUNT_1_BIT
             },
-            // {
-            //     .inputAttachments = {3},
-            //     .colorAttachments = {5},
-            //     .sampleCount = VK_SAMPLE_COUNT_4_BIT
-            // }
+            {
+                .colorAttachments = {4},
+                .depthStencilAttachments = {3},
+                .sampleCount = VK_SAMPLE_COUNT_1_BIT
+            }
         };
         mRenderPass = std::make_shared<ade::AdVKRenderPass>(
             device, attachments, subpasses);
 
 
         mRenderTarget = std::make_shared<ade::AdRenderTarget>(mRenderPass.get());
-        mRenderTarget->SetColorClearValue({0.1f, 0.2f, 0.3f, 1.f});
+        mRenderTarget->SetColorClearValue({0.2f, 0.2f, 0.3f, 1.f});
         mRenderTarget->SetDepthStencilClearValue({1, 0});
         mRenderTarget->AddGBufferRenderSystem();
         mRenderTarget->AddLightRenderSystem();
-        //mRenderTarget->AddSkyBoxSystem();
+        mRenderTarget->AddSkyBoxSystem();
         // add material system
         // mRenderTarget->AddMaterialSystem<ade::AdBaseMaterialSystem>();
         //mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
@@ -298,10 +288,10 @@ protected:
         // render to screen
         vkCmdNextSubpass(cmdBuffer, VK_SUBPASS_CONTENTS_INLINE);
         mRenderTarget->RenderLights(cmdBuffer);
-        //vkCmdNextSubpass(cmdBuffer, VK_SUBPASS_CONTENTS_INLINE);
-       // mRenderTarget->RenderSkyBox(cmdBuffer);
+        vkCmdNextSubpass(cmdBuffer, VK_SUBPASS_CONTENTS_INLINE);
+        mRenderTarget->RenderSkyBox(cmdBuffer);
         // transparent object
-        
+
         mRenderTarget->End(cmdBuffer);
         // postprocess
 

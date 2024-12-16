@@ -49,8 +49,8 @@ namespace ade{
        public:
 
          bool initParticles();
-
-
+        AdParticleInitSystem();
+        ~AdParticleInitSystem();
         AdVKDevice *GetDevice() const {
             ade::AdAppContext *appContext = AdApplication::GetAppContext();
             if(appContext){
@@ -60,15 +60,16 @@ namespace ade{
             }
             return nullptr;
         }
+        std::shared_ptr<AdVKDescriptorPool> mDescriptorPool;
+        std::vector<VkDescriptorSet> mDescSets;
+        std::shared_ptr<AdVKDescriptorSetLayout> mDescSetLayout;
+        std::shared_ptr<AdVKPipelineLayout> mPipelineLayout;
+        std::shared_ptr<AdVkComputePipeline> mPipeline;
     private:
 
     };
 
-    std::shared_ptr<AdVKDescriptorPool> mDescriptorPool;
-    std::vector<VkDescriptorSet> mDescSets;
-    std::shared_ptr<AdVKDescriptorSetLayout> mDescSetLayout;
-    std::shared_ptr<AdVKPipelineLayout> mPipelineLayout;
-    std::shared_ptr<AdVkComputePipeline> mPipeline;
+
 
 }
 

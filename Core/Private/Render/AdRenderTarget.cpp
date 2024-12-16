@@ -5,7 +5,7 @@
 #include "ECS/Component/AdLookAtCameraComponent.h"
 
 namespace ade{
-    AdRenderTarget::AdRenderTarget(AdVKRenderPass *renderPass) {
+    AdRenderTarget::AdRenderTarget(AdVKRenderPass *renderPass,bool clear) {
         AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         AdVKSwapchain *swapchain = renderCxt->GetSwapchain();
 
@@ -14,7 +14,7 @@ namespace ade{
         mExtent = { swapchain->GetWidth(), swapchain->GetHeight() };
         bSwapchainTarget = true;
 
-        Init();
+        Init(clear);
         ReCreate();
     }
 
@@ -32,10 +32,14 @@ namespace ade{
         VK_D(Sampler,AdApplication::GetAppContext()->renderCxt->GetDevice()->GetHandle(),mSampler);
     }
 
-    void AdRenderTarget::Init() {
-        mClearValues.resize(mRenderPass->GetAttachmentSize());
-        SetColorClearValue({ 0.f, 0.f, 0.f, 1.f });
-        SetDepthStencilClearValue({ 1.f, 0 });
+    void AdRenderTarget::Init(bool clear) {
+        if(clear) {
+            mClearValues.resize(mRenderPass->GetAttachmentSize());
+            SetColorClearValue({ 0.f, 0.f, 0.f, 1.f });
+            SetDepthStencilClearValue({ 1.f, 0 });
+        }else {
+            mClearValues = {};
+        }
         AdRenderContext *renderCxt = AdApplication::GetAppContext()->renderCxt;
         AdVKDevice *device = renderCxt->GetDevice();
         CALL_VK(device->CreateSimpleSampler(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER, &mSampler));
@@ -93,7 +97,7 @@ namespace ade{
         } else {
             mCurrentBufferIdx = (mCurrentBufferIdx + 1) % mBufferCount;
         }
-
+        
         mRenderPass->Begin(cmdBuffer, GetFrameBuffer(), mClearValues);
         bBeginTarget = true;
     }

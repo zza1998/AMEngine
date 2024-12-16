@@ -7,7 +7,7 @@
 #include "Graphic/AdVKComputePipeline.h"
 
 namespace ade {
-    AdVkComputePipeline::AdVkComputePipeline(VkShaderModule shaderModule, VkPipelineLayout layout, VkDevice device) {
+    AdVkComputePipeline::AdVkComputePipeline(VkShaderModule shaderModule, VkPipelineLayout layout, VkDevice device):mDevice(device) {
 
         // 创建计算管线
         // 创建计算着色器阶段信息
@@ -35,5 +35,9 @@ namespace ade {
             LOG_E("Failed to create compute pipeline: {0}\n", result);
             exit(1);
         }
+    }
+
+    AdVkComputePipeline::~AdVkComputePipeline() {
+        VK_D(Pipeline,mDevice,pipeline);
     }
 }

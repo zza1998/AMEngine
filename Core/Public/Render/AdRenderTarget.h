@@ -12,7 +12,7 @@
 namespace ade{
     class AdRenderTarget{
     public:
-        AdRenderTarget(AdVKRenderPass *renderPass);
+        AdRenderTarget(AdVKRenderPass *renderPass, bool clear = true);
         AdRenderTarget(AdVKRenderPass *renderPass, uint32_t bufferCount, VkExtent2D extent);
         ~AdRenderTarget();
 
@@ -94,7 +94,7 @@ namespace ade{
         void SetCamera(AdEntity *camera) { mCamera = camera; }
         void ReCreate(std::vector<std::vector<std::shared_ptr<AdVKImage>>> images={});
     private:
-        void Init();
+        void Init(bool clear = true);
         std::vector<std::shared_ptr<AdVKFrameBuffer>> mFrameBuffers;
         AdVKRenderPass *mRenderPass;
         std::vector<VkClearValue> mClearValues;
