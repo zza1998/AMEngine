@@ -137,7 +137,7 @@ protected:
 
         std::vector<ade::AdVertex> vertices;
         std::vector<uint32_t> indices;
-        ade::AdGeometryUtil::CreateCube(-0.3f, 0.3f, -0.3f, 0.3f, -0.3f, 0.3f, vertices, indices);
+        ade::AdGeometryUtil::CreateCube(-5.0f, 5.0f, -5.0f, 5.0f, -5.0f, 5.0f, vertices, indices);
         mCubeMesh = std::make_shared<ade::AdMesh>(vertices, indices);
         mDefaultSampler = std::make_shared<ade::AdSampler>(VK_FILTER_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE);
         ade::RGBAColor multiColors[4] = {
