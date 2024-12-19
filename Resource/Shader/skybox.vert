@@ -29,5 +29,5 @@ void main()
 {
     outUVW = inPos;
     gl_Position = frameUbo.projMat * mat4(mat3(frameUbo.viewMat)) * vec4(inPos.xyz, 1.0);
-    //gl_Position.z = (gl_Position.z + 0.3) * 0.5;
+    //gl_Position.z = 10.0;
 }
