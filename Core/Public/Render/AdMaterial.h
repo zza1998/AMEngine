@@ -27,7 +27,7 @@ namespace ade{
         alignas(4) float specular;
         alignas(4) float metallic;
         alignas(4) uint32_t shadingModelId = SHADING_MODEL_UN_LIGHT;
-        bool useUV = false;
+        alignas(4) uint32_t useUV = 0;
     };
     // Shader Params
     struct TextureParam{

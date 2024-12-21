@@ -319,6 +319,7 @@ void AdPBRMaterialSystem::OnInit(AdVKRenderPass *renderPass) {
             .specular = 1.0,
             .metallic = params.metallic,
             .shadingModelId = SHADING_MODEL_PBR_LIGHT,
+            .useUV = 0
         };
 
         materialBuffer->WriteData(&materialUbo);

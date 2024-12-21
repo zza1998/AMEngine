@@ -32,9 +32,9 @@ void main()
     mat4 modelView = frameUbo.viewMat * PC.modelMat;
     vec3 locPos = vec3(PC.modelMat * vec4(a_Pos, 1.0));
 //    outWorldPos = locPos;
-    outWorldPos = vec3(locPos.x,locPos.y,-locPos.z);
+    outWorldPos = vec3(locPos.x,locPos.y,locPos.z);
     outEyePos = vec3(modelView * vec4(a_Pos,1.0));
     outNormal = normalize(mat3(inverse(transpose(modelView))) * a_Normal);
-    gl_Position =  frameUbo.projMat * frameUbo.viewMat * vec4(outWorldPos, 1.0);
+    gl_Position = frameUbo.projMat * frameUbo.viewMat * vec4(outWorldPos, 1.0);
     outUV = a_Texcoord;
 }

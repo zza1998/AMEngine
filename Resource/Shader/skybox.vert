@@ -27,7 +27,7 @@ out gl_PerVertex
 
 void main()
 {
-    outUVW = inPos;
+    outUVW = vec3(inPos.x,-inPos.y,inPos.z);
     gl_Position = frameUbo.projMat * mat4(mat3(frameUbo.viewMat)) * vec4(inPos.xyz, 1.0);
     //gl_Position.z = 10.0;
 }

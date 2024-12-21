@@ -13,10 +13,15 @@ layout(set=1, binding=0, std140) uniform MaterialUbo{
     float specular;
     float metallic;
     int shadingModelId;
-    bool useUV;
+    int useUV;
 } materialUbo;
 
-//layout(set=2, binding=0) uniform sampler2D texture0;
+layout(set=2, binding=0) uniform sampler2D _MainTex; // ambient
+//uniform sampler2D _SpecTex; // specular
+//uniform sampler2D _BumpMap;
+//uniform sampler2D _EmissionMap;
+//uniform sampler2D _AOMap;
+
 /////----------------------------
 const float PI = 3.14159265359;
 
@@ -24,9 +29,9 @@ const float PI = 3.14159265359;
 
 vec3 materialcolor()
 {
-//    if(materialUbo.useUV){
-//        return texture(texture0,inUV).xyz;
-//    }
+    if(materialUbo.useUV == 1){
+        return texture(_MainTex,inUV).xyz;
+    }
     return materialUbo.ambient;
 }
 
@@ -42,7 +47,7 @@ void main()
     gufferB.r = materialUbo.metallic;
     gufferB.g = materialUbo.specular;
     gufferB.b = materialUbo.roughness;
-    gufferB.a = materialUbo.shadingModelId;
+    gufferB.a = materialUbo.shadingModelId/16.0f;
     gufferC.rgb = materialcolor();
 
 }

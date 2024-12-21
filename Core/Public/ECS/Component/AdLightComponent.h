@@ -20,6 +20,7 @@ namespace ade{
         alignas(4) float constant = 1.0f;
         alignas(4) float linear = 0.09f;
         alignas(4) float quadratic = 0.032f;
+        alignas(4) float used = 0.0f;
     };
 
     struct Spotlight{

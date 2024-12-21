@@ -228,6 +228,7 @@ namespace ade {
             if(pointLightCount >= LIGHT_MAX_COUNT){
                 return;
             }
+            lightComp.params.used = 1.0f;
             lightComp.params.position = transComp.GetPosition();
             mLightUbo.pointLights[pointLightCount++] = lightComp.params;
         });

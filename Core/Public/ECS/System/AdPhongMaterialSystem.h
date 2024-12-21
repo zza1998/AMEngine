@@ -22,9 +22,10 @@ namespace ade{
         void OnInit(AdVKRenderPass *renderPass) override;
         void OnRender(VkCommandBuffer cmdBuffer, AdRenderTarget *renderTarget) override;
         void OnDestroy() override;
+        void SetGbufferSystem(std::shared_ptr<AdGbufferRenderSystem> gbufferRender) override { mGbufferRender = gbufferRender; };
     private:
         void ReCreateMaterialDescPool(uint32_t materialCount);
-        void UpdateFrameUboDescSet(AdRenderTarget *renderTarget);
+        void UpdateFrameUboDescSet(AdRenderTarget *renderTarget,VkDescriptorSet mFrameUboDescSet,std::shared_ptr<AdVKBuffer> mFrameUboBuffer);
         void UpdateLightUboDescSet();
         void UpdateMaterialParamsDescSet(VkDescriptorSet descSet, AdPhongMaterial *material);
         void UpdateMaterialResourceDescSet(VkDescriptorSet descSet, AdPhongMaterial *material);
@@ -33,6 +34,7 @@ namespace ade{
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialParamDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mMaterialResourceDescSetLayout;
         std::shared_ptr<AdVKDescriptorSetLayout> mLightDescSetLayout;
+        std::shared_ptr<AdGbufferRenderSystem> mGbufferRender;
 
         std::shared_ptr<AdVKPipelineLayout> mPipelineLayout;
         std::shared_ptr<AdVKPipeline> mPipeline;

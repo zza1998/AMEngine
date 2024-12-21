@@ -52,6 +52,8 @@ namespace ade{
             direction.y = sin(glm::radians(pitch));
             direction.z = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
 
+            glm::vec3 leftDir = glm::normalize(glm::cross(direction,mWorldUp));
+            glm::vec3 upDir = glm::normalize(glm::cross(direction,leftDir));
             if(mForwardFlag) {
                 transComp.SetPosition(transComp.GetPosition()  + change * direction);
             }
@@ -59,17 +61,17 @@ namespace ade{
                 transComp.SetPosition(transComp.GetPosition()  - change * direction);
             }
             if(mLeftFlag) {
-                transComp.SetPosition(transComp.GetPosition()  - change * glm::normalize(glm::cross(direction,mWorldUp)));
+                transComp.SetPosition(transComp.GetPosition()  - change * leftDir);
             }
             if(mRightFlag) {
-                transComp.SetPosition(transComp.GetPosition()  + change * glm::normalize(glm::cross(direction,mWorldUp)));
+                transComp.SetPosition(transComp.GetPosition()  + change * leftDir);
             }
-            // if(mUpFlag) {
-            //     transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, -1, 0));
-            // }
-            // if(mDownFlag) {
-            //     transComp.SetPosition(transComp.GetPosition()  + change * glm::vec3(0, 1, 0));
-            // }
+            if(mUpFlag) {
+                transComp.SetPosition(transComp.GetPosition()  + change * upDir);
+            }
+            if(mDownFlag) {
+                transComp.SetPosition(transComp.GetPosition()  - change * upDir);
+            }
         }
 
 

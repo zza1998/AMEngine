@@ -224,7 +224,7 @@ namespace ade {
             .time = app->GetStartTimeSecond()
         };
         frameUbo.viewMat = glm::mat4(glm::mat3(frameUbo.viewMat));
-        frameUbo.projMat[1][1] *= -1.f;
+        //frameUbo.projMat[1][1] *= 1.f;
         mFrameUboBuffer->WriteData(&frameUbo);
         VkDescriptorBufferInfo bufferInfo = DescriptorSetWriter::BuildBufferInfo(mFrameUboBuffer->GetHandle(), 0, sizeof(frameUbo));
         VkWriteDescriptorSet bufferWrite = DescriptorSetWriter::WriteBuffer(mFrameUboDescSet, 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, &bufferInfo);

@@ -117,7 +117,7 @@ protected:
         mRenderTarget->AddSkyBoxSystem();
         // add material system
         // mRenderTarget->AddMaterialSystem<ade::AdBaseMaterialSystem>();
-        //mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
+        mRenderTarget->AddMaterialSystem<ade::AdPhongMaterialSystem>();
         mRenderTarget->AddMaterialSystem<ade::AdPBRMaterialSystem>();
         //mRenderTarget->AddSkyBoxSystem();
     }
@@ -137,7 +137,8 @@ protected:
 
         std::vector<ade::AdVertex> vertices;
         std::vector<uint32_t> indices;
-        ade::AdGeometryUtil::CreateCube(-5.0f, 5.0f, -5.0f, 5.0f, -5.0f, 5.0f, vertices, indices);
+        float scale = 10.0f;
+        ade::AdGeometryUtil::CreateCube(-1.f * scale, 1.0f*scale, -1.0f*scale, 1.0f*scale, -1.0f*scale, 1.0f*scale, vertices, indices);
         mCubeMesh = std::make_shared<ade::AdMesh>(vertices, indices);
         ade::AdGeometryUtil::CreateCube(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, vertices, indices);
         mCubeMinMesh = std::make_shared<ade::AdMesh>(vertices, indices);
@@ -163,6 +164,8 @@ protected:
         // Light
         ade::AdEntity *pointLight = scene->CreateEntity("PointLight0");
         auto &pointLightComp = pointLight->AddComponent<ade::AdPointLightComponent>();
+        auto &lightTransComp = pointLight->GetComponent<ade::AdTransformComponent>();
+        lightTransComp.SetPosition({0.0f,-1.0f,-1.0f});
         pointLightComp.params.position = glm::vec3(0, -1, -1);
         pointLightComp.params.diffuse = glm::vec3(0.8, 0.5, 0.7);
 
